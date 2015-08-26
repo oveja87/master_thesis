@@ -1,0 +1,67 @@
+\section{Related Work}
+\label{section:relatedWork}
+% Darstellung des aktuellen Wissens zum Thema (Literaturphase – Grundlagen)
+% Hier ist ein Überblick über das Fachthema und die Begrifflichkeiten sowie eine Darstellung bestehender Lösungsansätze/Technologien anhand von Quellen aus der wissenschaftlich-technischen Literatur zu erarbeiten. Besonderes Augenmerk ist auf die korrekte Zitierweise von Quellen zu legen. Anderen LeserInnen der Arbeit soll damit das Verständnis für die darauf folgenden Teile der Arbeit erschlossen werden. Inhalte flüchtiger Quellen (Websites) sind geeignet, müssen aber gesichert werden (CD/DVD)
+
+
+There are a couple of works relating to the subject of this thesis. Thus, in this chapter some relevant work about onset detection (section \ref{section:OnsetDetectionSchloss}), classification (section \ref{section:ClassificationChristophersen}) and the real-time analysis of percussive sound (section \ref{section:realtimeapproach}) are considered.
+
+\subsection{Onset Detection} \label{section:OnsetDetectionSchloss}
+
+There are many different approaches to onset detection algorithms, today. Recent onset detection generally consists of complex algorithms using calculations within the frequency domain. An example is `the use of phase and energy for musical onset detection in the complex domain', described in the paper of \autocite{Bello:2005}. Such algorithms are focused on note onset detection. 
+
+In contrast to the onset of a drum stroke, the onset of a note does not necessarily cause a rise of the amplitude in the time domain. So note onset detection is much more complicated than the detection of drum strokes considered in this thesis. Note onset detection is much more complicated than the detection of drum strokes considered in this thesis. In contrast to the onset of a note, the onset of a drum stroke always causes a rise of the amplitude in the time domain. Hence, for the onset detection of drum strokes, it is sufficient to analyze the amplitude gradient in the time domain. A more complex algorithm would possibly produce better results, but it would also have a longer runtime. This would be a disadvantage because the algorithm that is developed in this thesis shall be able to run in real-time. An appropriate runtime avoids a delay while the software is running.
+
+Besides the runtime, another aspect needs to be considered to enable the algorithm to run in real-time. A standard onset detection algorithm as described in section \ref{section:OnsetDetection} can't be used because it pre-processes and analyzes the entire sound file before the onsets can be detected. In case of a real-time algorithm, only the actual frame of an incoming audio stream can be considered, and all frames before the actual one. Hence, an algorithm that separates the signals in several frames and analyzes them consecutively is needed. This requirement is fulfilled with the onset detection algorithm in the dissertation of \autocite{Schloss:1985}, which deals with the automatic transcription of percussive music. At this early stage of computer science the computing power was much lower than today, so it can be assumed that the algorithm runs very fast on present machines. 
+
+The algorithm of W. Andrew Schloss detects onsets by detecting abrupt increases of energy in the time domain of an audio signal. In a first step, an amplitude envelope is created. Therefore, the signal is divided into small windows. For each window, the maximum and minimum peak are found. By connecting all maximum peaks and all minimum peaks, the envelope is built. On this envelope, a so-called slope detector is applied. It calculates a linear regression over several points of the amplitude envelope. In the following step, attacks are searched in the resulting slope array. The first attack is detected by searching the slope array for a sudden increase during a given duration. Further attacks are found by analyzing local maxima and minima. If a local maximum is found the following data points are analyzed for a given time period to assert if the inequality persists. After each detected attack, there is a lock for a defined time interval, where no more attacks may be detected.
+
+\subsection{Classification} \label{section:ClassificationChristophersen}
+
+An approach for classification of drum types that are similar to the subject of this thesis, is documented in \autocite{Christophersen:2007} by students of the Aalborg University. The main difference is that the algorithm developed in this paper does not run in real-time. Furthermore, only three different drum types are considered, which are a bass drum, a snare drum and a hi-hat. 
+
+The system described in \autocite{Christophersen:2007} consists of four components. In a first step, a sound file sampled with a sampling rate of 44.1 kHz and a resolution of 16 bit, is analyzed by an onset detector to find all onsets. The onset detector divides the sound file into several sound clips, each including one drum stroke. Subsequently, each sound clip is analyzed by a feature extractor. In the last step, the extracted features are used in a feature vector for classification.
+
+%\begin{figure}[h]
+	%\centering
+	%\includegraphics{images/christopherson.jpg}
+	%%for reference to this figure
+	%\caption{ Drum recognition system in \autocite{Christophersen:2007} by the Aalborg University.}
+	%\label{fig:christopherson}
+%\end{figure}
+
+The paper considers different types of features. These are features based on the time domain, features based on the frequency spectrum and features based on cross correlation with templates in time domain.
+
+Two time domain features are extracted with the help of a modified version of the ADSR model, which envelopes the amplitude. ADSR stands for attack time, decay time, sustain level and release time. The model is examined in detail in \autocite{Campbell:2001}. According to \autocite{Christophersen:2007}, only the attack time and the decay time are significant for drums and therefore used as features. Furthermore, a so called \textit{crest factor} is used for the feature vector. It describes the relation between the peak value and RMS-energy of a sound clip.
+
+Frequency domain features are based on parametric and non-parametric methods. 
+
+The non-parametric frequency analysis uses the FFT implemented in MatLab\textsuperscript{\textregistered}. Here, the power of several subbands and the FFT-Spectral centroids are extracted for each drum and used as features. The subbands are manually chosen by examining the spectrum of each used drum type. They range from 50Hz to 170 Hz, from 170 Hz to 260 Hz, from 260 Hz to 4 kHz and from 4 kHz to 10 kHz. Further on, eight octave divided bands from 50 Hz to 12.8 kHz are calculated. To calculate the spectral centroids the paper uses equation \ref{equation:SC}. In the equation, SC defines the spectral centroid, k defines the lower limit and N the upper limit of the frequency band, f(n) is the frequency component of n and x(n) the amplitude of f(n).
+
+\begin{equation}
+	SC = \frac{\sum_{n=k}^{N-1}f(n)x(n)}{\sum_{n=k}^{N-1}x(n)}
+	\label{equation:SC}
+\end{equation}
+
+The parametric frequency analysis is done with the help of the LPC analysis, which is explained in detail in \autocite{Christophersen:2007}. It tries to display a model that fits to the input signal. Extracted features are peak frequencies, spectral centroids and subband power. Furthermore, the DC-component is used. It is described as an error of the modeling of an input signal. The used feature represents the relation between the DC-amplitudes and low frequency content.
+
+For the template-based features, generated templates for time and frequency domain are compared with the sound clips. To construct the templates, the mean of the Fourier transformed and normalized clips is calculated. For the time domain template the inverse Fourier Transform is assigned subsequently. The template comparison is done by cross-correlating the templates with the Fourier transformed clip.
+
+Finally, the two most significant features (LPC-DC and FFT-Spectral Centroid) are chosen and sent to a two-dimensional Bayesian classifier. Thus, all tested clips are classified correctly.
+
+\subsection{Real-Time Approach} \label{section:realtimeapproach}
+
+An approach to develop a system that runs in real-time is introduced in \autocite{Simsekli:2011}. The article was published on the European Signal Processing Conference in 2011. It presents a real-time recognition of percussive sounds by a probabilistic model-based method. Thereby, it focuses on low-latency, classification accuracy and reliability. The system shall be usable for interactive systems. As a sample application, the paper proposes a rhythmic tutoring system that is similar to Easydrum. The system reacts to the user input after giving instructions to learn percussive rhythms.
+
+In contrast to the preceding approaches, the paper of \autocite{Simsekli:2011} does not divide the onset detection and the classification into two steps, but combines them in one detection algorithm. This algorithm is able to receive events during its run time and to classify them in real-time. It is based on the probabilistic template-based models described in \autocite{Simsekli:2010}, which are used for online pitch tracking. A probabilistic generative model is built that assigns event labels for each trained sound. Thereby, the audio signal is divided into subsequent time frames. Each frame is transformed to its frequency domain with the help of the discrete Fourier transform. If there is an event in a time frame, a class label is assigned to it. Sample events are hand claps or the hit, sustain and release of a percussion. Thus, in contrast to the approach in this thesis, not only the attack of a stroke is detected. To assign an incoming sound to a class label, a Hidden Markov Model is used. Further on, post processing is used to avoid multiple detections of the same stroke by defining a period of time after a detected event where no further event may be detected.
+
+The system is based on supervised learning, so it is trained with all possible stroke types. Different kinds of hand claps and turkish percussive instruments are tested. For the percussion instruments, two different membraphones (Darbuka and Bendir) are trained, each with two different stroke types (`düm' and `tek'). For each stroke type, there are 40 instances recorded. The training of the introduced method is performed offline. It includes the creation of templates for each trained sound. The class labels are added manually. 
+
+The by \autocite{Simsekli:2011} developed algorithm is tested with simple rhythmic patterns containing one stroke at a time. It is reached an overall accuracy for the system running in real-time of 61 \%.
+%  no simultaneous sounds
+
+ 
+
+
+
+

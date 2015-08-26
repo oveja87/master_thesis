@@ -1,0 +1,118 @@
+\NeedsTeXFormat{LaTeX2e}
+
+%%%
+\documentclass[12pt,a4paper]{article}
+%\documentclass[12pt, a4paper]{report}
+
+\usepackage[includeheadfoot,margin=2.5cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{floatflt}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage[ngerman,english]{babel}
+\usepackage{listings}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{endnotes}
+\usepackage{parskip}
+\usepackage{sidecap}
+
+\usepackage[colorlinks,
+pdfpagelabels,
+pdfstartview = FitH,
+bookmarksopen = true,
+bookmarksnumbered = true,
+linkcolor = black,
+plainpages = false,
+hypertexnames = false,
+citecolor = black] {hyperref}
+
+%%%
+%\usepackage{titlesec}
+
+\usepackage[authordate,bibencoding=auto,strict]{biblatex-chicago} 
+\usepackage[babel,german=guillemets]{csquotes}
+\bibliography{Bibliography}
+
+%%%
+%\titleformat{\chapter}
+%{\normalfont\LARGE\bfseries}{\thechapter.}{0.5em}{}
+
+\definecolor{mygray}{gray}{.75}
+
+\lstset{ 
+  language=Matlab,
+	basicstyle=\fontsize{10pt}{12pt}\selectfont\ttfamily,
+	keywordstyle=\color{blue},
+	commentstyle=\color{mygray},
+	tabsize=1,
+	numbers=left,
+	numberstyle=\footnotesize
+%	morekeywords={*,auto}
+}
+
+%\selectlanguage{ngerman}
+\selectlanguage{english}
+\renewcommand*\rmdefault{lmtt}
+
+
+
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{50pt plus 20pt minus 10pt}
+
+\begin{document}
+
+\input{Title}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+
+\input{Affirmation}
+
+\newpage
+\input{Summary}
+
+\newpage
+\input{Abstract}
+
+\newpage
+\tableofcontents
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\newpage
+\include{chapters/01_introduction}
+\newpage
+\include{chapters/02_basics}
+\newpage
+\include{chapters/03_related_work}
+\newpage
+\include{chapters/04_methods}
+\include{chapters/04_1_methods_hardware}
+\include{chapters/04_2_methods_onset_detection}
+\include{chapters/04_3_1_methods_classification}
+\include{chapters/04_3_2_methods_classification_analysis}
+\include{chapters/04_3_3_methods_classification_training}
+\include{chapters/04_3_4_methods_classification_method1}
+\include{chapters/04_3_5_methods_classification_method2}
+\include{chapters/04_3_6_methods_classification_combined}
+\include{chapters/04_4_methods_javascript}
+\newpage
+\include{chapters/05_results}
+\newpage
+\include{chapters/06_discussion_and_outlook}
+
+
+\listoffigures
+\lstlistoflistings
+\listoftables
+
+\newpage
+
+\printbibliography
+\end{document} 

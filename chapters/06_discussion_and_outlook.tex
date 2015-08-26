@@ -1,0 +1,48 @@
+\section{Discussion and Outlook}
+\label{section:conclusion}
+% Diskussion der Lösung und der Ergebnisse (Rechtfertigungsphase)
+% Die kritische Diskussion der durchgeführten technischen oder analytischen Arbeitsschritte wird hier betrieben sowie der Innovationsbezug hergestellt. Vergleiche zu anderen Lösungen der Fragestellung in der Literatur sind durchaus angebracht. Ausblicke zum Thema (Weiterentwicklungsphase – Schlussfolgerungen & Aussichten)
+% Die Arbeit wird abgerundet durch eine Rekapitulation der wichtigsten Erkenntnisse sowie einen Ausblick auf mögliche Weiterentwicklungen der in der Arbeit gewählten Techniken und/oder Methoden. Besonderes Augenmerk wird hier auf Innovationsmöglichkeit in einem Anwendungsfeld gelegt.
+
+In this thesis, different methods for onset detection and classification for drum sound were developed, and an introduction to the use of the Web Audio API was given as well. This research aims to be the basis for an implementation of an extension for the e-learning platform Easydrum. The extension shall allow the use of the platform with an acoustic drum set.
+
+%%onset detection
+In the first part of the research, an onset detection algorithm was developed based on the method introduced by W. Andrew Schloss in \autocite{Schloss:1985}. The developed algorithm provides a low calculation time and is able to run in real-time. Hence, it fulfills the necessary requirements for the use as an extension of Easydrum.
+
+%%%%????? überleitung oder teilweise weglassen?
+An important aspect of the algorithm is the fact that it doesn't require a transformation of the audio signal to its frequency spectrum. This is possible because percussive sounds show explicit rises in energy. Thus, the developed algorithm scans the unprocessed audio signal in the time domain for sudden rises in energy. By using this method, the calculation time can be kept short in contrast to most recent onset detection algorithms, which usually have to be able to detect note onsets by the analysis of the frequency spectrum.
+
+The algorithm was tested with several recordings containing a total of 226 onsets of all used drums and cymbal, single strokes, simultaneously played strokes, as well as different speed and velocity. As a result, only one false negative and one false positive onset were detected.
+
+By adapting the parameters for the onset detector, it is also possible to configure it in a way that all onsets are detected. But in this case, the rate of false positive detections rises rapidly. Thus, an interesting next step to improve the algorithm would be to reduce this rate of false positive. An idea to implement this, is to develop an additional function which validates a found onset, for example on basis of its frequency spectrum or steadiness.
+
+%training
+The second part of the thesis was to develop a method to classify a sound as one of the components of the used drum set. Therefore, a training method was developed, which regards the usability for the user of the aimed software. The use of supervised learning allows the future users to configure their drum set by recording every component. Thus, they can not only use the tested components, but they can also use others, like cowbells or woodblocks. An idea for the user might also be to use non-instrumental components to do the exercises in Easydrum if they don't own a drum set. 
+
+An important	distinctive feature to training methods of other classification algorithms is the number of training instances needed. The method developed in this thesis only needs a training of one to four strokes on each component of the drum set, depending on how different the strokes on the drum or cymbal sound. This low number of training instances is a big advantage in contrast to supervised training methods used in most other approaches, e.g. \autocite{Simsekli:2011}. Usually, there is a huge number of training instances required to build a classification model.
+
+%pre-processing
+This thesis also considers the problem of different power of strokes and noisy input signals. The problem is handled by the pre-processing of each frame analyzed for classification. Thereby, the noise is reduced and the signal is normalized. The noise reduction enables the user to use microphones with lower quality.
+
+%classification
+For the classification of the drum sounds itself, two different approaches were tried. The first one is based on a J48 decision tree and the second one of the comparison of the spectral shape on basis of templates.
+
+%method 1
+The first method consists of the construction of a feature vector that is used to build a J48 decision tree. The method was tested with the help of Weka with three different feature sets, which contain a varying numbers of features. The best results are gained with a small feature set of three features based on the peaks in the frequency spectrum. A hit-rate of 91.72 \% is reached. The resulting tree shows a size of 47 nodes, a height of ten and a number of 24 leaves.
+
+%method 2   
+Better results are gained with the second method. It builds templates on basis of the frequency spectra of each trained stroke type. For each stroke type, a  template is created that contains the maximum frequency bins and one which contains the minimum ones. To avoid that outliers falsify the minima and maxima, the quantile function was used to calculate them. By reducing the templates bandwidth to 2000 Hz instead of considering the whole spectrum, the calculation time could be reduced, and the accuracy was clearly improved. Furthermore, the accuracy was improved again by including a simple distance function while comparing an unseen data instance with a template. With this method, a hit-rate of 97.2 \% could be achieved. 
+
+In contrast to other papers in the field of drum sound analysis, like \autocite{Christophersen:2007}, in this method also cymbals and different stroke types on the drums and cymbals were considered. If only drums or regular, centered strokes are tested with the method developed in this thesis, an accuracy of 100 \% is achieved. Additionally, the algorithm can distinguish between different stroke types on the same drum with a hit-rate of 70.3 \%.
+
+A further key task required for the Easydrum extension, which is also rarely considered in recent research, is the classification of different drums or cymbals played at the same time. Therefore, two different methods were tried. Both methods are based on the classification method using templates.
+
+The first attempt was to subtract the frequency spectrum of the first detected drum from the appropriate class labels mean frequency spectrum and to repeat the detection on the reduced spectrum to find a second stroke. To keep the algorithm working with single drums, a file containing noise was added to the training instances. Thus the algorithm labels the second stroke with noise if there is only one stroke played. This leads to problems because of the normalization and noise reduction applied to the spectrum. Thus, a second method was tested which produces additional training files by combining the recordings of two strokes. Subsequent strokes were also trained. Thereby, the future user doesn't need to train them himself. For this method the results were much better. For single drums, the same hit-rate was gained as for the test without simultaneously played drums. An overall hit-rate of 81.67 \% was gained.
+
+The problem with the second method for the classification of multiple drums is that the number of classes raises rapidly if all possible combinations shall be trained. This causes an exponential rise of the calculation time for classification. For the first method, only twice the calculation time is required as for the classification of single strokes. Hence, in a future research it could be attempted to improve the first method to save calculation time.
+
+%javascript demo
+The last subject of this thesis was to introduce an example that builds a basis for the further implementation of the developed algorithms as extension for Easydrum by the use of JavaScript and the Web Audio API. The example gets an microphone input stream and processes the containing data to display it on an HTML canvas element. To include the required functionality for Easydrum, an audio node for the onset detection and one for the classification will be added. Furthermore, the canvas element will be replaced by the main component of the existing Easydrum application, which needs to receive the point in time of the onset and the class label of the played drum.
+
+%CONCLUSION
+Hence, with this thesis, it is demonstrated how an extension to the online e-learning platform Easydrum can be realized. With the developed methods, the further application will provide the required level of usability, accuracy and performance. Thus, the research of this thesis paves the way to develop a modern, innovative web application, which follows the recent trends of highly interactive software solutions.

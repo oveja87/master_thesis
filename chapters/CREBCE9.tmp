@@ -1,0 +1,1047 @@
+\section{Methods}
+% Diskussion möglicher Methoden und Lösungswege (Machbarkeitsphase – Analyse)
+% Zu Beginn dieses Teils erfolgt eine Gegenüberstellung prinzipiell möglicher Methoden der wissenschaftlichen Herangehensweise an die Themenstellung sowie eine Abschätzung und Diskussion der Erfolgsaussichten der gewählten Methode. Daraufhin sollen anhand von konkreten Varianten verschiedene Lösungsansätze für das Thema erläutert werden, und zwar im Licht der Ergebnisse der Literaturphase einerseits, und in Hinblick auf innovative Lösungen für das Anwendungsfeld (Unternehmen bzw. Institution) andererseits.
+
+The aim of this thesis is to develop an algorithm for a drum sound analysis software which can be used with the existing easydrum software. The developed system consists of two components like displayed in figure \ref{fig:architecture}. These are a training system and a real time drum sound analyzer. With the help of the training system, the user can calibrate his drum set to use it with the software. It can be integrated in the easydrum drum configurator, which is already used to configure an electronic drum set. Thus the sound of each drum can be recorded. Subsequently, it is analyzed for several features and the data are saved in a database. The real time drum analyzer can be integrated in the easydrum player. It consists of four steps, which are a recorder, on onset detector, a feature extractor and a classifier. The recorder records small audio frames and sends each of them to the onset detector. If an onset is detected, it is send to the feature extractor which creates a feature vector. This feature vector is compared with the training data by the classifier, which returns the drum type and sends it as input event to the easydrum player. The system is realized in MatLab\textsuperscript{\textregistered}.
+
+% TODO: finales system hier ergänzen
+% TODO: Zeichnung anpassen
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{images/architecture.jpg}
+	\caption{drum sound analysis software architecture}
+	\label{fig:architecture}
+\end{figure}
+
+%Mit dem Recorder können kurze Audiofiles aufgenommen werden. Diese können anschließend mit dem Feature Extractor analysiert werden. 
+%Der Feature Extractor analysiert ein mit dem Recorder aufgenommenes Drum-Audiofile auf seine Eigenschaften. Er erstellt entsprechende Grafiken und schreibt ein Datenfile, das für Klassifikation in Weka verwendet werden kann. Der Feature Extractor besteht aus der graphischen Oberfläche, einem Onset Detector und der Feature Extraction. 
+%Onset Detection und Feature Extraction sollen später in Real Time funktionieren. Dies wurde bei der Erstellung der Algorithmen hier bereits mit einbezogen.
+
+\subsection{Test Drum Set and hardware}
+%Drumset + Photo
+%microphone + link zu akg seite
+%soundkarte
+%laptop + system
+
+\subsection{Onset Detection} \label{section:onsetdetectionmethod}
+
+%- analyse von Testaufnahmen gängiger drumrythmen
+% -> onsets an der amplitude gut erkennbar
+% -> onset detector soll nur auf time domain basieren um rechenpower zu sparen
+% -> Algorithmus erklären
+% Parameter
+% -> Grafiken mit verschiedenen Parametern (Siehe präsentation)
+% -> Probleme erklären
+
+
+%Die Onset Detection findet in der Matlab function DetectOnsets.m statt.  
+%Ein Onset ist der Zeitpunkt, zu dem ein Ton einsetzt, in diesem Fall der Zeitpunkt, zu dem der Drumstick bei einem Schlag die Drum oder das Becken trifft. Dieser Zeitpunkt wir benötigt um den Schlag auf seine Eigenschaften untersuchen zu können.
+%Damit der Algorithmus im späteren Programm in Real Time funktioniert müssen möglichst kleine Ausschnitte des Files nacheinander betrachtet werden. So kann das Audiofile später durch kurze zur Laufzeit aufgenommene Abschnitte ersetzt werden. Die Größe dieser Ausschnitte, die im Folgenden  Frames oder Fenster genannt werden, werden durch den Parameter ‚window_size‘ vorgegeben.
+%Dem Onset Detector können folgende Parameter übergeben werden: 
+%-	Y -> Array mit Amplituden Bins (Audioinformationen)
+%-	window_size -> Größe der Fenster, die der Algorithmus zur Analyse der Audioinformationen analysiert
+%-	lock_size -> Minimale Anzahl an Bins, die sich zwischen zwei Onsets befinden
+%-	reference_denominator -> Wert zur Berechnung des Grenzwertes für die Amplitude, der einen Onset darstellt
+%-	threshold -> Minimaler Wert für die Amplitude, die einen Onset darstellen kann
+
+%Funktionsweise des Algorithmus
+%Das Grundprinzip des Algorithmus ist es, jedes Fenster mit der Größe des Parameters  window_size nacheinander auf einen Onset zu überprüfen. Wird ein Onset gefunden wird dieser in einem Array onsets gespeichert. Dieses Array wird am Ende als Ergebnis zurückgegeben.
+
+%Innerhalb werden die Arrays max_values und min_values und onsets benötigt, die zuvor definiert werden. max_values speichert die maximale und min_values die minimale Amplitude von jedem Frame.
+
+%Außerdem werden die Variablen start = 1, stop = window_size, reference_size = 1, distance = 0 und lock = 0 initialisiert. 
+
+%- start und stop markieren den Bereich im Audioarray Y, in dem sich das zu untersuchende Fenster befindet. Nach jedem Schleifendurchlauf werden diese um den Wert des Parameters window_size erhöht.
+
+%- reference_size gibt die Anzahl der Frames nach dem letzten gefunden Onset an, die beim finden des nächsten Onsets analysiert werden.
+
+%- distance speichert die Entfernung des gerade untersuchten Frame zum Frame mit dem letzten Onset. Sie wird zur Berechnung der reference_size benötigt (reference_size = ceil(distance/reference_denominator)). 
+
+%- min_reference/max_reference geben die minimale/maximale Amplitude an, die das minimale/maximale Peak im gerade untersuchten Fenster haben muss, damit es als Onset erkannt wird. Die beiden Werte werden bei jedem Schleifendurchlauf neu berechnet.  Sie berechnen sich aus der reference_size wiefolgt:
+
+%min_reference = -treshold;
+%max_reference = treshold;
+%for k=1:reference_size
+%  min_reference = min_reference + min_values(i-k);  
+%  max_reference = max_reference + max_values(i-k);  
+%end
+%min_reference = min_reference/reference_size;
+%max_reference = max_reference/reference_size;
+
+%Durch diese Festlegung von min_reference/max_reference als Mittelwert einer Menge von vorangehenden min-/max-Werten wird gewährleistet, dass nur stark ansteigende Amplituden als Onset erkannt werden und nicht zum Beispiel ein Rauschen in der Aufnahme oder schwankende Amplituden, die zu einem bereits gefundenen Onset gehören.
+
+%Die reference_size wird größer, je weiter der letzte Onset zurückliegt. Es werden nur Frames betrachtet, die nach dem letzten Onset liegen. Je weiter dieser zurück liegt, desto mehr Frames liegen also zwischen letztem Onset und gerade analysiertem Frame, desto mehr Frames können betrachtet werden, um den Mittelwert zu berechnen. Da die Amplitude nach einem Onset langsam abnimmt, muss auch der Referenzwert für einen neuen Onset abnehmen. Der als Referenzwert berechnete Mittelwert darf also nicht zu groß werden, da dadurch unter Umständen ein Onset mit geringerer Amplitude als der vorangehende nicht entdeckt wird. Dies wird dadurch vermieden, dass bei der Berechnung von min_reference/max_reference nicht alle Frames bis zum letzten Onset genutzt werden. Die Anzahl der Frames, die betrachtet werden wird durch ceil(distance/reference_denominator) berechnet.
+
+%- Die Variable lock definiert eine Sperre. Ist die Sperre aktiviert kann kein Onset vorliegen. Nachdem ein Onset gefunden wurde wird lock gleich dem Parameter lock_size gesetzt. Nach jedem Frame wird lock um eins vermindert. Nur wenn lock null ist, kann ein Onset gefunden werden.
+
+
+\subsection{Classification} 
+
+\subsubsection{Analysis of the Frequency Spectra of Different Drums and Cymbals} \label{section:classificationSpectrumAnalysis}
+
+Before a classification algorithm can be applied to a drum sound frame, it has to be searched for significant features. To find those features, the time and frequency domains of each used drum and cymbal are examined. The aim of this analysis is to find features that could help to distinguish between the components, like explicit peaks or varying subband energy. There are recorded 170 sound files which contain a single drum stroke. The recordings are made with a sampling rate of 44.1 kHz and a resolution of 16 bit. The frequency spectrum of the drum strokes are calculated by finding the onset and applying MatLab\textsuperscript{\textregistered}s built in FFT algorithm with a window size of 8192 and a hamming window.
+
+First, the different drums are considered. These are a bass drum, snare drum, two rack toms (tom 1, tom 2) and one floor tom (tom 3). Subsequently, the cymbals are analyzed. Used cymbals are the hi-hat, which can be played opened or closed, a crash cymbal and a ride cymbal. 
+
+For each drum or cymbal, different kind of strokes are considered. Drums can be stroked on its center or at the edge and a cymbal at its rim, bow or bell. Moreover, a stroke can be performed with low or high power. Each kind of stroke can produce a slightly different sound and frequency spectrum.
+
+It is observed, that the main frequency bins of a drum sound are located in the frequency band from 40 to 1000 Hz and those of a cymbal in a much broader frequency band from 40 to 10.000 Hz or higher. Thus, in the following there is considered a frequency spectrum from 0 to 1000 Hz for the drums and from 0 - 10000 Hz for the cymbals.
+
+There are created three different graphics for each drum stroke. 
+
+The first graphic shows the time domain with a marked window of 2048 bins, beginning at the onset of the stroke. Further on, it shows the frequency spectrum of the marked window either from 0 to 1000 Hz or from 0 to 10.000 Hz, depending on the occurrence of frequency peaks in the spectrum. 
+
+The second graphic is created by MatLab\textsuperscript{\textregistered}s build in spectrogram function. It displayes the frequency domain in the x-axis and the time domain in the y-axis. the frequency amplitudes are displayed by blue- and red-intensities of colored rectangles. The more red a color rectangle contains, the higher is the frequency amplitude at this point. Blue signs a low frequency amplitude. Thus, this graphic shows how the frequency spectrum of a entire stroke develops over time.
+
+The third graphic displays frequency spectra of three subsequent frames with a window size of 1024 bins and an overlap length of 512 bins. Here, it can be analyzed how the frequency spectrum develops while the first 2028 bin window. This gives information about the steadiness of the examined sound.
+
+%While a drum (except the snare drum) produces a few explicit frequency peaks, a cymbal produces lots of peaks with varying relations between amplitudes while a stroke and also between different drum strokes.
+
+
+% Farblegende zu spectrogram hinzufügen!!!
+
+\newpage
+\textbf{Bass Drum}
+
+The bass drum is beaten by a felt covered mallet, which is stroked against the drum head by the use of a food pedal. Hence, the bass drum is always hit at the same point with similar power. So it has only be considered one kind of stroke, here.
+
+A stroke on the bass drum creates a very low frequent sound. The frequency spectrum shows two major frequency peaks at x and y Hz and a smaller peak at z Hz \ref{fig:bass1}. The spectrogram in figure \ref{fig:bass2} shows, that the peaks at x and z Hz decay earlier than the peak at y Hz. 
+
+\begin{figure}
+	\centering
+	\subfloat[%
+			\newline
+			Top: Time Domain
+			\newline
+			Center: Frequency domain of a 2048 bin window from 0 to 10 kHz
+			\newline
+			Bottom: Frequency domain of a 2048 bin window from 0 to 1000 Hz
+		]{
+		\includegraphics[width=7.3cm]{images/drum_spectra/play_bass_114749_2048_0_plot_01.jpg}
+		\label{fig:bass1}
+	}
+	\qquad
+	\subfloat[%
+			\newline 
+			Spectrogram of frequency peak intensities from 0 to 1000 Hz with fft-length of 2048 bins and an overlap of 1024 bins displayed in time domain.
+		]{
+		\includegraphics[width=7.3cm]{images/drum_spectra/play_bass_114749_2048_0_plot_03.jpg}
+		\label{fig:bass2}
+	}
+	\caption{Stroke on a bass drum.}
+	\label{fig:bass}
+\end{figure}
+
+\newpage
+\textbf{Tom Toms}
+
+For the three tom toms, there are considered centered, non-centered, low and high powered strokes. For all strokes, there are explicit peaks in a frequency band from 40 to 1000 Hz, which appear in all of the four stroke variants.
+ 
+Figure \ref{fig:tom11} shows a centered stroke at tom 1. It is produced one outstanding peak at x Hz and some smaller ones with higher frequency rates up to 1000 Hz. Like it is shown in the spectrogram, peaks at x, y and z persists over time. The subsequent frames in figure \ref{fig:tom113} show, that the peaks decrease but persist stable over the first 2048 bin window. 
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113641_2048_0_plot_01_center.jpg}
+		\label{fig:tom111}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113641_2048_0_plot_03_center.jpg}
+		\label{fig:tom112}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113641_2048_0_plot_05_center.jpg}
+		\label{fig:tom113}
+	}
+	\caption{Centered stroke on tom 1.}
+	\label{fig:tom11}
+\end{figure}
+
+For a stroke at the edge of tom 1 the peaks stay the same, but the previously small peaks appears larger. The highest peak is still at x Hz. This can be seen in figure \ref{fig:tom12}.
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113712_2048_0_plot_01_edge.jpg}
+		\label{fig:tom121}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113712_2048_0_plot_03_edge.jpg}
+		\label{fig:tom122}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113712_2048_0_plot_05_edge.jpg}
+		\label{fig:tom123}
+	}
+	\caption{Stroke on the edge of tom 1.}
+	\label{fig:tom12}
+\end{figure}
+
+Figure \ref{fig:tom13} shows a low powered and figure \ref{fig:tom14} a high powered centered stroke on tom 1. For the low powered stroke it is noticed, that the peak at x Hz is no more as significant as before. Further, if subsequent frames are considered, the frequency amplitudes are varying substantially in the first few milliseconds of the stroke. Later on the sound stabilizes and only the known peaks persist, like it is observed in the spectrogram in figure \ref{fig:tom132}. In contrast to the varying amplitudes for a low powered stroke, for a high powered one the peaks are explicit and stays stable over time. Thus it can be expected, that the higher the power of the stroke, the clearer the outstanding peak at x Hz separates from the others.
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113759_2048_0_plot_01_low.jpg}
+		\label{fig:tom131}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113759_2048_0_plot_03_low.jpg}
+		\label{fig:tom132}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113759_2048_0_plot_05_low.jpg}
+		\label{fig:tom133}
+	}
+	\caption{Low powered centered stroke on tom 1.}
+	\label{fig:tom13}
+\end{figure}
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113807_2048_0_plot_01_high.jpg}
+		\label{fig:tom141}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113807_2048_0_plot_03_high.jpg}
+		\label{fig:tom142}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom1_113807_2048_0_plot_05_high.jpg}
+		\label{fig:tom143}
+	}
+	\caption{High powered centered stroke on tom 1.}
+	\label{fig:tom14}
+\end{figure}
+
+
+Tom 2 produced a lower sound than tom 1. It shows one single explicit peak at x Hz. This peak is stable over time, like shown in the spectrograms and the subsequent frames in figures \ref{fig:tom21}, \ref{fig:tom22} and \ref{fig:tom23}. It also is seen here, that the lower frequency peaks are quite unstable and decay fast, in contrast to the outstanding one. These smaller peaks appear higher and persist over time if the edge of tom 2 is stroked. Though, the peak at x Hz stays the highest one. \ref{fig:tom22}. This peak persists in both low and high powered strokes. 
+
+%TOM2
+%\begin{figure}[hbp]
+	%\centering
+	%\subfloat[Time and Frequency domain]{
+		%\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_113931_2048_0_plot_01_center.jpg}
+		%\label{fig:tom211}
+	%}
+	%\subfloat[Spectrogram]{
+		%\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_113931_2048_0_plot_03_center.jpg}
+		%\label{fig:tom212}
+	%}
+	%\subfloat[Frames]{
+		%\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_113931_2048_0_plot_05_center.jpg}
+		%\label{fig:tom213}
+	%}
+	%\caption{Centered stroke on tom 2}
+	%\label{fig:tom21}
+%\end{figure}
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114153_2048_0_plot_01_low.jpg}
+		\label{fig:tom211}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114153_2048_0_plot_03_low.jpg}
+		\label{fig:tom212}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114153_2048_0_plot_05_low.jpg}
+		\label{fig:tom213}
+	}
+	\caption{Centered stroke with low power on tom 2.}
+	\label{fig:tom21}
+\end{figure}
+
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114302_2048_0_plot_01_high.jpg}
+		\label{fig:tom221}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114302_2048_0_plot_03_high.jpg}
+		\label{fig:tom222}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114302_2048_0_plot_05_high.jpg}
+		\label{fig:tom223}
+	}
+	\caption{Centered stroke with high power on tom 2.}
+	\label{fig:tom22}
+\end{figure}
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114039_2048_0_plot_01_edge.jpg}
+		\label{fig:tom231}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114039_2048_0_plot_03_edge.jpg}
+		\label{fig:tom232}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom2_114039_2048_0_plot_05_edge.jpg}
+		\label{fig:tom233}
+	}
+	\caption{Stroke on the edge of tom 2.}
+	\label{fig:tom23}
+\end{figure}
+
+
+Tom 3 produces the most low frequent sound of all tested tom toms. It shows several outstanding peaks. The three highest ones appear at x1, y and z Hz. 
+
+If figures \ref{fig:tom31}, \ref{fig:tom32} and \ref{fig:tom33} are compared, it is recognized, that the spectral shape changes its form either a stroke is low powered, high powered, centered or placed at the edge. The maximum peak appears shifted at x2 Hz for high powered strokes and x3 Hz for strokes at the edge. Just like tom 1 and tom 2, also tom 3 shows its main peak clearer separates from the other if the stroke has more power. 
+
+%TOM3
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114420_2048_0_plot_01_center.jpg}
+		\label{fig:tom311}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114420_2048_0_plot_03_center.jpg}
+		\label{fig:tom312}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114420_2048_0_plot_05_center.jpg}
+		\label{fig:tom313}
+	}
+	\caption{Centered stroke with low power on tom 3}
+	\label{fig:tom31}
+\end{figure}
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114703_2048_0_plot_01_high.jpg}
+		\label{fig:tom321}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114703_2048_0_plot_03_high.jpg}
+		\label{fig:tom322}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114703_2048_0_plot_05_high.jpg}
+		\label{fig:tom323}
+	}
+	\caption{Centered stroke with high power on tom 3}
+	\label{fig:tom32}
+\end{figure}
+
+By examining the subsequent frames and spectrograms of all kinds of strokes on tom 3, it is considered, that the frequency amplitudes and positions of the maximum peak are not stable over time, neither while the first 2048 bin window nor over the entire stroke.
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114526_2048_0_plot_01_edge.jpg}
+		\label{fig:tom331}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114526_2048_0_plot_03_edge.jpg}
+		\label{fig:tom332}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_tom3_114526_2048_0_plot_05_edge.jpg}
+		\label{fig:tom333}
+	}
+	\caption{Stroke on the edge of tom 3}
+	\label{fig:tom33}
+\end{figure}
+
+
+\newpage
+\textbf{Snare drum}
+
+In contrast to other drum types, the snare has more frequency peaks, which also appear in a higher frequency range than 1000 Hz. This is caused by the rattles of gut on the backside head of the drum. These rattles produce more but lower, fast decaying peaks, so the most significant peaks, as for the other drums, are located in a frequency band from 40 to 1000 Hz. 
+
+Very low or high powered strokes show a explicit peak at x Hz and several lower peaks which are varying for each stroke, due to the sound produced by the rattles. Conspicuously, strokes with a medium power show a different spectral shape, which is less stable during the first few frames. This phenomena could also be produced by the rattles. It can appear if at this stroke intensity the sound of the rattles and the sound of the drum create similar frequency amplitude intensities. A medium stroke is displayed in figure \ref{fig:snare1}, a low and a high powered stroke in figure \ref{fig:snare2}.
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_snare_113025_2048_0_plot_01_center.jpg}
+		\label{fig:snare11}
+	}
+	\subfloat[Spectrogram (0 - 10 kHz)]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_snare_113025_2048_0_plot_02_center.jpg}
+		\label{fig:snare12}
+	}
+	\qquad
+	\subfloat[Spectrogram (0 - 100 Hz)]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_snare_113025_2048_0_plot_05_center.jpg}
+		\label{fig:snare12}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_snare_113025_2048_0_plot_03_center.jpg}
+		\label{fig:snare13}
+	}
+	\caption{Centered stroke on the snare drum.}
+	\label{fig:snare1}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\subfloat[Low powered]{
+		\includegraphics[width=7.3cm]{images/drum_spectra/play_snare_113343_2048_0_plot_01_low.jpg}
+		\label{fig:snare21}
+	}
+	\subfloat[High powered]{
+		\includegraphics[width=7.3cm]{images/drum_spectra/play_snare_113351_2048_0_plot_01_high.jpg}
+		\label{fig:snare22}
+	}
+	\caption{Different powered centered stroke on a snare drum.}
+	\label{fig:snare2}
+\end{figure}
+
+For strokes at the edge of the drum head, additional frequency peaks appear, like shown in figure \ref{fig:snare3}. 
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_snare_113109_2048_0_plot_01_edge.jpg}
+		\label{fig:snare31}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_snare_113109_2048_0_plot_02_edge.jpg}
+		\label{fig:snare32}
+	}
+	\qquad
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_snare_113109_2048_0_plot_05_edge.jpg}
+		\label{fig:snare33}
+	}
+	\qquad
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_snare_113109_2048_0_plot_03_edge.jpg}
+		\label{fig:snare33}
+	}
+	\caption{Stroke at the edge of the snare drum.}
+	\label{fig:snare3}
+\end{figure}
+
+
+\newpage
+\textbf{Hi-hat}
+
+The Hi-hat can be played opened or closed. Wile the closed hi-hat produces a short bursting sound, the opened one's sound is clear and decays slowly. For this thesis, there are considered strokes on the rim of the hi-hat for both opened and closed hi-hat.
+
+In contrast to the drums, the hi-hat produces much more frequency peaks in a much broader spectrum, whereas the opened hi-hat produces less peaks than the closed one.
+
+%hihat closed
+For strokes on a closed hi-hat the frequency spectra are varying from stroke to stroke. This is shown in figure \ref{fig:hihat1}. Here two equal powered strokes on the rim of the closed hi-hat are displayed. It is recognized, that there are some peaks in the spectrum, which appear for both strokes, but with different intensities. The most significant of these peaks are marked red in the diagram. Further on, figure \ref{fig:hihat2} shows, that also subsequent frames vary strongly.
+
+\begin{figure}[htbp]
+	\centering
+	\subfloat[]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_hihat_112909_2048_0_plot_01_high2.jpg}
+		\label{fig:hihat11}
+	}
+	\subfloat[]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_hihat_112916_2048_0_plot_01_high.jpg}
+		\label{fig:hihat12}
+	}
+	\caption{Two equal powered strokes on the rim of a closed hi-hat.}
+	\label{fig:hihat1}
+\end{figure}
+
+\begin{figure}[htbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_112840_2048_0_plot_01_low.jpg}
+		\label{fig:hihat21}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_112840_2048_0_plot_02_low.jpg}
+		\label{fig:hihat22}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_112840_2048_0_plot_05_low.jpg}
+		\label{fig:hihat23}
+	}
+	\caption{Low powered stroke on a closed hi-hat.}
+	\label{fig:hihat2}
+\end{figure}
+
+Like displayed in figure \ref{fig:hihat3}, for strokes with a higher power there are observed a clearer separation between low and high frequency peaks. Further, peaks appear in higher frequency ranges.
+
+\begin{figure}[htbp]
+	\centering
+	\subfloat[Time and Frequency domain]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_112924_2048_0_plot_01_high.jpg}
+		\label{fig:hihat31}
+	}
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_112924_2048_0_plot_02_high.jpg}
+		\label{fig:hihat32}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_112924_2048_0_plot_05_high.jpg}
+		\label{fig:hihat33}
+	}
+	\caption{High powered stroke on a closed hi-hat.}
+	\label{fig:hihat3}
+\end{figure}
+
+%hihat opened
+For strokes on a opened hi-hat, the peaks stay more stable, if different strokes or subsequent frames are considered. There appear more peaks the same in different strokes as for the closed hi-hat. For strokes with the same power, the amplitudes stay more stable than for strokes with different powers. 
+
+\begin{figure}[htbp]
+	\centering
+	\subfloat[Time and frequency domain]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_hihat_open_112557_2048_0_plot_01_rim_low.jpg}
+		\label{fig:hihat41}
+	}
+	\qquad
+	\subfloat[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_open_112557_2048_0_plot_02_rim_low.jpg}
+		\label{fig:hihat42}
+	}	
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_open_112557_2048_0_plot_05_rim_low.jpg}
+		\label{fig:hihat43}
+	}
+	\caption{Low powered stroke on a opened hi-hat.}
+	\label{fig:hihat4}
+\end{figure}
+
+Moreover, for higher powered strokes, there are observed more frequency peaks in higher frequency ranges than for low powered ones. When the sound decays, only a few of the peaks consists. These peaks stay the same over different strokes. Figure \ref{fig:hihat4} shows a low powered and figure \ref{fig:hihat5} a high powered stroke on the closed hi-hat.
+	
+\begin{figure}[htbp]
+	\centering
+	\subfloat[Time and frequency domain]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_hihat_open_112641_2048_0_plot_01_rim_high.jpg}
+		\label{fig:hihat51}
+	}
+	\qquad	
+	\subfloat[[Spectrogram]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_open_112641_2048_0_plot_02_rim_high.jpg}
+		\label{fig:hihat52}
+	}
+	\subfloat[Frames]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_hihat_open_112641_2048_0_plot_05_rim_high.jpg}
+		\label{fig:hihat53}
+	}	
+	\caption{High powered stroke on a opened hi-hat.}
+	\label{fig:hihat5}
+\end{figure}
+
+
+
+\newpage
+\textbf{Crash and Ride Cymbal}
+
+The sound of the crash and ride cymbal sound similar to the opened hi-hat. The crash cymbal creates a sharper, more crashing and higher frequent sound than the ride cymbal, which decayes even slower with a shimmering sound. For the two cymbals, strokes on their rim, bow and bell are considered.
+
+The frequency spectra of the crash and ride cymbal also show similar properties to the hi-hat. Hence, figures \ref{fig:crash1} and \ref{fig:ride1} shows, that they produce frequency peaks persisting at equal frequency ranges with altering amplitudes. Thereby, they shows less unstable peaks than the hi-hat. 
+
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and frequency domain stroke 1]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_crash_snare_off_154836_2048_0_plot_01_rim.jpg}
+		\label{fig:crash11}
+	}
+	\subfloat[Time and frequency domain stroke 2]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_crash_snare_off_154844_2048_0_plot_01_rim.jpg}
+		\label{fig:crash12}
+	}	
+	\qquad
+	\subfloat[Spectrogram stroke 1]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_crash_snare_off_154836_2048_0_plot_02_rim.jpg}
+		\label{fig:crash13}
+	}
+	\subfloat[Spectrogram stroke 2]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_crash_snare_off_154844_2048_0_plot_02_rim.jpg}
+		\label{fig:crash14}
+	}		
+	\caption{Equal powered strokes on the rim of the crash cymbal.}
+	\label{fig:crash1}
+\end{figure}
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and frequency domain stroke 1]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_ride_snare_off_154317_2048_0_plot_01_rim.jpg}
+		\label{fig:ride11}
+	}
+	\subfloat[Time and frequency domain stroke 2]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_ride_snare_off_154325_2048_0_plot_01_rim.jpg}
+		\label{fig:ride12}
+	}	
+	\qquad
+	\subfloat[Spectrogram stroke 1]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_ride_snare_off_154317_2048_0_plot_02_rim.jpg}
+		\label{fig:ride13}
+	}
+	\subfloat[Spectrogram stroke 2]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_ride_snare_off_154325_2048_0_plot_02_rim.jpg}
+		\label{fig:ride14}
+	}	
+	\caption{Equal powered strokes on the rim of the ride cymbal.}
+	\label{fig:ride1}
+\end{figure}
+
+
+If the cymbals are stroked on the bow (figure \ref{fig:crashride1}), the peaks are more equal distributed over the frequency domain. There also appear peaks in higher frequency ranges than for cymbals stroked on their rim.
+
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and frequency domain crash]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_crash_snare_off_154855_2048_0_plot_01_bow.jpg}
+		\label{fig:crashride11}
+	}	
+	\subfloat[Time and frequency domain ride]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_ride_snare_off_154409_2048_0_plot_01_bow.jpg}
+		\label{fig:crashride12}
+	}
+	\qquad
+	\subfloat[Spectrogram crash]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_crash_snare_off_154855_2048_0_plot_02_bow.jpg}
+		\label{fig:crashride13}
+	}	
+	\subfloat[Spectrogram ride]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_ride_snare_off_154409_2048_0_plot_02_bow.jpg}
+		\label{fig:crashride14}
+	}	
+	\caption{Strokes on the bow of the crash and the ride cymbal.}
+	\label{fig:crashride1}
+\end{figure}
+
+
+The bell of a cymbal creates a much clearer sound, than its rim or bow. The frequency spectra show less peaks than those for strokes on rim or bow, especially there are less peaks persisting over time. The distribution of the peak is equal to the distribution for strokes on the bow.
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[Time and frequency domain crash]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_crash_snare_off_155005_2048_0_plot_01_bell.jpg}
+		\label{fig:crashride11}
+	}	
+	\subfloat[Time and frequency domain ride]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_ride_snare_off_154528_2048_0_plot_01_bell.jpg}
+		\label{fig:crashride12}
+	}
+	\qquad
+	\subfloat[Spectrogram crash]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_crash_snare_off_155005_2048_0_plot_02_bell.jpg}
+		\label{fig:crashride13}
+	}	
+	\subfloat[Spectrogram ride]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_ride_snare_off_154528_2048_0_plot_02_bell.jpg}
+		\label{fig:crashride14}
+	}	
+	\caption{Strokes on the bell of the crash and the ride cymbal.}
+	\label{fig:crashride1}
+\end{figure}
+
+
+For different powered strokes, the crash and the ride cymbal shows opposed properties, which can be seen in figure \ref{fig:}. For the crash cymbal the emphasis of frequency peaks is in a frequency band between 0 and 100 Hz for low powered strokes and in a frequency band from 2000 - 5000 Hz for high powered strokes. Contrarily, for the ride cymbal, low powered strokes produce more frequency peaks in higher ranges (around 1000 to 3000 Hz), while for high powered strokes, a explicit outstanding peak at x Hz is observed. In figure \ref{fig:ride22} shows that this peak stays consistent while the first 2048 bins.
+
+\begin{figure}[hbp]
+	\centering
+	\subfloat[crash low]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_crash_snare_off_155045_2048_0_plot_01_low.jpg}
+		\label{fig:crashride21}
+	}	
+	\subfloat[ride low]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_ride_snare_off_154557_2048_0_plot_01_low.jpg}
+		\label{fig:crashride22}
+	}	
+	\qquad
+	\subfloat[crash high]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_crash_snare_off_155140_2048_0_plot_01_high.jpg}
+		\label{fig:crashride23}
+	}	
+	\subfloat[ride high]{
+		\includegraphics[height=3.8cm]{images/drum_spectra/play_ride_snare_off_154713_2048_0_plot_01_high.jpg}
+		\label{fig:crashride24}
+	}	
+	\caption{Time and frequency domains of low and high powered strokes on crash and ride cymbal.}
+	\label{fig:crashride2}
+\end{figure}
+
+
+Figures \ref{fig:crash2} and \ref{fig:ride2} display the subsequent frames. If both figures are compared, it becomes clear, that the peaks for the crash cymbal are much more stable between the frames. The strokes on the bell create the most stable peaks for both cymbals. Further. strokes on the bow are more stable than strokes on the rim and high powered strokes show more stable peaks than low powered ones.
+
+\begin{figure}[hbp]
+	\centering	
+	\subfloat[Rim low]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_crash_snare_off_154836_2048_0_plot_05_rim.jpg}
+		\label{fig:crash21}
+	}
+	\subfloat[Rim High]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_crash_snare_off_155140_2048_0_plot_05_high.jpg}
+		\label{fig:crash22}
+	}
+	\subfloat[Bow]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_crash_snare_off_154855_2048_0_plot_05_bow.jpg}
+		\label{fig:crash23}
+	}
+	\subfloat[Bell]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_crash_snare_off_155005_2048_0_plot_05_bell.jpg}
+		\label{fig:crash24}
+	}
+	\caption{Subsequent frames for different strokes on the crash cymbal.}
+	\label{fig:crash2}
+\end{figure}
+	
+\begin{figure}[hbp]
+	\centering
+	
+	\subfloat[Rim Low]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_ride_snare_off_154557_2048_0_plot_05_low.jpg}
+		\label{fig:ride21}
+	}		
+	\subfloat[Rim High]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_ride_snare_off_154713_2048_0_plot_05_high.jpg}
+		\label{fig:ride22}
+	}
+	\subfloat[Bow]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_ride_snare_off_154409_2048_0_plot_05_bow.jpg}
+		\label{fig:ride23}
+	}		
+	\subfloat[Bell]{
+		\includegraphics[height=5.5cm]{images/drum_spectra/play_ride_snare_off_154528_2048_0_plot_05_bell.jpg}
+		\label{fig:ride24}
+	}	
+	\caption{Subsequent frames for different strokes on the ride cymbal.}
+	\label{fig:ride2}
+\end{figure}
+
+\newpage
+
+\subsubsection{Classification Methods}
+
+The classification system is build on basis of the analysis of the different strokes frequency spectra and the existing easydrum e-drum configurator. Thereby it is attached importance to the usability for the final system. Consequently, the training may not take too much time for the user. The developed method needs a maximum of four strokes of each drum for training.
+
+For feature extraction and classification, there are developed different methods. The first method extracts single feature values as a feature vector and uses them for the classification with a classification algorithm. There are tested different classification algorithms, whereas the best results are gained by decision trees and Naive Bayes. The classification algorithms are applied with the help of Weka. The second method creates templates out of the frequency spectrum of a drum stroke, which are used to compare with in the classification part. Thereby each bin of a isolated frequency bin is considered. It is also tried to use only the frequency bins at frequency peak positions.
+
+\subsubsection{Training}
+\label{section:training}
+
+Through the analysis of the different strokes frequency spectra it was found out, that there can be different occurrences in the frequency spectra of different stroke types for the same drum. Hence, for each drum, each of these stroke types is used for training. 
+
+The drums, except for the bass drum, are trained with low powered and high powered strokes on the center and medium powered strokes at the edge of the drum head. The bass drum is only trained with a low and high powered stroke, because it can only be stroked in its center. The cymbals are trained with low and high powered strokes on their rim and medium powered strokes on their bow and bell. 
+
+Because the current easydrum app does not distinguish between different stroke types every drum and cymbal only has assigned a single label. Thus the in this thesis developed algorithm only need to distinguish between the different drums/cymbals, but not between different stroke types.
+
+Another important point which has to be considered for the training set is the usability, when integrated in easydrum. The training system should be included in the existing drum configurator for e-drum sets, which was described in section \ref{section:easydrum_training}. Here, the user have to stroke each drum once, wherefore he can quickly configure its drum set. Because of the different considered stroke types this is not possible for an analog drum set, but it should be avoided the need of more than one training instance per stroke type.
+
+Usually, a training set contains lot of training instances for each possible label to handle the variance which can appear in single instances. Particularly, by the use of the FFT there can appear variances because of the possible loss of information or the leakage phenomenon, which is described in section \ref{section:shortTime}. Moreover, the strokes on some  of the drums and especially the cymbals can produce unstable frequency peaks, which vary between different strokes. To handle this problems by using only one training instance per stroke type, the following method, which prepares a recorded training sound, has been developed.
+
+The first step of building the training training set is a user input. Via the existing graphical interface in easydrum, the user will be able to record every stroke type for every drum and cymbal, once. For this thesis a MatLab\textsuperscript{\textregistered} interface is build to test the algorithm. The input is recorded with a sampling rate of 44.1 kHz and a resolution of 16 bit.
+
+Every recorded data is preprocessed in three steps for the use as training instance.
+\begin{enumerate}
+  \item The onset detection algorithm (section \ref{section:onsetdetectionmethod}) is applied to the recorded audio data $y$ to find the onsets $o$ in the recorded sound. Because there should only be recorded one stroke per input data, the first found onset $o(1)$ is used for the following steps.
+  \item 24 frames $y_n$ with a window size of 2024 samples are extracted from the audio data. The first frame begins on the onset $o(1)$. The following frames are each shifted 128 bins forwards. Thus the last frame ends 2048 bins behind the onset $o(1)$.
+  \item Each of the extracted frames $y_n$ is Fourier transformed with a hamming window into its frequency spectrum $F(y_n)$ by using MatLab\textsuperscript{\textregistered}s build in FFT function. 
+\end{enumerate}
+Each of the resulting frequency spectra $f(y_n)$ is used as a training instance. In this way it is possible to reduce the user input and the errors which appear by Fourier transforming a finite sequence.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{images/easydrum_configurator.jpg}
+	\label{}
+	\caption{Easydrum e-drum configurator.}
+	\label{fig:easydrum_configurator}
+\end{figure}
+
+%\subsubsection{Methods to prepare training data.}
+\subsection{Method 1 - Classification with decision trees and Naive Bayes}
+...
+\subsubsection{Feature Extraction}
+...
+\subsubsection{Classification}
+...
+
+%Die Feature Extraction findet in der Matlab Function GetFeatures.m statt. Hier wird ein Feature Vektor aus verschiedenen Eigenschaften eines Frames erstellt.
+%Auch hier muss beachtet werden, dass die spätere Software in Realtime lauffähig sein soll. Deshalb muss eine Drum oder ein Becken nach dem Schlag möglichst schnell erkannt werden. Es können also nur Bereiche im Audiofile betrachtet werden, die sich unmittelbar nach dem Onset befinden. Außerdem soll der Feature Vektor aus möglichst wenigen Werten bestehen, um eine möglichst kurze Laufzeit bei der anschließenden Klassifizierung zu gewährleisten.
+
+%Dem Onset Detector können folgende Parameter übergeben werden: 
+%- Y -> Array mit Amplituden Bins (Audioinformationen)
+%- start -> Stelle in Y, an der mit der Analyse begonnen wird ( = Onset)
+%- window_size -> Größe der zu untersuchenden Fenster
+%Es werden dort zurzeit folgende Features extrahiert
+%- F -> Frequenzspektrum des Frames berechnet durch 
+%window_function = hamming(window_size*3);
+%F = abs(fft(window_function.*y(start:start+window_size*3-1))); 
+
+%- peak_1, peak_2, peak_3 -> die drei höchsten Peaks in F (Frequenz, Amplitude)
+
+%- mean_peak_frequency, mean_peak_amplitude -> Mittleres Peak aus allen Peaks von F. Durch das mittlere Peak können Drums eindeutig von Becken unterschieden werden. Die Frequenzpeaks von Trommeln liegen fast ausschließlich im Bereich niedriger Frequenzen, während Becken auch viele Frequenzpeaks in hohen Frequenzbereichen haben. Dadurch ist das mittlere Peak eines Beckens immer deutlich höher als das einer Drum. Auch die Anzahl der Peaks ist bei Becken höher. (Eventuell auch noch Anzahl der Peaks als Feature?)
+
+%- RMS_ges -> Root Mean Square Energy des gesamten Frequenzspektrums
+%RMS_ges_tmp = 0;
+%for i=1:length(F)
+%  RMS_ges_tmp = RMS_ges_tmp + abs(F(i)^2); 
+%end
+%RMS_ges = RMS_ges_tmp/length(F);
+
+%- RMS_i1, RMS_i2 -> Root Mean Square Energy verschiedener Intervalle im Frequenzspektrum (Interval 1 Hz von 1 bis length(F)/6 Hz, Interval 2 von  length(F)/6 Hz bis length(F) Hz).
+
+%- RMS_rate_i1, RMS_rate_i2 -> Gibt die Verschiebung von RMS_i1, RMS_i2 zu RMS_ges als einen Wert zwischen 0 und 1 an. Wie beim mittleren Peak können mit diesen Werten Trommeln von Becken unterschieden werden, da bei Becken in Interval 1 durchschnittlich eine geringere und in Interval 2 eine höhere Energie als bei Trommeln, erzeugt wird. mean_peak_frequency und mean_peak_amplitude liefern jedoch ein deutlich besseres Ergebnis.
+
+%- Frames -> Array mit Frequenzspektren von drei aufeinanderfolgenden Frames der größe window_size. Durch das Untersuchen aufeinanderfolgender Frames kann die Entwicklung des Tones analysiert werden. Unterschiedliche Drums/Becken zeigen eine unterschiedliche Entwicklung.
+
+%- peak_c1, peak_c2, peak_c3 -> Maximales Frequenzpeak in Frame1, Frame2 und Frame3
+
+%- A -> Mittlere Energie aus drei aufeinanderfolgenden Frames ((abs(frames(:,1)).^2)+(abs(frames(:,2)).^2)+(abs(frames(:,3)).^2))/3
+
+%- s -> Steadiness. Steadiness gibt an, wie stabil ein Ton ist. Sie ist die Differenz der Phasenverschiebungen zwischen den betrachteten Frames. Zu Erwarten wäre eine niedrigere Steadiness bei Tönen die in ihrem Klang stark variieren, also instabil sind. Diese wären zum Bespiel die Hihat, die Snaredrum oder das Crashbecken. Hier konnten jedoch bisher keine brauchbaren Ergebnisse erziehlt werden.
+%Erstellung von Graphiken
+%Nachdem alle Features Extrahiert sind werden verschiedene Grafiken erstellt, die diese Visualisieren.
+
+%Erstellung eines Datenfiles
+
+%Für den Feature Vektor werden zurzeit folgende Werte verwendet: drum_string (Name der drum / des Beckens), peak_1(1), peak_1(2), peak_2(1), peak_2(2), peak_3(1), peak_3(2), mean_peak_frequency, mean_peak_amplitude, rms_ges, rms_i1, rms_i2, rms_rate_i1, rms_rate_i2, peak_c1(1), peak_c1(2), peak_c2(1), peak_c2(2), peak_c3(1), peak_c3(2) und s.
+
+%Diese Werte werden für alle analysierten Audiofiles in einer Textdatei gespeichert. Jede Zeile im Datenfile ist ein Datensatz, also die Werte eines einzelnen Audiofiles. Die erste Zeile des Files enthält die Namen der Werte.
+
+%Amplituden können in der Klassifikation zurzeit noch nicht mit Einbezogen werden, da diese je nach Stärke des Schlages und nicht nach Drum variieren. Eine Möglichkeit, wie man die Amplituden mit einbeziehen könnte, wäre diese zu Normalisieren. Dies werde ich in einem nächsten Schritt versuchen.
+
+%Einstellungen Feature Extractor
+
+%-	Frame size -> Größe der Frames bei der Feature Extraction
+%-	Overlap Length -> (noch?) nicht implementiert
+%-	Choose directory -> Pfad an dem Grafiken und Datenfile gespeichertwerden
+%-	Select files -> Hier können die zu analysierenden Audiodateien ausgewählt werden
+%-	Analyse Button -> startet Feature Extraction (schreibt File und erstellt Grafiken)
+
+
+
+%\subsection{Classifier}
+
+%Mit Hilfe von Weka kann das mit dem Feature Extractor erstellte Textfile analysiert werden.
+%Um zusätzlich zur Unterscheidung zwischen den einzelnen Drums und Cymbals auch unterscheiden zu können, ob es sich um eine Trommel oder ein Becken handelt, wird dem Textfile manuell eine Spalte hinzugefügt, die dieses angibt. Außerdem wurde je ein zusätzliches File erstellt, in dem nur Trommeln bzw. nur Becken enthalten sind.
+%Das File wird anschließend in Weka geladen. Hier werden alle nicht benötigten Features gelöscht. Anschließend können verschiedene Klassifikationsalgorithmen auf die Daten angewand werden. Dabei stellt sich heraus, dass die in Weka enthaltenen Algorithmen 'J48 Tree' und 'Simple Card' die besten Ergebnisse liefern.
+%Verwendete Einstellungen
+%Für die erste Analyse in Weka wurden Audiofiles mit 44.100 Hz aufgenommen. Jede Drum / jedes Becken wurde 20 mal mit verschiedenen Schlagintensitäten eingespielt. Das Mikrofon wurde dabei über dem Schlagzeug platziert. Im Feature Extractor wurde eine Framesize von 1024 für die drei aufeinanderfolgenden Frames ausgewählt. Daraus ergibt sich eine Framesize von 3072 für den nicht unterteilten Frame.
+
+
+
+\subsection{Method 2 - Classification by comparison of the spectral shape}
+
+The second method is based on the comparison of the spectral shape of the different drum types. Therefor, in the training phase, there are created templates for each trained drum type, which are used to compare with in the classification step.
+
+%a)create mean spectrum and use correlation coefficient for spectral shape comparison
+%Dann brauchen wir ein Maß, das angibt, ob das Spektrum A und B
+%übereinstimmt, wobei die Gesamtstärke keine Rolle spielen soll, nur die
+%Form (spectral shape).  Dafür schlage ich vor:
+%
+  %sum (A .* B) / sqrt (sum (A.^2) * sum (B.^2)).
+%
+%Das ist aus der Statistik bekannt als (nicht zentraler)
+%"Korrelationskoeffizient". Er ist 1, wenn A und B die gleiche Form
+%haben, sonst kleiner und minimal -1.
+
+The first approach to the comparison of the spectral shape was to use a non central correlation coefficient to compare the test record $T$ with the training data. Therefor, the mean of all training records for one class label is calculated to a mean frequency spectrum $M$. The correlation coefficient is calculated by
+
+\begin{equation}
+	C &= \frac{\sum_{i=1}^{n}{T_i*M_i}}{\sqrt{\sum_{i=1}^{n}{T_i^2}*\sum_{i=1}^{n}{M_i^2}}}
+
+\subsubsection{Template creation}
+
+The first step in this method is the template creation. Therefor, the training data, which has been recorded like described in section \ref{section:training}, are used. 
+
+The training data contain different frequency spectra of each drum type. For each drum type, there are saved 24 different frequency spectra. To use this frequency spectra for templating, each data record is preprocessed by reducing the noise and normalizing. 
+
+The noise reduction is an important step for the system because a future user might use a noisy microphone, which interferes the drum sounds. For noise reduction, there is recorded a additional audio sequence containing silence. Thus there is recorded only the noise that is produced by the microphone. A frequency spectrum $N$ of the noise file is prepared for noise reduction as follows:
+
+\begin{enumerate}
+  \item The audio sequence $Y$ of the recorded file is loaded.
+  \item 24 The mean $M$ of three subsequent frames $Y_1, Y_2, Y_3$ extracted from the audio sequence is calculated, beginning with the first sample of the audio wave. Thereby the frame size is 2048 samples, equal to the frame size used for the training set in section \ref{section:training}. The mean is calculated by $(Y_1+Y_2+Y_3)/3$.
+  \item The calculated mean $M$ is Fourier transformed to its frequency spectrum $N$ by MatLab\textsuperscript{\textregistered}s build in FFT function.
+	\item The values of each amplitude bin $n_i$ in the frequency spectrum $N$ are transformed to its absolute values.
+\end{enumerate}
+
+%code
+%[y_noise,fs] = audioread('silence.wav');
+%noise = abs(fft(windowFunction.*((y(1:2048)+y(2049:4096)+y(4097:6144))./3)));
+
+The calculated noise spectrum is subtracted from the absolute values of each training spectrum after multiplying it with a factor of 1.5. In this way every frequency peak that is created by the noise is removed. Thus only the frequency peaks produced by the appropriate drum persist. The factor 1.5 is chosen to ensure that the noise is also removed, if there is a higher noise than in the the recorded silence file. The noise reduction with this factor also produces some frequency bins with a negative value. Thus after the subtraction, every bin with a value less than zero is set to zero.
+
+After the noise is subtracted from the spectrum, the spectrum is normalized by dividing each amplitude value with the mean amplitude of the entire frequency bins. Thereby it is important to do the normalization after the noise reduction because the noise peaks would adulterate the mean amplitude value and thus falsify the result. The normalization is needed because of the different amplitudes that are created with every different stroke, which appear for instance by different powered strokes or different distances of the drums and cymbals from the microphone.
+
+The entire preprocessing of each training frequency spectrum $A$ is performed as follows:
+
+\begin{enumerate}
+  \item The values of each amplitude bin $a_i$ in the frequency spectrum $A$ are transformed to its absolute values.
+	\item Each value in the noise frequency spectrum $N$ is multiplied with a factor of 1.5.
+	\item The noise frequency spectrum $N$ is subtracted from the frequency spectrum $A$.
+	\item Each value in the frequency spectrum $A$ that is less than zero is set to zero.
+	\item The mean amplitude $m$ of the frequency bins $a_i$ in the frequency spectrum $A$ is calculated.
+	\item Each frequency bin $a_i$ in the frequency spectrum $A$ is divided by the mean amplitude $m$.
+\end{enumerate}
+
+%code
+%prepare training data
+% noise reduction (add to training)
+%Atmp=abs(fft(hamming(windowSize).*frame));
+%Atmp=Atmp-noise.*1.5;
+%Atmp(Atmp<0) = 0;
+% normalization
+%  Atmp=Atmp./mean(Atmp);
+% returns frequency spectra of frames
+
+After the training data are preprocessed, the templates can be created. There are created different kind of templates for each trained class label. Thereby each recorded drum and cymbal is assigned to a class label. The different stroke types are also considered as separated classes. 
+
+
+
+
+
+
+%create template
+%b)entire spectral shape with min max template
+%returns AMin, AMax
+%for every testframe of a drum:
+%AMax = quantile(A, 0.99), AMin = quantile(A, 0.01);
+
+The first two templates are bordering an acceptable range for each frequency bin of a class. One of the two templates sets the maximum and one the minimum amplitude limits. Thus, each template is an array of absolute frequency bin values. Theses limiting values are quantiles taken from all values of the corresponding frequency bin out of all test records of the same class label. To calculate the quantiles, the quantile function of MatLab\textsuperscript{\textregistered} is used. There is chosen a 0.99-quantile for the maximum values and a 0.01-quantile for the minimum values. The template creation process is displayed in figure \ref{fig:templates1}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=2cm]{images/templates1.jpg}
+	\label{}
+	\caption{Creation of templates for a minimum and maximum amplitude limit.}
+	\label{fig:templates1}
+\end{figure}
+
+Further there is a template which contains the mean values for each bin. It is created in the same way as the minimum/maximum templates, the only difference being that the mean value is calculated instead of using the quantile function
+
+
+If the resulting spectra of minimum and maximum amplitudes for a drum type are displayed, it can be seen, that the distance between the minimum and maximum bin at the most main peak positions is much smaller than the distance at non peak positioned bins. This leads to a smaller hit area in the classification step. The phenomena can be seen in figure \ref{fig:template12}. It can be attributed to the fact that the main peaks of a stroke are more stable than other appearing frequencies, like shown in section \ref{section:classificationSpectrumAnalysis}. Because the main peaks can vary strong from stroke to stroke, the smaller hit area could cause errors in the classification step. This leads to the idea to create an additional template which only considers the peak positions within the frequency spectra of a record.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=2cm]{images/templates12.jpg}
+	\label{}
+	\caption{Creation of templates for a minimum and maximum amplitude limit.}
+	\label{fig:templates12}
+\end{figure}
+
+For each class label, there is created a vector $P_n$ with the same length as the training frequency spectra (2048 bins). In this vector the amount of peaks over all training data records for the corresponding class label at each bin position is saved. The vectors $P_(1..n)$ are saved in a $mxn$ matrix, where the dimension m represents the frequency bin positions and n the different class labels. A vector $P_n$ is build as follows:
+
+\begin{enumerate}
+	\item for each training record A of a class label
+	\begin{enumerate}
+		\item The peaks in training record $A_i$ are extracted with MatLab\textsuperscript{\textregistered}s build in findpeaks function. This function returns the amplitudes $a$ and the positions $p$ of each peak within $A_i$.
+		\item At every position $p_j$ in the vector $P_n$, the existing value is increased by one.
+	\end{enumerate}
+\end{enumerate}
+
+The result of this procedure is a vector which shows the distribution of peaks within the test records for the considered class label. The more often a peak at a frequency bin position appears for a record of the considered class label, the higher is the value in the vector $P_i$ at this position. If there is no peak in any of the test records, the value is zero.
+
+The amplitudes $a_j$ are not used for templating because, especially for the cymbals, the peak amplitudes can vary strongly between different strokes, like examined in section \ref{section:classificationSpectrumAnalysis}. 
+
+The peak positions template creation is displayed in figure \ref{fig:templates2}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=2cm]{images/templates2.jpg}
+	\label{}
+	\caption{Creation of peak position template.}
+	\label{fig:templates2}
+\end{figure}
+
+%Ein Quantil ist ein Lagemaß in der Statistik. Anschaulich ist ein Quantil ein Schwellwert: ein bestimmter Anteil der Werte ist kleiner als das Quantil, der Rest ist größer. Das 25%-Quantil beispielsweise ist der Wert, für den gilt, dass 25% aller Werte kleiner sind als dieser Wert. Quantile erlauben ganz praktische Aussagen im Stile von „25% aller Frauen sind kleiner als 1,62 m“ – wobei 1,62 m hier das 25%-Quantil ist.
+%Genauer ist das p-Quantil, wobei p eine reelle Zahl zwischen 0 und 1 ist, ein Wert einer Variablen oder Zufallsvariablen, der die Menge aller Merkmalswerte (salopp „die Verteilung“) in zwei Abschnitte unterteilt: Links vom p-Quantil liegt der Anteil p \equiv p \cdot 100\,\% aller Beobachtungswerte oder der Gesamtzahl der Zufallswerte oder der Fläche unter der Verteilungskurve; rechts davon liegt der jeweilige restliche Anteil 1-p \equiv (1-p) \cdot 100\,\%. Die Zahl p heißt auch der Unterschreitungsanteil.
+
+
+%c)only peaks
+%returns peaks
+%for every testframe of a drum:
+%[pks,locsPeaks] = findpeaks(Atmp(j,:), 'MinPeakHeight', max(Atmp(j,:))/peakThresholdDenom);
+
+
+The MatLab code for the template creation is shown in \ref{code:templates}. The parameter A is a matrix of all test records frequency spectra. The parameter n is the number of records for each class label. It is needed to separate the array A into matrices that contain only records of one class label type.
+
+%code
+\begin{lstlisting}
+function[AMin,AMax,AMean,Peaks]=createTemplates(A,n)
+	AMin=zeros(length(A(:,1))/n,length(A(1,:)));
+	AMax=zeros(length(A(:,1))/n,length(A(1,:)));
+	AMean=zeros(length(A(:,1))/n,length(A(1,:)));
+	Peaks=zeros(length(A(:,1))/n,length(A(1,:)));
+	locDrum=0;
+	for i=1:n:length(A(:,1))				
+		Atmp=A(i:i+n-1,:);
+		locDrum=locDrum+1;				
+		%% quantile
+		AMax(locDrum,:)=quantile(Atmp,0.99);
+		AMin(locDrum,:)=quantile(Atmp,0.01);
+		%% mean
+		AMean(locDrum,:)=mean(Atmp);        
+		%% peaks 
+		for j=1:n
+			[pks,locsPeaks]=findpeaks(Atmp(j,:),'MinPeakHeight',max(Atmp(j,:))/5);
+			for k=1:length(locsPeaks)
+				Peaks(locDrum,locsPeaks(k))=Peaks(locDrum,locsPeaks(k))+1;                
+			end
+		end
+	end
+end
+\end{lstlisting}
+
+
+
+\subsubsection{Classification}
+
+% get frame:
+% onset detection
+% record window after onset (example: 2048 samples from onset because .... same size as trained frames)
+% noise reduction (add to training)
+% normalization
+
+
+
+%test1 quantile
+%get ACrit for each drum by
+% ACrit = 0;  
+%        for j=1:windowSize/d
+%            if (A(j)<AMin(i,j) || A(j)>AMax(i,j))  
+%                ACrit = ACrit + 1;
+%            end
+%        end
+% classify drum as the drum with the lowest ACrit
+% betrachten unterschiedlicher frequenzbänder
+% bestes Ergebnis mit Frequenzband ....
+
+%Result matrix:
+
+%test2 test quantile with distance from min/max
+%get ACrit for each drum by
+%ACrit = 0;  
+%        for j=1:windowSize/denom
+%            distance=0;
+%            if A(j)<AMin(i,j)
+%               distance = AMin(i,j)-A(j);
+%            elseif A(j)>AMax(i,j)
+%               distance = A(j)-AMax(i,j);
+%            end
+%            ACrit = ACrit + distance;
+%        end
+% classify drum as the drum with the lowest ACrit
+% bestes Ergebnis mit Frequenzband ....
+
+%Result matrix:
+
+%test 3 quantile with distance from mean
+
+%test 4 peaks
+
+%Beim Testen passiert anschließend folgendes:
+%Zunächst wird wieder ein Array mit 1024 Nullwerten erstellt und es werden die Peak Positionen des Testfiles gesucht.
+%An jeder Position im Array, an der sich ein Peak befindet wird in der Trainingsmatrix der höchste Wert gesucht und im Array gespeichert. Dieser Wert repräsentiert die Drum, die am ehesten zu diesem Peak passt. 
+%Nachdem alle Werte ins Array eingetragen sind werden diese gezählt. Der Wert, der am häufigsten vorkommt gewinnt. Als diese Drum wird das Testfile Klassifiziert.
+
+%Result matrix:
+
+\subsubsection{Test results}

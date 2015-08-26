@@ -1,0 +1,21 @@
+\selectlanguage{ngerman}
+
+\section*{Kurzfassung}
+\vspace{0.5cm}
+
+\begin{sloppypar}
+Im Rahmen dieser Arbeit wird ein Konzept für eine Erweiterung der Online-Schlagzeugschule Easydrum vorgestellt. Das Ziel der Arbeit ist es, ein System zu erarbeiten, das die Verwendung eines analogen Schlagzeuges mit der Platform erlaubt. Dieses System hat über einen Webbrowser Zugriff auf ein mit dem Computer verbundenes Mikrofon und kann so Schlagzeugsound auslesen. Es erkennt Schläge auf Trommeln und Becken eines zuvor konfigurierten Drumsets in Echtzeit und unterscheidet diese voneinander. Um dies zu ermöglichen werden ein Onset-Detection-Algorithmus basierend auf dem Zeitbereich eines Audiosignals, sowie zwei unterschiedliche Ansätze zur Klassifizierung entwickelt. Die Algorithmen werden mithilfe von Matlab\textsuperscript{\textregistered} und Weka getestet. 
+\end{sloppypar}
+
+Der erste Ansatz für die Klassifizierung basiert auf dem Extrahieren eines Featurevektors, der dazu genutzt wird einen Decision Tree mit dem J48-Algorithmus aufzubauen. 
+
+Im zweiten Ansatz werden zu jedem trainierten Schlagtyp zwei Templates erstellt, wobei eines das minimale und eines das maximale Frequenzspektrum des Schlages abbildet. Durch einen Vergleich der Spektralform dieser Templates mit dem Spektrum einer neuen Dateninstanz kann ein Klassenlabel für die neue Dateninstanz bestimmt werden. Die Methode wird sowohl mit einzelnen Schlägen als auch mit zwei gleichzeitigen Schlägen getestet. 
+
+Des Weiteren gibt diese Arbeit einen Einblick in die Web Midi API, die zur späteren Umsetzung des Systems benötigt wird. Es wird ein Beispielprogramm vorgestellt, das über den Browser einen Audiostream erhält und diesen auf ein HTML Canvas-Element zeichnet.
+
+\paragraph{Schlagwörter:}
+\textit{Audiosignalverarbeitung, Signalverarbeitung, Klassifizierung, Decision Tree, J48, Onset Detection, Web Audio API, MatLab, Echtzeit}
+
+
+
+\selectlanguage{english}

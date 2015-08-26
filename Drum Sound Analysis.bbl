@@ -1,0 +1,613 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{cms}
+    \entry{Chapman:2015}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=f40d9365673d1cc03949a8c934e4bca6}{Chapman}{C\bibinitperiod}{Hall}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f40d9365673d1cc03949a8c934e4bca6}{Chapman}{C\bibinitperiod}{Hall}{H\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Taylor \& Francis Group, LLC}%
+      }
+      \strng{namehash}{f40d9365673d1cc03949a8c934e4bca6}
+      \strng{fullhash}{f40d9365673d1cc03949a8c934e4bca6}
+      \field{sortinit}{C}
+      \field{labelyear}{2015}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Data Classification Algorithms and Applications}}
+      \field{isbn}{0201734842}
+      \field{title}{{Data Classification Algorithms and Applications}}
+      \field{year}{2015}
+    \endentry
+    \entry{WebAudioApi:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=5ea03b6868a544cc69314e2c85ab12b5}{Chris\bibnamedelima Rogers}{C\bibinitperiod\bibinitdelim R\bibinitperiod}{Chris\bibnamedelima Wilson}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{Paul\bibnamedelima Adenot}{P\bibinitperiod\bibinitdelim A\bibinitperiod}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5ea03b6868a544cc69314e2c85ab12b5}{Chris\bibnamedelima Rogers}{C\bibinitperiod\bibinitdelim R\bibinitperiod}{Chris\bibnamedelima Wilson}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{Paul\bibnamedelima Adenot}{P\bibinitperiod\bibinitdelim A\bibinitperiod}}%
+      }
+      \strng{namehash}{5ea03b6868a544cc69314e2c85ab12b5}
+      \strng{fullhash}{5ea03b6868a544cc69314e2c85ab12b5}
+      \field{sortinit}{C}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{Web Audio API - W3C Editor's Draft 03 April 2015}}
+      \field{note}{accessed 03.04.2015}
+      \field{title}{{Web Audio API - W3C Editor's Draft 03 April 2015}}
+      \verb{url}
+      \verb http://webaudio.github.io/web-audio-api/
+      \endverb
+    \endentry
+    \entry{WebMidiApi:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=0e7effbea00e640e8da6b1bb8a904dd1}{Chris\bibnamedelima Wilson}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{Jussi\bibnamedelima Kalliokoski}{J\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=0e7effbea00e640e8da6b1bb8a904dd1}{Chris\bibnamedelima Wilson}{C\bibinitperiod\bibinitdelim W\bibinitperiod}{Jussi\bibnamedelima Kalliokoski}{J\bibinitperiod\bibinitdelim K\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0e7effbea00e640e8da6b1bb8a904dd1}
+      \strng{fullhash}{0e7effbea00e640e8da6b1bb8a904dd1}
+      \field{sortinit}{C}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{Web Midi API - W3C Working Draft 30 March 2015}}
+      \field{note}{accessed 03.04.2015}
+      \field{title}{{Web Midi API - W3C Working Draft 30 March 2015}}
+      \verb{url}
+      \verb http://webaudio.github.io/web-midi-api/
+      \endverb
+    \endentry
+    \entry{Goto:2001}{report}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=10440cfb2f7fcc24ebb29906d8d899ed}{Goto}{G\bibinitperiod}{Masataka}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=10440cfb2f7fcc24ebb29906d8d899ed}{Goto}{G\bibinitperiod}{Masataka}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{10440cfb2f7fcc24ebb29906d8d899ed}
+      \strng{fullhash}{10440cfb2f7fcc24ebb29906d8d899ed}
+      \field{sortinit}{G}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{An Audio-based Real-time Beat Tracking System for Music With or Without Drum-sounds}}
+      \field{title}{{An Audio-based Real-time Beat Tracking System for Music With or Without Drum-sounds}}
+      \field{type}{techreport}
+      \field{year}{2001}
+    \endentry
+    \entry{RubyOnRails:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=5e103c4f8efdf1c5ab19a4c3d8d0a265}{Hansson}{H\bibinitperiod}{David\bibnamedelima Heinemeier}{D\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5e103c4f8efdf1c5ab19a4c3d8d0a265}{Hansson}{H\bibinitperiod}{David\bibnamedelima Heinemeier}{D\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{5e103c4f8efdf1c5ab19a4c3d8d0a265}
+      \strng{fullhash}{5e103c4f8efdf1c5ab19a4c3d8d0a265}
+      \field{sortinit}{H}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{Ruby on Rails - Web development that doesn’t hurt}}
+      \field{note}{accessed 10.04.2015}
+      \field{title}{{Ruby on Rails - Web development that doesn’t hurt}}
+      \verb{url}
+      \verb http://rubyonrails.org/
+      \endverb
+    \endentry
+    \entry{Harris:1978}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=6aee7056c073961f4eff75299aef9fc6}{Harris}{H\bibinitperiod}{Frederic\bibnamedelima J.}{F\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=6aee7056c073961f4eff75299aef9fc6}{Harris}{H\bibinitperiod}{Frederic\bibnamedelima J.}{F\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \list{organization}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{6aee7056c073961f4eff75299aef9fc6}
+      \strng{fullhash}{6aee7056c073961f4eff75299aef9fc6}
+      \field{sortinit}{H}
+      \field{labelyear}{1978}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{On the Use of Windows for Harmonic Analysis with the Discrete Fourier Transform}}
+      \field{title}{{On the Use of Windows for Harmonic Analysis with the Discrete Fourier Transform}}
+      \field{year}{1978}
+    \endentry
+    \entry{Haverbeke:2014}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=129098e814fb9141e381f6b3068dd41c}{Haverbeke}{H\bibinitperiod}{Marijn}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=129098e814fb9141e381f6b3068dd41c}{Haverbeke}{H\bibinitperiod}{Marijn}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {No Starch Press Inc.}%
+      }
+      \strng{namehash}{129098e814fb9141e381f6b3068dd41c}
+      \strng{fullhash}{129098e814fb9141e381f6b3068dd41c}
+      \field{sortinit}{H}
+      \field{labelyear}{2014}
+      \field{labelmonth}{12}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Eloquent JavaScript: A Modern Introduction to Programming}}
+      \field{edition}{2}
+      \field{isbn}{978-1593275846}
+      \field{month}{12}
+      \field{title}{{Eloquent JavaScript: A Modern Introduction to Programming}}
+      \field{year}{2014}
+    \endentry
+    \entry{jQuery:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=f590b4fda2c30be28dd3c8c3caf5c77b}{jQuery}{j\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=f590b4fda2c30be28dd3c8c3caf5c77b}{jQuery}{j\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \strng{namehash}{f590b4fda2c30be28dd3c8c3caf5c77b}
+      \strng{fullhash}{f590b4fda2c30be28dd3c8c3caf5c77b}
+      \field{sortinit}{j}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{jQuery}}
+      \field{note}{accessed 03.04.2015}
+      \field{title}{{jQuery}}
+      \verb{url}
+      \verb http://api.jquery.com/
+      \endverb
+    \endentry
+    \entry{jQueryUI:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=7a2102827c7892973cb5a96fb724c6bc}{jQueryUI}{j\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=7a2102827c7892973cb5a96fb724c6bc}{jQueryUI}{j\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \strng{namehash}{7a2102827c7892973cb5a96fb724c6bc}
+      \strng{fullhash}{7a2102827c7892973cb5a96fb724c6bc}
+      \field{sortinit}{j}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{jQueryUI Widget Factory}}
+      \field{note}{accessed 03.04.2015}
+      \field{title}{{jQueryUI Widget Factory}}
+      \verb{url}
+      \verb https://jqueryui.com/widget/
+      \endverb
+    \endentry
+    \entry{Bello:2005}{report}{}
+      \name{labelname}{5}{}{%
+        {{uniquename=0,hash=a3a046957f4b7378c5e527e6b28446e4}{Juan\bibnamedelimb Pablo\bibnamedelima Bello}{J\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim B\bibinitperiod}{Laurent\bibnamedelima Daudet}{L\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c8d0f5015f21874d5589d8f74e50c869}{Abdallah}{A\bibinitperiod}{Samer}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3d207772e8554417d1ce6db3c9d5d21b}{Duxbury}{D\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0bc60d7603817a37ff3e36eb14b92487}{Davies}{D\bibinitperiod}{Mike}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6094f14dd93b5629b86cb43f1035c70c}{Sandler}{S\bibinitperiod}{Mark\bibnamedelima B.}{M\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{5}{}{%
+        {{uniquename=0,hash=a3a046957f4b7378c5e527e6b28446e4}{Juan\bibnamedelimb Pablo\bibnamedelima Bello}{J\bibinitperiod\bibinitdelim P\bibinitperiod\bibinitdelim B\bibinitperiod}{Laurent\bibnamedelima Daudet}{L\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c8d0f5015f21874d5589d8f74e50c869}{Abdallah}{A\bibinitperiod}{Samer}{S\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=3d207772e8554417d1ce6db3c9d5d21b}{Duxbury}{D\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=0bc60d7603817a37ff3e36eb14b92487}{Davies}{D\bibinitperiod}{Mike}{M\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=6094f14dd93b5629b86cb43f1035c70c}{Sandler}{S\bibinitperiod}{Mark\bibnamedelima B.}{M\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{f6826cd8363826c28920890e9230dce3}
+      \strng{fullhash}{247c5293d80213a3d0aed0d318b09498}
+      \field{sortinit}{J}
+      \field{labelyear}{2005}
+      \field{labelmonth}{09}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{A Tutorial on Onset Detection in Music Signals}}
+      \field{month}{09}
+      \field{title}{{A Tutorial on Onset Detection in Music Signals}}
+      \field{type}{techreport}
+      \field{year}{2005}
+    \endentry
+    \entry{Hedderich:2012}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=a78a10913015be60ad43bf2d34a62ffd}{Jürgen\bibnamedelima Hedderich}{J\bibinitperiod\bibinitdelim H\bibinitperiod}{Lothar\bibnamedelima Sachs}{L\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=a78a10913015be60ad43bf2d34a62ffd}{Jürgen\bibnamedelima Hedderich}{J\bibinitperiod\bibinitdelim H\bibinitperiod}{Lothar\bibnamedelima Sachs}{L\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer-Verlag}%
+      }
+      \strng{namehash}{a78a10913015be60ad43bf2d34a62ffd}
+      \strng{fullhash}{a78a10913015be60ad43bf2d34a62ffd}
+      \field{sortinit}{J}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Angewandte Statistik}}
+      \field{edition}{14}
+      \field{isbn}{978-3-642-24400-1}
+      \field{title}{{Angewandte Statistik}}
+      \field{year}{2012}
+    \endentry
+    \entry{Goto:1994}{inproceedings}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=dc4adaa8632aaa1fb6fa4968b477ad9b}{M.\bibnamedelimi Goto}{M\bibinitperiod\bibinitdelim G\bibinitperiod}{Y.\bibnamedelimi Muraoka}{Y\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=dc4adaa8632aaa1fb6fa4968b477ad9b}{M.\bibnamedelimi Goto}{M\bibinitperiod\bibinitdelim G\bibinitperiod}{Y.\bibnamedelimi Muraoka}{Y\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{dc4adaa8632aaa1fb6fa4968b477ad9b}
+      \strng{fullhash}{dc4adaa8632aaa1fb6fa4968b477ad9b}
+      \field{sortinit}{M}
+      \field{labelyear}{1994}
+      \field{labelmonth}{10}
+      \field{labelday}{15}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{A beat tracking system for acoustic signals of music}}
+      \field{day}{15}
+      \field{month}{10}
+      \field{number}{2}
+      \field{series}{ACM international conference on Multimedia}
+      \field{title}{{A beat tracking system for acoustic signals of music}}
+      \field{year}{1994}
+      \field{pages}{365\bibrangedash 372}
+    \endentry
+    \entry{MatLabRefAngle:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=2d2b0d998977e6379aad61f1b56ac3c1}{MathWorks}{M\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=2d2b0d998977e6379aad61f1b56ac3c1}{MathWorks}{M\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \strng{namehash}{2d2b0d998977e6379aad61f1b56ac3c1}
+      \strng{fullhash}{2d2b0d998977e6379aad61f1b56ac3c1}
+      \field{sortinit}{M}
+      \field{extrayear}{1}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{MATLAB - Documentation - angle}}
+      \field{note}{accessed 05.02.2015}
+      \field{title}{{MATLAB - Documentation - angle}}
+      \verb{url}
+      \verb http://www.mathworks.com/help/matlab/ref/angle.html
+      \endverb
+    \endentry
+    \entry{MathWorks:2014}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=2d2b0d998977e6379aad61f1b56ac3c1}{MathWorks}{M\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=2d2b0d998977e6379aad61f1b56ac3c1}{MathWorks}{M\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \strng{namehash}{2d2b0d998977e6379aad61f1b56ac3c1}
+      \strng{fullhash}{2d2b0d998977e6379aad61f1b56ac3c1}
+      \field{sortinit}{M}
+      \field{extrayear}{2}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{MATLAB - the language of technical computing}}
+      \field{note}{accessed 03.05.2014}
+      \field{title}{{MATLAB - the language of technical computing}}
+      \verb{url}
+      \verb http://www.mathworks.com.au/products/matlab/
+      \endverb
+    \endentry
+    \entry{Christophersen:2007}{report}{}
+      \name{labelname}{3}{}{%
+        {{uniquename=0,hash=9f54c74d26b6243d23c42b11e85a2f53}{Morten\bibnamedelima Christophersen}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{Jens\bibnamedelimb Martin\bibnamedelima Oddershede}{J\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{Mark\bibnamedelimb Aarup\bibnamedelima Mikaelsen}{M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod}}%
+        {{uniquename=0,hash=9e6ecf18c3736aa510f7d9f9487cebab}{Rasmussen}{R\bibinitperiod}{Thomas\bibnamedelima Deleuran}{T\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c22fda810c45a1fcf8b267488652af06}{Villadsen}{V\bibinitperiod}{Steffen\bibnamedelima Stengaard}{S\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=9f54c74d26b6243d23c42b11e85a2f53}{Morten\bibnamedelima Christophersen}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{Jens\bibnamedelimb Martin\bibnamedelima Oddershede}{J\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim O\bibinitperiod}{}{}{Mark\bibnamedelimb Aarup\bibnamedelima Mikaelsen}{M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod}}%
+        {{uniquename=0,hash=9e6ecf18c3736aa510f7d9f9487cebab}{Rasmussen}{R\bibinitperiod}{Thomas\bibnamedelima Deleuran}{T\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=c22fda810c45a1fcf8b267488652af06}{Villadsen}{V\bibinitperiod}{Steffen\bibnamedelima Stengaard}{S\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Denmark}%
+      }
+      \list{organization}{1}{%
+        {Aalborg University}%
+      }
+      \strng{namehash}{e85f8ad4c23dc4f4eb2b631f751084de}
+      \strng{fullhash}{e85f8ad4c23dc4f4eb2b631f751084de}
+      \field{sortinit}{M}
+      \field{labelyear}{2007}
+      \field{labelmonth}{12}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Automated Recognition of Drum Types}}
+      \field{month}{12}
+      \field{title}{{Automated Recognition of Drum Types}}
+      \field{type}{techreport}
+      \field{year}{2007}
+    \endentry
+    \entry{Campbell:2001}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=806e5f5884aadc12419b45179f218f13}{Murray\bibnamedelima Campbell}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{Clive\bibnamedelima Greated}{C\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{Clive\bibnamedelimb A.\bibnamedelimi Greated}{C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim G\bibinitperiod}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=806e5f5884aadc12419b45179f218f13}{Murray\bibnamedelima Campbell}{M\bibinitperiod\bibinitdelim C\bibinitperiod}{Clive\bibnamedelima Greated}{C\bibinitperiod\bibinitdelim G\bibinitperiod}{}{}{Clive\bibnamedelimb A.\bibnamedelimi Greated}{C\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim G\bibinitperiod}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{806e5f5884aadc12419b45179f218f13}
+      \strng{fullhash}{806e5f5884aadc12419b45179f218f13}
+      \field{sortinit}{M}
+      \field{labelyear}{2001}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{The Musician's Guide to Acoustics}}
+      \field{isbn}{0198165056}
+      \field{title}{{The Musician's Guide to Acoustics}}
+      \field{year}{2001}
+    \endentry
+    \entry{WebMidiApiMDN:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=db9fa0c2e26681c8c19d56db344506bd}{Network}{N\bibinitperiod}{Mozilla\bibnamedelima Developer}{M\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=db9fa0c2e26681c8c19d56db344506bd}{Network}{N\bibinitperiod}{Mozilla\bibnamedelima Developer}{M\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{db9fa0c2e26681c8c19d56db344506bd}
+      \strng{fullhash}{db9fa0c2e26681c8c19d56db344506bd}
+      \field{sortinit}{N}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{Basic concepts behind Web Audio API}}
+      \field{note}{accessed 03.04.2015}
+      \field{title}{{Basic concepts behind Web Audio API}}
+      \verb{url}
+      \verb https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API
+      \endverb
+    \endentry
+    \entry{Schloss:1985}{report}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=9c671258753e3a09d497685830b194ae}{Schloss}{S\bibinitperiod}{W.\bibnamedelimi Andrew}{W\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=9c671258753e3a09d497685830b194ae}{Schloss}{S\bibinitperiod}{W.\bibnamedelimi Andrew}{W\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {Stanford, California 94305}%
+      }
+      \list{organization}{1}{%
+        {Center for Computer Research in Music an Acoustics, Department of Music, Stanford University}%
+      }
+      \strng{namehash}{9c671258753e3a09d497685830b194ae}
+      \strng{fullhash}{9c671258753e3a09d497685830b194ae}
+      \field{sortinit}{S}
+      \field{labelyear}{1985}
+      \field{labelmonth}{05}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{On the automatic transcription of percussive music -- from acoustic signal to high-level analysis}}
+      \field{month}{05}
+      \field{number}{STAN-M-27}
+      \field{title}{{On the automatic transcription of percussive music -- from acoustic signal to high-level analysis}}
+      \field{type}{techreport}
+      \field{year}{1985}
+    \endentry
+    \entry{JazzPlugin:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=1f505a9a2756a79e48c2ae239be975da}{Soft}{S\bibinitperiod}{Jazz}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=1f505a9a2756a79e48c2ae239be975da}{Soft}{S\bibinitperiod}{Jazz}{J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{1f505a9a2756a79e48c2ae239be975da}
+      \strng{fullhash}{1f505a9a2756a79e48c2ae239be975da}
+      \field{sortinit}{S}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{Jazz-Plugin}}
+      \field{note}{accessed 03.04.2015}
+      \field{title}{{Jazz-Plugin}}
+      \verb{url}
+      \verb http://jazz-soft.net/
+      \endverb
+    \endentry
+    \entry{Stein:2013}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=09a494e3c9d4e52b32e466c996c3c35a}{Stein}{S\bibinitperiod}{Olaf}{O\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=09a494e3c9d4e52b32e466c996c3c35a}{Stein}{S\bibinitperiod}{Olaf}{O\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Naumann & Göbel Verlagsgesellschaft GmbH}%
+      }
+      \strng{namehash}{09a494e3c9d4e52b32e466c996c3c35a}
+      \strng{fullhash}{09a494e3c9d4e52b32e466c996c3c35a}
+      \field{sortinit}{S}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Schlagzeug Basiswissen}}
+      \field{isbn}{978-3-625-12531-0}
+      \field{title}{{Schlagzeug Basiswissen}}
+      \field{year}{2013}
+    \endentry
+    \entry{Simsekli:2010}{article}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=5b6d43e6d4d155fc6eb395e3452209d1}{Umut\bibnamedelima Şimşekli}{U\bibinitperiod\bibinitdelim Ş\bibinitperiod}{A.\bibnamedelimi Taylan\bibnamedelima Cemgil}{A\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=5b6d43e6d4d155fc6eb395e3452209d1}{Umut\bibnamedelima Şimşekli}{U\bibinitperiod\bibinitdelim Ş\bibinitperiod}{A.\bibnamedelimi Taylan\bibnamedelima Cemgil}{A\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
+      }
+      \list{location}{1}{%
+        {34342 Istanbul, Turkey}%
+      }
+      \list{publisher}{1}{%
+        {Boğaziçi University, Department of Computer Engineering}%
+      }
+      \strng{namehash}{5b6d43e6d4d155fc6eb395e3452209d1}
+      \strng{fullhash}{5b6d43e6d4d155fc6eb395e3452209d1}
+      \field{sortinit}{U}
+      \field{labelyear}{2010}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{A Comparison of Probabilistic Models for Online Pitch Tracking.}}
+      \field{title}{{A Comparison of Probabilistic Models for Online Pitch Tracking.}}
+      \field{year}{2010}
+    \endentry
+    \entry{Simsekli:2011}{article}{}
+      \name{labelname}{3}{}{%
+        {{uniquename=0,hash=04b330b8f576aceb2aaab5bdf6e37f35}{Umut\bibnamedelima Şimşekli}{U\bibinitperiod\bibinitdelim Ş\bibinitperiod}{Antti\bibnamedelima Jylha}{A\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=db1d9b680288faa77d07043c9b235d27}{Erkut}{E\bibinitperiod}{Cumhur}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2fd72c5b98139f704bbc12f80d3dd855}{Cemgil}{C\bibinitperiod}{A.\bibnamedelimi Taylan}{A\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{3}{}{%
+        {{uniquename=0,hash=04b330b8f576aceb2aaab5bdf6e37f35}{Umut\bibnamedelima Şimşekli}{U\bibinitperiod\bibinitdelim Ş\bibinitperiod}{Antti\bibnamedelima Jylha}{A\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=db1d9b680288faa77d07043c9b235d27}{Erkut}{E\bibinitperiod}{Cumhur}{C\bibinitperiod}{}{}{}{}}%
+        {{uniquename=0,hash=2fd72c5b98139f704bbc12f80d3dd855}{Cemgil}{C\bibinitperiod}{A.\bibnamedelimi Taylan}{A\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Hindawi Publishing Corp.}%
+      }
+      \strng{namehash}{61210b08a3307fb02828749cc16a924e}
+      \strng{fullhash}{61210b08a3307fb02828749cc16a924e}
+      \field{sortinit}{U}
+      \field{labelyear}{2011}
+      \field{labelmonth}{09}
+      \field{labelday}{29}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Real-Time Recognition of Percussive Sounds by a Model-Based Method.}}
+      \field{day}{29}
+      \field{journaltitle}{EURASIP Journal on Advances in Signal Processing - Special issue on musical applications of real-time signal processing}
+      \field{month}{09}
+      \field{title}{{Real-Time Recognition of Percussive Sounds by a Model-Based Method.}}
+      \field{volume}{2011}
+      \field{year}{2011}
+    \endentry
+    \entry{WAAPISim:2015}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=737e834735e47133b3978e7fd7542101}{WAAPISim}{W\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=737e834735e47133b3978e7fd7542101}{WAAPISim}{W\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \strng{namehash}{737e834735e47133b3978e7fd7542101}
+      \strng{fullhash}{737e834735e47133b3978e7fd7542101}
+      \field{sortinit}{W}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{WAAPISim : Web Audio API Simulator}}
+      \field{note}{accessed 03.04.2015}
+      \field{title}{{WAAPISim : Web Audio API Simulator}}
+      \verb{url}
+      \verb http://www.g200kg.com/docs/waapisim/
+      \endverb
+    \endentry
+    \entry{Weka:2014}{misc}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=44ac78b1a68266900631bc5e2d40a56c}{Waikato}{W\bibinitperiod}{University}{U\bibinitperiod}{of}{o\bibinitperiod}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=44ac78b1a68266900631bc5e2d40a56c}{Waikato}{W\bibinitperiod}{University}{U\bibinitperiod}{of}{o\bibinitperiod}{}{}}%
+      }
+      \strng{namehash}{44ac78b1a68266900631bc5e2d40a56c}
+      \strng{fullhash}{44ac78b1a68266900631bc5e2d40a56c}
+      \field{sortinit}{W}
+      \field{labelyear}{nodate}
+      \field{labeltitle}{{Weka 3: Data Mining Software in Java}}
+      \field{note}{accessed 06.10.2014}
+      \field{title}{{Weka 3: Data Mining Software in Java}}
+      \verb{url}
+      \verb http://www.cs.waikato.ac.nz/ml/weka/
+      \endverb
+    \endentry
+    \entry{Weltner:2013}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=27aaff0cb7be65e44d5a7764fd412553}{Weltner}{W\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=27aaff0cb7be65e44d5a7764fd412553}{Weltner}{W\bibinitperiod}{Klaus}{K\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Springer Spektrum}%
+      }
+      \strng{namehash}{27aaff0cb7be65e44d5a7764fd412553}
+      \strng{fullhash}{27aaff0cb7be65e44d5a7764fd412553}
+      \field{sortinit}{W}
+      \field{labelyear}{2013}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Mathematik für Physiker und Ingenieure 1}}
+      \field{edition}{17}
+      \field{isbn}{978-3-642-30084-4}
+      \field{title}{{Mathematik für Physiker und Ingenieure 1}}
+      \field{year}{2013}
+    \endentry
+    \entry{Werner:2012}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=15811b5ec1fe33466f28bf87a7c290c3}{Werner}{W\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=15811b5ec1fe33466f28bf87a7c290c3}{Werner}{W\bibinitperiod}{Martin}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {Vieweg+Teubner Verlag}%
+      }
+      \strng{namehash}{15811b5ec1fe33466f28bf87a7c290c3}
+      \strng{fullhash}{15811b5ec1fe33466f28bf87a7c290c3}
+      \field{sortinit}{W}
+      \field{labelyear}{2012}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Digitale Signalverarbeitung mit MATLAB\textsuperscript®}}
+      \field{edition}{5}
+      \field{isbn}{978-3-8348-1473-9}
+      \field{title}{{Digitale Signalverarbeitung mit MATLAB\textsuperscript®}}
+      \field{year}{2012}
+    \endentry
+    \entry{Zoelzer:2002}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=2d212434aedd0bef9aa91caa75f5b777}{Zölzer}{Z\bibinitperiod}{Udo}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=2d212434aedd0bef9aa91caa75f5b777}{Zölzer}{Z\bibinitperiod}{Udo}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons, LTD}%
+      }
+      \strng{namehash}{2d212434aedd0bef9aa91caa75f5b777}
+      \strng{fullhash}{2d212434aedd0bef9aa91caa75f5b777}
+      \field{sortinit}{Z}
+      \field{labelyear}{2002}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{DAFX - Digital Audio Effects}}
+      \field{isbn}{0-471-49078-4}
+      \field{title}{{DAFX - Digital Audio Effects}}
+      \field{year}{2002}
+    \endentry
+    \entry{Zoelzer:2008}{book}{}
+      \name{labelname}{1}{}{%
+        {{uniquename=0,hash=2d212434aedd0bef9aa91caa75f5b777}{Zölzer}{Z\bibinitperiod}{Udo}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{uniquename=0,hash=2d212434aedd0bef9aa91caa75f5b777}{Zölzer}{Z\bibinitperiod}{Udo}{U\bibinitperiod}{}{}{}{}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons, LTD}%
+      }
+      \strng{namehash}{2d212434aedd0bef9aa91caa75f5b777}
+      \strng{fullhash}{2d212434aedd0bef9aa91caa75f5b777}
+      \field{sortinit}{Z}
+      \field{labelyear}{2008}
+      \field{datelabelsource}{}
+      \field{labeltitle}{{Digital Audio Signal Processing}}
+      \field{edition}{14}
+      \field{isbn}{978-0-470-99785-7}
+      \field{title}{{Digital Audio Signal Processing}}
+      \field{year}{2008}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+

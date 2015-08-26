@@ -1,0 +1,148 @@
+\NeedsTeXFormat{LaTeX2e}
+
+%%%
+\documentclass[12pt,a4paper]{article}
+%\documentclass[12pt, a4paper]{report}
+
+\usepackage[includeheadfoot,margin=2.5cm]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{floatflt}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{subfig}
+\usepackage[ngerman,english]{babel}
+\usepackage{listings}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{endnotes}
+\usepackage{parskip}
+\usepackage{sidecap}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage[font=footnotesize]{caption}
+
+\usepackage[
+colorlinks,
+pdfpagelabels,
+pdfstartview = FitH,
+bookmarksopen = true,
+bookmarksnumbered = true,
+linkcolor = black,
+plainpages = false,
+hypertexnames = false,
+citecolor = black] {hyperref}
+
+%%%
+%\usepackage{titlesec}
+
+%\usepackage{uarial}
+%\renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[authordate,bibencoding=auto,strict]{biblatex-chicago} 
+\usepackage[babel,german=guillemets]{csquotes}
+\bibliography{Bibliography}
+
+%%%
+%\titleformat{\chapter}
+%{\normalfont\LARGE\bfseries}{\thechapter.}{0.5em}{}
+
+\definecolor{mygray}{gray}{.75}
+\definecolor{myblue}{rgb}{.2,.3,.7}
+\definecolor{myorange}{rgb}{.6,.5,.1}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break },
+  ndkeywords={class, export, boolean, throw, implements, import, this, window, document, \$, console, Math, navigator},
+  identifierstyle=\color{black},
+	showstringspaces=false,
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{mygray}\ttfamily,
+  stringstyle=\color{black}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+\lstset{ 
+  language=Matlab,
+	basicstyle=\fontsize{10pt}{12pt}\selectfont\ttfamily,
+	keywordstyle=\color{black},
+  ndkeywordstyle=\color{black}\ttfamily,
+	commentstyle=\color{mygray},
+	tabsize=1,
+	numbers=left,
+	numberstyle=\tiny\color{mygray},
+	numbersep=7pt,
+	frame=tb,
+  xleftmargin=15pt,
+	aboveskip=20pt,
+	captionpos=b,
+	breaklines=true,   
+  breakatwhitespace=false,
+	rulecolor=\color{mygray} 
+%	morekeywords={*,auto}
+}
+
+%\setcounter{tocdepth}{4}   % Aufnahme von paragraph in das Inhaltsverzeichnis
+%\setcounter{secnumdepth}{4}   %Nummerierung vertiefen
+
+%\setcounter{tocdepth}{2} 
+%\setcounter{secnumdepth}{3} 
+
+%\selectlanguage{ngerman}
+\selectlanguage{english}
+\renewcommand*\rmdefault{phv}
+
+\pdfimageresolution=150
+%\setlength{\parindent}{0pt}
+%\setlength{\parskip}{50pt plus 20pt minus 10pt}
+
+
+\begin{document}
+
+\input{Title}
+
+\pagestyle{headings}
+\pagenumbering{roman}
+
+\input{Affirmation}
+
+\newpage
+\input{Summary}
+
+\newpage
+\input{Abstract}
+
+\newpage
+\tableofcontents
+
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+\newpage
+\include{chapters/01_introduction}
+\newpage
+\include{chapters/02_basics}
+\newpage
+\include{chapters/03_related_work}
+\newpage
+\include{chapters/04_methods}
+\include{chapters/04_3_2_methods_classification_analysis}
+\include{chapters/04_3_3_methods_classification_training}
+\include{chapters/04_3_4_methods_classification_method1}
+\include{chapters/04_3_6_methods_classification_combined}
+\include{chapters/04_4_methods_javascript}
+\newpage
+\include{chapters/06_discussion_and_outlook}
+\listoffigures
+\lstlistoflistings
+\listoftables
+\newpage
+\printbibliography
+\end{document} 

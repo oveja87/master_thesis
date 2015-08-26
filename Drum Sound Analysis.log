@@ -1,0 +1,1562 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.4.18)  29 MAY 2015 22:01
+entering extended mode
+**Drum*Sound*Analysis.tex
+("C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Drum Sound Analysis.tex"
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, arabic, armenian, assamese, basque, bengali
+, bokmal, bulgarian, catalan, coptic, croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, galic
+ian, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, icelandic, indonesian, interlingua, irish, italian,
+ kannada, kurmanji, latin, latvian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, ngerman
+-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, romanian, russian, sanskrit, serbian, slovak, sloven
+ian, spanish, swedish, swissgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usenglishmax, w
+elsh, loaded.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size12.clo"
+File: size12.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.sty"
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count87
+\Gm@cntv=\count88
+\c@Gm@tempcnt=\count89
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks15
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks16
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2013/01/14 v2.14 AMS math features
+\@mathmargin=\skip43
+
+For additional information on amsmath, use the `?' option.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+Package: amstext 2000/06/29 v2.01
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+File: amsgen.sty 1999/11/30 v2.0
+\@emptytoks=\toks17
+\ex@=\dimen111
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+Package: amsbsy 1999/11/29 v1.2d
+\pmbraise@=\dimen112
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count90
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count91
+\leftroot@=\count92
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count93
+\DOTSCASE@=\count94
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
+\Mathstrutbox@=\box26
+\strutbox@=\box27
+\big@size=\dimen113
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+\macc@depth=\count95
+\c@MaxMatrixCols=\count96
+\dotsspace@=\muskip10
+\c@parentequation=\count97
+\dspbrk@lvl=\count98
+\tag@help=\toks18
+\row@=\count99
+\column@=\count100
+\maxfields@=\count101
+\andhelp@=\toks19
+\eqnshift@=\dimen114
+\alignsep@=\dimen115
+\tagshift@=\dimen116
+\tagwidth@=\dimen117
+\totwidth@=\dimen118
+\lineht@=\dimen119
+\@envbody=\toks20
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks21
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\floatflt\floatflt.sty"
+Package: floatflt 1997/07/16 v. 1.31
+\c@OptionTest=\count102
+\figbox=\box28
+\tabbox=\box29
+\pagebox=\box30
+\ffigcount=\count103
+\ftabcount=\count104
+\fftest=\count105
+\hangcount=\count106
+\nosuccesstryfig=\count107
+\nosuccesstrytab=\count108
+\figgutter=\dimen120
+\tabgutter=\dimen121
+\htdone=\dimen122
+\pageht=\dimen123
+\startpageht=\dimen124
+\tabbredd=\dimen125
+\floatfltwidth=\dimen126
+\fltitemwidth=\dimen127
+\outputpretest=\toks22
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count109
+))
+\Gin@req@height=\dimen128
+\Gin@req@width=\dimen129
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 130.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
+\captionmargin=\dimen130
+\captionmargin@=\dimen131
+\captionwidth=\dimen132
+\caption@tempdima=\dimen133
+\caption@indent=\dimen134
+\caption@parindent=\dimen135
+\caption@hangindent=\dimen136
+)
+\c@ContinuedFloat=\count110
+Package caption Info: floatflt package is loaded.
+)
+\c@KVtest=\count111
+\sf@farskip=\skip46
+\sf@captopadj=\dimen137
+\sf@capskip=\skip47
+\sf@nearskip=\skip48
+\c@subfigure=\count112
+\c@subfigure@save=\count113
+\c@lofdepth=\count114
+\c@subtable=\count115
+\c@subtable@save=\count116
+\c@lotdepth=\count117
+\sf@top=\skip49
+\sf@bottom=\skip50
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.sty"
+Package: babel 2008/07/08 v3.8m The Babel package
+
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\ngermanb.ldf"
+Language: ngermanb 2008/07/06 v2.6n new German support from the babel system
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\babel.def"
+File: babel.def 2008/07/08 v3.8m Babel common definitions
+\babel@savecnt=\count118
+\U@D=\dimen138
+)
+\l@naustrian = a dialect from \language\l@ngerman 
+Package babel Info: Making " an active character on input line 92.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\babel\english.ldf"
+Language: english 2005/03/30 v3.3o English support from the babel system
+\l@canadian = a dialect from \language\l@american 
+\l@australian = a dialect from \language\l@british 
+\l@newzealand = a dialect from \language\l@british 
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.sty"
+\lst@mode=\count119
+\lst@gtempboxa=\box31
+\lst@token=\toks23
+\lst@length=\count120
+\lst@currlwidth=\dimen139
+\lst@column=\count121
+\lst@pos=\count122
+\lst@lostspace=\dimen140
+\lst@width=\dimen141
+\lst@newlines=\count123
+\lst@lineno=\count124
+\lst@maxwidth=\dimen142
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2014/03/04 1.5c (Carsten Heinz)
+\c@lstnumber=\count125
+\lst@skipnumbers=\count126
+\lst@framebox=\box32
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2014/03/04 1.5c listings configuration
+))
+Package: listings 2014/03/04 1.5c (Carsten Heinz)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\fontenc.sty"
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.def"
+File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\inputenc.sty"
+Package: inputenc 2008/03/30 v1.1d Input encoding file
+\inpenc@prehook=\toks24
+\inpenc@posthook=\toks25
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\utf8.def"
+File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
+Now handling font encoding OML ...
+... no UTF-8 mapping file for font encoding OML
+Now handling font encoding T1 ...
+... processing UTF-8 mapping file for font encoding T1
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1enc.dfu"
+File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00AB (decimal 171)
+   defining Unicode char U+00BB (decimal 187)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C0 (decimal 192)
+   defining Unicode char U+00C1 (decimal 193)
+   defining Unicode char U+00C2 (decimal 194)
+   defining Unicode char U+00C3 (decimal 195)
+   defining Unicode char U+00C4 (decimal 196)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00C7 (decimal 199)
+   defining Unicode char U+00C8 (decimal 200)
+   defining Unicode char U+00C9 (decimal 201)
+   defining Unicode char U+00CA (decimal 202)
+   defining Unicode char U+00CB (decimal 203)
+   defining Unicode char U+00CC (decimal 204)
+   defining Unicode char U+00CD (decimal 205)
+   defining Unicode char U+00CE (decimal 206)
+   defining Unicode char U+00CF (decimal 207)
+   defining Unicode char U+00D0 (decimal 208)
+   defining Unicode char U+00D1 (decimal 209)
+   defining Unicode char U+00D2 (decimal 210)
+   defining Unicode char U+00D3 (decimal 211)
+   defining Unicode char U+00D4 (decimal 212)
+   defining Unicode char U+00D5 (decimal 213)
+   defining Unicode char U+00D6 (decimal 214)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00D9 (decimal 217)
+   defining Unicode char U+00DA (decimal 218)
+   defining Unicode char U+00DB (decimal 219)
+   defining Unicode char U+00DC (decimal 220)
+   defining Unicode char U+00DD (decimal 221)
+   defining Unicode char U+00DE (decimal 222)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E0 (decimal 224)
+   defining Unicode char U+00E1 (decimal 225)
+   defining Unicode char U+00E2 (decimal 226)
+   defining Unicode char U+00E3 (decimal 227)
+   defining Unicode char U+00E4 (decimal 228)
+   defining Unicode char U+00E5 (decimal 229)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00E7 (decimal 231)
+   defining Unicode char U+00E8 (decimal 232)
+   defining Unicode char U+00E9 (decimal 233)
+   defining Unicode char U+00EA (decimal 234)
+   defining Unicode char U+00EB (decimal 235)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F0 (decimal 240)
+   defining Unicode char U+00F1 (decimal 241)
+   defining Unicode char U+00F2 (decimal 242)
+   defining Unicode char U+00F3 (decimal 243)
+   defining Unicode char U+00F4 (decimal 244)
+   defining Unicode char U+00F5 (decimal 245)
+   defining Unicode char U+00F6 (decimal 246)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+00F9 (decimal 249)
+   defining Unicode char U+00FA (decimal 250)
+   defining Unicode char U+00FB (decimal 251)
+   defining Unicode char U+00FC (decimal 252)
+   defining Unicode char U+00FD (decimal 253)
+   defining Unicode char U+00FE (decimal 254)
+   defining Unicode char U+00FF (decimal 255)
+   defining Unicode char U+0102 (decimal 258)
+   defining Unicode char U+0103 (decimal 259)
+   defining Unicode char U+0104 (decimal 260)
+   defining Unicode char U+0105 (decimal 261)
+   defining Unicode char U+0106 (decimal 262)
+   defining Unicode char U+0107 (decimal 263)
+   defining Unicode char U+010C (decimal 268)
+   defining Unicode char U+010D (decimal 269)
+   defining Unicode char U+010E (decimal 270)
+   defining Unicode char U+010F (decimal 271)
+   defining Unicode char U+0110 (decimal 272)
+   defining Unicode char U+0111 (decimal 273)
+   defining Unicode char U+0118 (decimal 280)
+   defining Unicode char U+0119 (decimal 281)
+   defining Unicode char U+011A (decimal 282)
+   defining Unicode char U+011B (decimal 283)
+   defining Unicode char U+011E (decimal 286)
+   defining Unicode char U+011F (decimal 287)
+   defining Unicode char U+0130 (decimal 304)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0132 (decimal 306)
+   defining Unicode char U+0133 (decimal 307)
+   defining Unicode char U+0139 (decimal 313)
+   defining Unicode char U+013A (decimal 314)
+   defining Unicode char U+013D (decimal 317)
+   defining Unicode char U+013E (decimal 318)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0143 (decimal 323)
+   defining Unicode char U+0144 (decimal 324)
+   defining Unicode char U+0147 (decimal 327)
+   defining Unicode char U+0148 (decimal 328)
+   defining Unicode char U+014A (decimal 330)
+   defining Unicode char U+014B (decimal 331)
+   defining Unicode char U+0150 (decimal 336)
+   defining Unicode char U+0151 (decimal 337)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+0154 (decimal 340)
+   defining Unicode char U+0155 (decimal 341)
+   defining Unicode char U+0158 (decimal 344)
+   defining Unicode char U+0159 (decimal 345)
+   defining Unicode char U+015A (decimal 346)
+   defining Unicode char U+015B (decimal 347)
+   defining Unicode char U+015E (decimal 350)
+   defining Unicode char U+015F (decimal 351)
+   defining Unicode char U+0160 (decimal 352)
+   defining Unicode char U+0161 (decimal 353)
+   defining Unicode char U+0162 (decimal 354)
+   defining Unicode char U+0163 (decimal 355)
+   defining Unicode char U+0164 (decimal 356)
+   defining Unicode char U+0165 (decimal 357)
+   defining Unicode char U+016E (decimal 366)
+   defining Unicode char U+016F (decimal 367)
+   defining Unicode char U+0170 (decimal 368)
+   defining Unicode char U+0171 (decimal 369)
+   defining Unicode char U+0178 (decimal 376)
+   defining Unicode char U+0179 (decimal 377)
+   defining Unicode char U+017A (decimal 378)
+   defining Unicode char U+017B (decimal 379)
+   defining Unicode char U+017C (decimal 380)
+   defining Unicode char U+017D (decimal 381)
+   defining Unicode char U+017E (decimal 382)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201A (decimal 8218)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+   defining Unicode char U+201E (decimal 8222)
+   defining Unicode char U+2030 (decimal 8240)
+   defining Unicode char U+2031 (decimal 8241)
+   defining Unicode char U+2039 (decimal 8249)
+   defining Unicode char U+203A (decimal 8250)
+   defining Unicode char U+2423 (decimal 9251)
+)
+Now handling font encoding OT1 ...
+... processing UTF-8 mapping file for font encoding OT1
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ot1enc.dfu"
+File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A1 (decimal 161)
+   defining Unicode char U+00A3 (decimal 163)
+   defining Unicode char U+00B8 (decimal 184)
+   defining Unicode char U+00BF (decimal 191)
+   defining Unicode char U+00C5 (decimal 197)
+   defining Unicode char U+00C6 (decimal 198)
+   defining Unicode char U+00D8 (decimal 216)
+   defining Unicode char U+00DF (decimal 223)
+   defining Unicode char U+00E6 (decimal 230)
+   defining Unicode char U+00EC (decimal 236)
+   defining Unicode char U+00ED (decimal 237)
+   defining Unicode char U+00EE (decimal 238)
+   defining Unicode char U+00EF (decimal 239)
+   defining Unicode char U+00F8 (decimal 248)
+   defining Unicode char U+0131 (decimal 305)
+   defining Unicode char U+0141 (decimal 321)
+   defining Unicode char U+0142 (decimal 322)
+   defining Unicode char U+0152 (decimal 338)
+   defining Unicode char U+0153 (decimal 339)
+   defining Unicode char U+2013 (decimal 8211)
+   defining Unicode char U+2014 (decimal 8212)
+   defining Unicode char U+2018 (decimal 8216)
+   defining Unicode char U+2019 (decimal 8217)
+   defining Unicode char U+201C (decimal 8220)
+   defining Unicode char U+201D (decimal 8221)
+)
+Now handling font encoding OMS ...
+... processing UTF-8 mapping file for font encoding OMS
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omsenc.dfu"
+File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
+   defining Unicode char U+00A7 (decimal 167)
+   defining Unicode char U+00B6 (decimal 182)
+   defining Unicode char U+00B7 (decimal 183)
+   defining Unicode char U+2020 (decimal 8224)
+   defining Unicode char U+2021 (decimal 8225)
+   defining Unicode char U+2022 (decimal 8226)
+)
+Now handling font encoding OMX ...
+... no UTF-8 mapping file for font encoding OMX
+Now handling font encoding U ...
+... no UTF-8 mapping file for font encoding U
+   defining Unicode char U+00A9 (decimal 169)
+   defining Unicode char U+00AA (decimal 170)
+   defining Unicode char U+00AE (decimal 174)
+   defining Unicode char U+00BA (decimal 186)
+   defining Unicode char U+02C6 (decimal 710)
+   defining Unicode char U+02DC (decimal 732)
+   defining Unicode char U+200C (decimal 8204)
+   defining Unicode char U+2026 (decimal 8230)
+   defining Unicode char U+2122 (decimal 8482)
+   defining Unicode char U+2423 (decimal 9251)
+))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\endnotes\endnotes.sty"
+\c@endnote=\count127
+\endnotesep=\dimen143
+\@enotes=\write3
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ltxmisc\parskip.sty"
+Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\sidecap\sidecap.sty"
+Package: sidecap 2003/06/06 v1.6f SideCap Package (RN/HjG)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\SC@BOXWD=\dimen144
+\SC@CAPWD=\dimen145
+\SC@tempdima=\dimen146
+\SC@tempdimb=\dimen147
+\c@SC@C=\count128
+\SC@BOX=\box33
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\setspace\setspace.sty"
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2012/04/25 v1.12 Bundle oberdiek, subset hyperref (HO)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2012/04/25 v1.12 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/04/25 v1.12 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2011/06/24 v1.1 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen148
+\Hy@linkcounter=\count129
+\Hy@pagecounter=\count130
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count131
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 4319.
+Package hyperref Info: Option `pdfpagelabels' set `true' on input line 4319.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4319.
+Package hyperref Info: Option `bookmarksnumbered' set `true' on input line 4319.
+Package hyperref Info: Option `plainpages' set `false' on input line 4319.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 4319.
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count132
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen149
+\Fld@menulength=\count133
+\Field@Width=\dimen150
+\Fld@charsize=\dimen151
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring ON on input line 6313.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count134
+\c@Item=\count135
+\c@Hfootnote=\count136
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2012/11/06 v6.83m Hyperref driver for pdfTeX
+\Fld@listcount=\count137
+\c@bookmark@seq@number=\count138
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 282.
+)
+\Hy@SectionHShift=\skip51
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex-chicago\biblatex-chicago.sty"
+Package: biblatex-chicago 2013/10/29 v 2.8 biblatex style
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty"
+Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\misc\etex.sty"
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count139
+)
+\etb@tempcnta=\count140
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\biblatex.sty"
+Package: biblatex 2013/11/25 v2.8a programmable bibliographies (PK/JW/AB)
+
+
+Package biblatex Warning: No "backend" specified, using Biber backend.
+(biblatex)                To use BibTeX, load biblatex with 
+(biblatex)                the "backend=bibtex" option.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\biblatex2.sty"
+Package: biblatex2 2013/11/25 v2.8a programmable bibliographies (biber) (PK/JW/AB)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\logreq\logreq.sty"
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count141
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\logreq\logreq.def"
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+))
+\c@tabx@nest=\count142
+\c@listtotal=\count143
+\c@listcount=\count144
+\c@liststart=\count145
+\c@liststop=\count146
+\c@citecount=\count147
+\c@citetotal=\count148
+\c@multicitecount=\count149
+\c@multicitetotal=\count150
+\c@instcount=\count151
+\c@maxnames=\count152
+\c@minnames=\count153
+\c@maxitems=\count154
+\c@minitems=\count155
+\c@citecounter=\count156
+\c@savedcitecounter=\count157
+\c@uniquelist=\count158
+\c@uniquename=\count159
+\c@refsection=\count160
+\c@refsegment=\count161
+\c@maxextratitle=\count162
+\c@maxextratitleyear=\count163
+\c@maxextrayear=\count164
+\c@maxextraalpha=\count165
+\c@abbrvpenalty=\count166
+\c@highnamepenalty=\count167
+\c@lownamepenalty=\count168
+\c@maxparens=\count169
+\c@parenlevel=\count170
+\blx@tempcnta=\count171
+\blx@tempcntb=\count172
+\blx@tempcntc=\count173
+\blx@maxsection=\count174
+\blx@maxsegment@0=\count175
+\blx@notetype=\count176
+\blx@parenlevel@text=\count177
+\blx@parenlevel@foot=\count178
+\blx@sectionciteorder@0=\count179
+\labelnumberwidth=\skip52
+\labelalphawidth=\skip53
+\shorthandwidth=\skip54
+\biblabelsep=\skip55
+\bibitemsep=\skip56
+\bibnamesep=\skip57
+\bibinitsep=\skip58
+\bibparsep=\skip59
+\bibhang=\skip60
+\blx@bcfin=\read1
+\blx@bcfout=\write4
+\c@mincomprange=\count180
+\c@maxcomprange=\count181
+\c@mincompwidth=\count182
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\blx-dm.def")
+Package biblatex Info: Trying to load biblatex style data model...
+Package biblatex Info: ... file 'chicago-authordate.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count183
+\c@savedafterword=\count184
+\c@annotator=\count185
+\c@savedannotator=\count186
+\c@author=\count187
+\c@savedauthor=\count188
+\c@bookauthor=\count189
+\c@savedbookauthor=\count190
+\c@commentator=\count191
+\c@savedcommentator=\count192
+\c@editor=\count193
+\c@savededitor=\count194
+\c@editora=\count195
+\c@savededitora=\count196
+\c@editorb=\count197
+\c@savededitorb=\count198
+\c@editorc=\count199
+\c@savededitorc=\count200
+\c@foreword=\count201
+\c@savedforeword=\count202
+\c@holder=\count203
+\c@savedholder=\count204
+\c@introduction=\count205
+\c@savedintroduction=\count206
+\c@namea=\count207
+\c@savednamea=\count208
+\c@nameb=\count209
+\c@savednameb=\count210
+\c@namec=\count211
+\c@savednamec=\count212
+\c@shortauthor=\count213
+\c@savedshortauthor=\count214
+\c@shorteditor=\count215
+\c@savedshorteditor=\count216
+\c@translator=\count217
+\c@savedtranslator=\count218
+\c@labelname=\count219
+\c@savedlabelname=\count220
+\c@institution=\count221
+\c@savedinstitution=\count222
+\c@lista=\count223
+\c@savedlista=\count224
+\c@listb=\count225
+\c@savedlistb=\count226
+\c@listc=\count227
+\c@savedlistc=\count228
+\c@listd=\count229
+\c@savedlistd=\count230
+\c@liste=\count231
+\c@savedliste=\count232
+\c@listf=\count233
+Normal \count register pool exhausted, switching to extended pool.
+\c@savedlistf=\count277
+\c@location=\count278
+\c@savedlocation=\count279
+\c@organization=\count280
+\c@savedorganization=\count281
+\c@origlocation=\count282
+\c@savedoriglocation=\count283
+\c@origpublisher=\count284
+\c@savedorigpublisher=\count285
+\c@publisher=\count286
+\c@savedpublisher=\count287
+\c@language=\count288
+\c@savedlanguage=\count289
+\c@pageref=\count290
+\c@savedpageref=\count291
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\blx-compat.def"
+File: blx-compat.def 2013/11/25 v2.8a biblatex compatibility (PK/JW/AB)
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\biblatex.def"
+File: biblatex.def 
+\c@textcitecount=\count292
+\c@textcitetotal=\count293
+\c@textcitemaxnames=\count294
+\c@biburlnumpenalty=\count295
+\c@biburlucpenalty=\count296
+\c@biburllcpenalty=\count297
+\c@smartand=\count298
+)
+Package biblatex Info: Trying to load bibliography style 'chicago-authordate'...
+Package biblatex Info: ... file 'chicago-authordate.bbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex-chicago\chicago-authordate.bbx"
+File: chicago-authordate.bbx 2013/10/29 v 2.8 biblatex bibliography style
+\lositemsep=\skip61
+)
+Package biblatex Info: Trying to load citation style 'chicago-authordate'...
+Package biblatex Info: ... file 'chicago-authordate.cbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex-chicago\chicago-authordate.cbx"
+File: chicago-authordate.cbx 2013/10/29 v 2.8 biblatex citation style
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\footcites'.
+Package biblatex Info: Redefining '\footcitetexts'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\biblatex.cfg"
+File: biblatex.cfg 
+))))
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\csquotes\csquotes.sty"
+Package: csquotes 2011/10/22 v5.1d context-sensitive quotations
+\csq@reset=\count299
+\csq@gtype=\count300
+\csq@glevel=\count301
+\csq@qlevel=\count302
+\csq@maxlvl=\count303
+\csq@tshold=\count304
+\csq@ltx@everypar=\toks26
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\csquotes\csquotes.def"
+File: csquotes.def 2011/10/22 v5.1d csquotes generic definitions
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\csquotes\csquotes.cfg"
+File: csquotes.cfg 
+)
+Package csquotes Info: Option 'babel' depreciated.
+(csquotes)             Using 'autostyle'.
+Package csquotes Info: Enabling multilingual quotes.
+Package csquotes Info: Redefining alias 'german' -> 'german/guillemets'.
+)
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2014/03/04 1.5c listings language file
+)
+Package biblatex Info: Trying to load language 'english' -> 'cms-american'...
+Package biblatex Info: ... file 'cms-american.lbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex-chicago\cms-american.lbx"
+File: cms-american.lbx 2013/10/29 v 2.8 biblatex localization
+Package biblatex Info: Trying to load language 'american'...
+Package biblatex Info: ... file 'american.lbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\lbx\american.lbx"
+File: american.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx"
+File: english.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
+)))
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... found 'babel' package.
+
+("C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Drum Sound Analysis.aux"
+Package biblatex Info: Trying to load language 'ngerman' -> 'cms-ngerman'...
+Package biblatex Info: ... file 'cms-ngerman.lbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex-chicago\cms-ngerman.lbx"
+File: cms-ngerman.lbx 2013/10/29 v 2.8 biblatex localization
+Package biblatex Info: Trying to load language 'ngerman'...
+Package biblatex Info: ... file 'ngerman.lbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\lbx\ngerman.lbx"
+File: ngerman.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
+Package biblatex Info: Trying to load language 'german' -> 'cms-german'...
+Package biblatex Info: ... file 'cms-german.lbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex-chicago\cms-german.lbx"
+File: cms-german.lbx 2013/10/29 v 2.8 biblatex localization
+Package biblatex Info: Trying to load language 'german'...
+Package biblatex Info: ... file 'german.lbx' found.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\biblatex\lbx\german.lbx"
+File: german.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
+))))
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/01_introduction.aux)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/02_basics.aux)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/03_related_work.aux)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/04_methods.aux
+
+LaTeX Warning: Label `fig:components' multiply defined.
+
+)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/04_3_2_methods_classification_analy
+sis.aux
+
+LaTeX Warning: Label `fig:snare12' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:snare12' multiply defined.
+
+
+LaTeX Warning: Label `fig:snare33' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:snare33' multiply defined.
+
+
+LaTeX Warning: Label `fig:crashride11' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:crashride11' multiply defined.
+
+
+LaTeX Warning: Label `fig:crashride12' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:crashride12' multiply defined.
+
+
+LaTeX Warning: Label `fig:crashride13' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:crashride13' multiply defined.
+
+
+LaTeX Warning: Label `fig:crashride14' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:crashride14' multiply defined.
+
+
+LaTeX Warning: Label `fig:crashride1' multiply defined.
+
+
+LaTeX Warning: Label `fig:crashride2' multiply defined.
+
+)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/04_3_3_methods_classification_train
+ing.aux)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/04_3_4_methods_classification_metho
+d1.aux
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `fig:visMeanA' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+
+LaTeX Warning: Label `' multiply defined.
+
+)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/04_3_6_methods_classification_combi
+ned.aux)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/04_4_methods_javascript.aux)
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/06_discussion_and_outlook.aux))
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 106.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includehead includefoot 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=635.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-1.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=14.8pt plus 6.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count305
+\scratchdimen=\dimen152
+\scratchbox=\box34
+\nofMPsegments=\count306
+\nofMParguments=\count307
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count308
+\MPscratchDim=\dimen153
+\MPnumerator=\count309
+\makeMPintoPDFobject=\count310
+\everyMPtoPDFconversion=\toks28
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
+Package caption Info: sidecap package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count311
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ms\ragged2e.sty"
+Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ms\everysel.sty"
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+ ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 126.
+)
+\CenteringLeftskip=\skip62
+\RaggedLeftLeftskip=\skip63
+\RaggedRightLeftskip=\skip64
+\CenteringRightskip=\skip65
+\RaggedLeftRightskip=\skip66
+\RaggedRightRightskip=\skip67
+\CenteringParfillskip=\skip68
+\RaggedLeftParfillskip=\skip69
+\RaggedRightParfillskip=\skip70
+\JustifyingParfillskip=\skip71
+\CenteringParindent=\skip72
+\RaggedLeftParindent=\skip73
+\RaggedRightParindent=\skip74
+\JustifyingParindent=\skip75
+)
+\AtBeginShipoutBox=\box35
+Package hyperref Info: Link coloring ON on input line 106.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count312
+)
+LaTeX Info: Redefining \ref on input line 106.
+LaTeX Info: Redefining \pageref on input line 106.
+LaTeX Info: Redefining \nameref on input line 106.
+
+("C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Drum Sound Analysis.out")
+("C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Drum Sound Analysis.out")
+\@outlinefile=\write5
+Package biblatex Info: Input encoding 'utf8' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'utf8'.
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'Drum*Sound*Analysis.bbl' found.
+
+("C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Drum Sound Analysis.bbl")
+Package biblatex Info: Reference section=0 on input line 106.
+Package biblatex Info: Reference segment=0 on input line 106.
+
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Title.tex
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 5.
+ [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}] <images/FHSLogo.png, id=261, 236.885pt x 116.435pt>
+File: images/FHSLogo.png Graphic file (type png)
+ <use images/FHSLogo.png>
+Package pdftex.def Info: images/FHSLogo.png used on input line 13.
+(pdftex.def)             Requested size: 86.82918pt x 42.67912pt.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <17.28> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 29.
+ [2 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/FHSLogo.png>])
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Affirmation.tex
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 1.
+
+Overfull \hbox (6.86397pt too wide) in paragraph at lines 3--4
+\T1/phv/m/n/12 Hiermit ver-sichere ich, Vor-name Fam-i-li-en-name, ge-boren am 17.01.1987 in Saar-brücken,
+ []
+
+
+Overfull \hbox (1.43558pt too wide) in paragraph at lines 3--4
+\T1/phv/m/n/12 dass ich die Grund-sätze wis-senschaftlichen Ar-beit-ens nach bestem Wis-sen und Gewis-
+ []
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 20.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 20.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)) [1]
+(C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Summary.tex
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 3.
+LaTeX Font Info:    Try loading font information for OMS+phv on input line 7.
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\psnfss\omsphv.fd"
+File: omsphv.fd 
+)
+LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 7.
+
+Underfull \hbox (badness 1824) in paragraph at lines 7--8
+\T1/phv/m/n/12 Im Rah-men die-ser Ar-beit wird ein Kon-zept für ei-ne Er-wei-te-rung der Online-
+ []
+
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 17.
+LaTeX Font Info:    Font shape `T1/phv/m/it' in size <12> not available
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 17.
+) [2] (C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Abstract.tex) [3]
+("C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\Drum Sound Analysis.toc" [4]
+Overfull \hbox (1.41573pt too wide) detected at line 128
+ []\T1/phv/m/n/12 101
+ []
+
+
+Overfull \hbox (1.41573pt too wide) detected at line 130
+ []\T1/phv/m/n/12 101
+ []
+
+
+Overfull \hbox (1.41573pt too wide) detected at line 132
+ []\T1/phv/m/n/12 102
+ []
+
+
+Overfull \hbox (1.41573pt too wide) detected at line 134
+ []\T1/phv/m/n/12 107
+ []
+
+
+Overfull \hbox (1.41573pt too wide) detected at line 136
+ []\T1/phv/m/n/12 110
+ []
+
+)
+\tf@toc=\write6
+ [5] (C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/01_introduction.tex [1
+
+]
+[2] [3]) [4] (C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/02_basics.tex
+<images/Easydrum/configuratorscreen.png, id=407, 398.4486pt x 224.5188pt>
+File: images/Easydrum/configuratorscreen.png Graphic file (type png)
+ <use images/Easydrum/configuratorscreen.png>
+Package pdftex.def Info: images/Easydrum/configuratorscreen.png used on input line 13.
+(pdftex.def)             Requested size: 455.24411pt x 256.52618pt.
+
+[5
+
+
+ <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/Easydrum/configuratorscreen.png>]
+<images/Easydrum/exerciseplayerscreen.png, id=413, 578.16pt x 325.6968pt>
+File: images/Easydrum/exerciseplayerscreen.png Graphic file (type png)
+
+<use images/Easydrum/exerciseplayerscreen.png>
+Package pdftex.def Info: images/Easydrum/exerciseplayerscreen.png used on input line 24.
+(pdftex.def)             Requested size: 455.24411pt x 256.45279pt.
+ [6 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/Easydrum/exerciseplayerscreen.png
+>]
+Overfull \hbox (4.85448pt too wide) in paragraph at lines 36--37
+\T1/phv/m/n/12 The com-po-nents of Easy-drum largely run in the web fron-tend with the help of JavaScript. 
+ []
+
+[7] <images/Easydrum/app_architcture.png, id=429, 555.9972pt x 496.7358pt>
+File: images/Easydrum/app_architcture.png Graphic file (type png)
+ <use images/Easydrum/app_architcture.png>
+Package pdftex.def Info: images/Easydrum/app_architcture.png used on input line 50.
+(pdftex.def)             Requested size: 364.19667pt x 325.39085pt.
+
+[8 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/Easydrum/app_architcture.png>]
+<images/drumset/drumset_02.jpg, id=435, 1507.0704pt x 1002.144pt>
+File: images/drumset/drumset_02.jpg Graphic file (type jpg)
+ <use images/drumset/drumset_02.jpg>
+Package pdftex.def Info: images/drumset/drumset_02.jpg used on input line 72.
+(pdftex.def)             Requested size: 256.72748pt x 170.71652pt.
+
+<images/drumset/ride.jpg, id=436, 558.888pt x 712.1004pt>
+File: images/drumset/ride.jpg Graphic file (type jpg)
+ <use images/drumset/ride.jpg>
+Package pdftex.def Info: images/drumset/ride.jpg used on input line 78.
+(pdftex.def)             Requested size: 133.98235pt x 170.71652pt.
+ [9 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/drumset/drumset_02.jpg> <C:/Users
+/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/drumset/ride.jpg>]
+<images/drumsandsheets/example.png, id=449, 1787.92969pt x 362.10281pt>
+File: images/drumsandsheets/example.png Graphic file (type png)
+ <use images/drumsandsheets/example.png>
+Package pdftex.def Info: images/drumsandsheets/example.png used on input line 98.
+(pdftex.def)             Requested size: 455.24411pt x 92.19962pt.
+ [10 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/drumsandsheets/example.png>]
+<images/drumsandsheets/notation.png, id=459, 1437.87187pt x 462.97969pt>
+File: images/drumsandsheets/notation.png Graphic file (type png)
+ <use images/drumsandsheets/notation.png>
+Package pdftex.def Info: images/drumsandsheets/notation.png used on input line 109.
+(pdftex.def)             Requested size: 455.24411pt x 146.58113pt.
+
+<images/drumsandsheets/note_values.png, id=461, 535.5207pt x 102.8643pt>
+File: images/drumsandsheets/note_values.png Graphic file (type png)
+ <use images/drumsandsheets/note_values.png>
+Package pdftex.def Info: images/drumsandsheets/note_values.png used on input line 122.
+(pdftex.def)             Requested size: 455.24411pt x 87.44762pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[11 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/drumsandsheets/notation.png>]
+<images/audiosignal.png, id=473, 587.0733pt x 218.7372pt>
+File: images/audiosignal.png Graphic file (type png)
+ <use images/audiosignal.png>
+Package pdftex.def Info: images/audiosignal.png used on input line 142.
+(pdftex.def)             Requested size: 409.71692pt x 152.65771pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/drumsandsheets/note_values.png>]
+<images/sine1.png, id=491, 241.8636pt x 75.4017pt>
+File: images/sine1.png Graphic file (type png)
+ <use images/sine1.png>
+Package pdftex.def Info: images/sine1.png used on input line 168.
+(pdftex.def)             Requested size: 273.81198pt x 85.35826pt.
+
+<images/sine2.png, id=492, 158.2713pt x 98.769pt>
+File: images/sine2.png Graphic file (type png)
+ <use images/sine2.png>
+Package pdftex.def Info: images/sine2.png used on input line 175.
+(pdftex.def)             Requested size: 136.78444pt x 85.35826pt.
+ [13 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/audiosignal.png> <C:/Users/Katri
+n/dev/easydrum_prototype/audio_signal_analysis/documentation/images/sine1.png> <C:/Users/Katrin/dev/easydrum_prototype/a
+udio_signal_analysis/documentation/images/sine2.png>] <images/sine3.png, id=507, 204.765pt x 104.0688pt>
+File: images/sine3.png Graphic file (type png)
+ <use images/sine3.png>
+Package pdftex.def Info: images/sine3.png used on input line 192.
+(pdftex.def)             Requested size: 204.85974pt x 104.12411pt.
+
+<images/sine4.png, id=508, 204.5241pt x 99.4917pt>
+File: images/sine4.png Graphic file (type png)
+ <use images/sine4.png>
+Package pdftex.def Info: images/sine4.png used on input line 195.
+(pdftex.def)             Requested size: 204.85974pt x 99.65843pt.
+ [14 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/sine3.png> <C:/Users/Katrin/dev/
+easydrum_prototype/audio_signal_analysis/documentation/images/sine4.png>] <images/analogDigitalSpectra.png, id=521, 382.
+7901pt x 181.8795pt>
+File: images/analogDigitalSpectra.png Graphic file (type png)
+
+<use images/analogDigitalSpectra.png>
+Package pdftex.def Info: images/analogDigitalSpectra.png used on input line 220.
+(pdftex.def)             Requested size: 382.78915pt x 181.87904pt.
+ [15 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/analogDigitalSpectra.png>]
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 244.
+
+<images/sine5.png, id=538, 155.3805pt x 75.1608pt>
+File: images/sine5.png Graphic file (type png)
+ <use images/sine5.png>
+Package pdftex.def Info: images/sine5.png used on input line 252.
+(pdftex.def)             Requested size: 204.85974pt x 99.09785pt.
+
+<images/sine6.png, id=539, 155.3805pt x 75.1608pt>
+File: images/sine6.png Graphic file (type png)
+ <use images/sine6.png>
+Package pdftex.def Info: images/sine6.png used on input line 255.
+(pdftex.def)             Requested size: 204.85974pt x 99.09785pt.
+
+<images/windowfunctions.png, id=542, 339.669pt x 261.1356pt>
+File: images/windowfunctions.png Graphic file (type png)
+ <use images/windowfunctions.png>
+Package pdftex.def Info: images/windowfunctions.png used on input line 265.
+(pdftex.def)             Requested size: 312.9803pt x 240.62221pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[16 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/sine5.png> <C:/Users/Katrin/dev/e
+asydrum_prototype/audio_signal_analysis/documentation/images/sine6.png>]
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 294.
+
+[17 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/windowfunctions.png>]
+<images/bello_2005_Seite_01_Bild_0001.png, id=563, 142.3719pt x 208.1376pt>
+File: images/bello_2005_Seite_01_Bild_0001.png Graphic file (type png)
+
+<use images/bello_2005_Seite_01_Bild_0001.png>
+Package pdftex.def Info: images/bello_2005_Seite_01_Bild_0001.png used on input line 298.
+(pdftex.def)             Requested size: 113.81102pt x 166.38643pt.
+
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 305.
+
+<images/bello_2005_Seite_02_Bild_0001.png, id=570, 284.5029pt x 426.6339pt>
+File: images/bello_2005_Seite_02_Bild_0001.png Graphic file (type png)
+
+<use images/bello_2005_Seite_02_Bild_0001.png>
+Package pdftex.def Info: images/bello_2005_Seite_02_Bild_0001.png used on input line 309.
+(pdftex.def)             Requested size: 199.16928pt x 298.66772pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[18 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/bello_2005_Seite_01_Bild_0001.png
+>] [19 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/bello_2005_Seite_02_Bild_0001.
+png>] <images/datalearning.png, id=588, 327.8649pt x 222.1098pt>
+File: images/datalearning.png Graphic file (type png)
+ <use images/datalearning.png>
+Package pdftex.def Info: images/datalearning.png used on input line 328.
+(pdftex.def)             Requested size: 227.62204pt x 154.20148pt.
+
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 335.
+
+[20 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/datalearning.png>] [21]
+
+LaTeX Warning: Citation 'Bhargava:2013' on page 22 undefined on input line 375.
+
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 386.
+<images/exampletree1.png, id=606, 253.4268pt x 202.356pt>
+File: images/exampletree1.png Graphic file (type png)
+ <use images/exampletree1.png>
+Package pdftex.def Info: images/exampletree1.png used on input line 444.
+(pdftex.def)             Requested size: 178.17868pt x 142.26378pt.
+
+<images/exampletree2.png, id=607, 179.7114pt x 202.356pt>
+File: images/exampletree2.png Graphic file (type png)
+ <use images/exampletree2.png>
+Package pdftex.def Info: images/exampletree2.png used on input line 449.
+(pdftex.def)             Requested size: 126.35101pt x 142.26378pt.
+
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 456.
+
+[22] [23] [24 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/exampletree1.png> <C:/U
+sers/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/exampletree2.png>]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <8> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 475.
+
+
+LaTeX Font Warning: Font shape `OMS/phv/bx/n' undefined
+(Font)              using `OMS/phv/m/n' instead on input line 475.
+
+LaTeX Font Info:    Font shape `OMS/phv/bx/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 475.
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <6> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 475.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\mathsurround' on input line 475.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\z@' on input line 475.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `superscript' on input line 475.
+
+[25] <images/weka.png, id=641, 482.7636pt x 718.3638pt>
+File: images/weka.png Graphic file (type png)
+ <use images/weka.png>
+Package pdftex.def Info: images/weka.png used on input line 484.
+(pdftex.def)             Requested size: 305.94006pt x 455.24408pt.
+ [26 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/weka.png>]
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 494.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\t1cmtt.fd"
+File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+[27]
+
+LaTeX Warning: Citation 'WebRTC:2015' on page 28 undefined on input line 498.
+
+) [28] (C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/03_related_work.tex [29
+
+
+]
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 23.
+
+[30]
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 46.
+
+[31]
+
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 56.
+
+) [32] (C:\Users\Katrin\dev\easydrum_prototype\audio_signal_analysis\documentation\chapters/04_methods.tex
+<images/architecture.png, id=694, 540.5796pt x 325.9377pt>
+File: images/architecture.png Graphic file (type png)
+ <use images/architecture.png>
+Package pdftex.def Info: images/architecture.png used on input line 13.
+(pdftex.def)             Requested size: 455.24411pt x 274.492pt.
+ [33
+
+
+ <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/architecture.png>]
+<images/drumset/drumset_01.jpg, id=707, 341.5962pt x 253.4268pt>
+File: images/drumset/drumset_01.jpg Graphic file (type jpg)
+ <use images/drumset/drumset_01.jpg>
+Package pdftex.def Info: images/drumset/drumset_01.jpg used on input line 29.
+(pdftex.def)             Requested size: 284.52756pt x 211.08664pt.
+LaTeX Font Info:    Font shape `OMS/phv/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
+ [34 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/drumset/drumset_01.jpg>]
+<images/drumsandsheets/drum_bass.png, id=712, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_bass.png Graphic file (type png)
+ <use images/drumsandsheets/drum_bass.png>
+Package pdftex.def Info: images/drumsandsheets/drum_bass.png used on input line 57.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+
+<images/drumsandsheets/drum_snare.png, id=713, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_snare.png Graphic file (type png)
+ <use images/drumsandsheets/drum_snare.png>
+Package pdftex.def Info: images/drumsandsheets/drum_snare.png used on input line 60.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+
+<images/drumsandsheets/drum_snare2.png, id=714, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_snare2.png Graphic file (type png)
+ <use images/drumsandsheets/drum_snare2.png>
+Package pdftex.def Info: images/drumsandsheets/drum_snare2.png used on input line 64.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+
+<images/drumsandsheets/drum_tom1.png, id=715, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_tom1.png Graphic file (type png)
+ <use images/drumsandsheets/drum_tom1.png>
+Package pdftex.def Info: images/drumsandsheets/drum_tom1.png used on input line 67.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+
+<images/drumsandsheets/drum_tom2.png, id=716, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_tom2.png Graphic file (type png)
+ <use images/drumsandsheets/drum_tom2.png>
+Package pdftex.def Info: images/drumsandsheets/drum_tom2.png used on input line 71.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+
+<images/drumsandsheets/drum_tom3.png, id=717, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_tom3.png Graphic file (type png)
+ <use images/drumsandsheets/drum_tom3.png>
+Package pdftex.def Info: images/drumsandsheets/drum_tom3.png used on input line 74.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+
+<images/drumsandsheets/drum_hihatclosed.png, id=718, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_hihatclosed.png Graphic file (type png)
+
+<use images/drumsandsheets/drum_hihatclosed.png>
+Package pdftex.def Info: images/drumsandsheets/drum_hihatclosed.png used on input line 83.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+
+<images/drumsandsheets/drum_hihatopen.png, id=719, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_hihatopen.png Graphic file (type png)
+
+<use images/drumsandsheets/drum_hihatopen.png>
+Package pdftex.def Info: images/drumsandsheets/drum_hihatopen.png used on input line 86.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/drum_crash.png, id=720, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_crash.png Graphic file (type png)
+
+<use images/drumsandsheets/drum_crash.png>
+Package pdftex.def Info: images/drumsandsheets/drum_crash.png used on input line 90.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/drum_ride.png, id=721, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/drum_ride.png Graphic file (type png)
+
+<use images/drumsandsheets/drum_ride.png>
+Package pdftex.def Info: images/drumsandsheets/drum_ride.png used on input line 93.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/loop1.png, id=722, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/loop1.png Graphic file (type png)
+
+<use images/drumsandsheets/loop1.png>
+Package pdftex.def Info: images/drumsandsheets/loop1.png used on input line 102.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/loop2.png, id=723, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/loop2.png Graphic file (type png)
+
+<use images/drumsandsheets/loop2.png>
+Package pdftex.def Info: images/drumsandsheets/loop2.png used on input line 105.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/loop3.png, id=724, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/loop3.png Graphic file (type png)
+
+<use images/drumsandsheets/loop3.png>
+Package pdftex.def Info: images/drumsandsheets/loop3.png used on input line 109.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/loop4.png, id=725, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/loop4.png Graphic file (type png)
+
+<use images/drumsandsheets/loop4.png>
+Package pdftex.def Info: images/drumsandsheets/loop4.png used on input line 112.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/fillin1.png, id=726, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/fillin1.png Graphic file (type png)
+
+<use images/drumsandsheets/fillin1.png>
+Package pdftex.def Info: images/drumsandsheets/fillin1.png used on input line 122.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/fillin2.png, id=727, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/fillin2.png Graphic file (type png)
+
+<use images/drumsandsheets/fillin2.png>
+Package pdftex.def Info: images/drumsandsheets/fillin2.png used on input line 126.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/fillin3.png, id=728, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/fillin3.png Graphic file (type png)
+
+<use images/drumsandsheets/fillin3.png>
+Package pdftex.def Info: images/drumsandsheets/fillin3.png used on input line 131.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ <images/drumsandsheets/fillin4.png, id=729, 213.4374pt x 72.0291pt>
+File: images/drumsandsheets/fillin4.png Graphic file (type png)
+
+<use images/drumsandsheets/fillin4.png>
+Package pdftex.def Info: images/drumsandsheets/fillin4.png used on input line 135.
+(pdftex.def)             Requested size: 207.7052pt x 70.09892pt.
+ [35] [36 <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_analysis/documentation/images/drumsandsheets/drum_bass.pn
+g> <C:/Users/Katrin/dev/easydrum_prototype/audio_signal_anal

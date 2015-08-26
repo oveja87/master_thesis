@@ -1,0 +1,528 @@
+\section{Basic Concepts}
+% Darstellung des aktuellen Wissens zum Thema (Literaturphase – Grundlagen)
+% Hier ist ein Überblick über das Fachthema und die Begrifflichkeiten sowie eine Darstellung bestehender Lösungsansätze/Technologien anhand von Quellen aus der wissenschaftlich-technischen Literatur zu erarbeiten. Besonderes Augenmerk ist auf die korrekte Zitierweise von Quellen zu legen. Anderen LeserInnen der Arbeit soll damit das Verständnis für die darauf folgenden Teile der Arbeit erschlossen werden. Inhalte flüchtiger Quellen (Websites) sind geeignet, müssen aber gesichert werden (CD/DVD).
+
+
+% zusammenfassung aller themen einfügen
+
+
+\subsection{Easydrum} \label{section:easydrum}
+The aim of this thesis is to develop an extension for the online drum school easydrum. Hence, the first step of the thesis is to introduce the platform and give a short introduction to the used technologies. Thereby it can be pointed out which features and technologies are required for the methods, which will be developed in this thesis.
+
+Easydrum is a free e-learning platform on the web. It provides a couple of different exercises for learning how to play a drum set. The user gets an introduction to the different components of the drum set and learns to read drum sheets. 
+
+What makes the platform unique is the possibility to connect an e-drum set to it by USB to play the exercises. After connecting, the by the e-drum set produced MIDI signals can be read and processed by the platform. In this way it is facilitated, that there can be given feedback to the user while playing an exercise. Before the e-drums can be used for exercising, they has to be configured in the provided e-drum configurator. Here, the user has to play each drum once to save the appropriate MIDI signal. Next to an e-drum set, there can be used the computer keyboard for exercising, in the recent version.
+
+The exercises are displayed in the application by a drum sheet. If the exercise is started, the notes are moving over the sheet. A highlighted hit area on the sheet shows the point in time where a note has to be played. Further an illustration of a drum set animates the exercise, while playing it. By using a configured e-drum set or the computer keyboard, the application can recognize, if the right drums are stroked at the right time. The played notes are added to the sheets in real time to show the user, if he hit or missed a note. After the exercise is finished, the user gets awarded with 0-100 points and 1-3 stars, depending on the hit rate.
+
+The application is build on the open-source web framework Ruby on Rails. An overview to the framework is given on their web site \autocity{rails:2015}. 
+
+For this thesis two components of the web site are important to analyze in detail. These is the e-drum configurator on the one hand and the exercise player on the other hand. Screenshots of the existing drum configurator and exercise player are shown in figures \ref{fig:configuratorscreen} and \ref{fig:exerciseplayerscreen}. \Both components largely run in the web frontend by the use of JavaScript. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{images/easydrum/configuratorscreen.jpg}
+	\caption{Easydrum drum configurator.}
+	\label{fig:configuratorscreen}
+\end{figure}
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{images/easydrum/exerciseplayerscreen.jpg}
+	\caption{Easydrum exercise player.}
+	\label{fig:exerciseplayerscreen}
+\end{figure}
+
+JavaScript is a scripting language published in 1995 to supplement HTML and thus enable easy interactions with the Netscape Navigator browser. The language developed quickly from an easy scripting language to a widely used standard within web applications. It is documented under the ECMAScript standard by the Ecma International organization. Today, JavaScript runs in all major browsers and thus enables the development of modern interactive web applications, which are able to run on the web front end with high performance. Current browser support ECMAScript 5, while a sixth version already exists and will be adopted to browsers, in the future. A detailed introduction to JavaScript can be found in \autocite{Haverbeke:2014}.
+
+In addition to JavaScript, easydrum uses jQuery and the jQuery UI widget factory. 
+
+According to the jQuery web site \autocite{jQuery:2015}, jQuery is "`a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers"'.
+
+The jQuery UI widget factory provides a framework, which enables to develop stateful jQuery plugins, called widgets. It provides object oriented methods to manage the life cycle of a widget, which includes creating and destroying a widget, changing options, making super calls and receive event notifications. The jQuery UI widget factory is documented in \autocity{jQueryUI}.
+
+The key feature in the existing application is the method for receiving MIDI events from the connected e-drum set. Therefor, easydrum uses the Web MIDI API, which is supporting the MIDI protocol. It enables web applications to communicate with MIDI input and output devices. The Web MIDI API specification was published by the W3C Audio Working Group as a Working Draft (\autocite{WebMidiApi:2015}). Thus it is not yet an official web standard and it is also not yet implemented in all common browsers but is intended to become. The actual easydrum application is able to run without an additional plug-in in Google Chrome. For other browsers there has to be installed the Jazz-Plugin \autocite{Jazz:2015} to receive MIDI input. As soon as the Web MIDI API is accessible via the other browsers, the plug-in will no longer be needed. 
+
+The basic architecture of the easydrum application is show in figure \reg{fig:easydrumarchitecture}. As already said, the player largely runs in the web frontend with the help of JavaScript and the jQuery UI widget factory. 
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[width=\textwidth]{images/easydrum/app_architcture.jpg}
+	\caption{Easydrum application architecture.}
+	\label{fig:easydrumarchitecture}
+\end{figure}
+
+There is used one main jQuery UI widget which connects all components of the player. These components are the game loop, the views, two input listeners and the audio output. Each event in one of these components is sent to the main widget. The main widget processes all events and after this updates the relevant components. If an exercise is playing, the game loop adjusts the number of frames per seconds, dependent on the calculation power of the used computer. It invokes an event for every frame, which is called "`tick"'.
+
+The main widget needs three arrays to be initialized. The first two arrays contain data for a e-drum set. They define the MIDI data mapped to appropriate drums. One of the drum arrays contains the data for the e-drum set which is used to record the exercise and the other the data for the drum set of the actual user. The third array contains an array of MIDI data, which describes the actual exercise.
+
+The input data are received by the two listeners. There is one listener, which is able to receive MIDI data and one, which is able to receive key events from the computer keyboard. These listeners are initialized with the in the preceding described user drum array. With the help of this array the input is mapped to the played drum and note. For every played drum there is saved the note value and the point in time when it is played.
+
+Hence, to extend the application to work with an acoustic drum set, a new listener, which maps audio input to played drums, has to be developed and appended to the main widget.
+
+
+\subsection{Components of a Drum Set}
+
+The developed easydrum extension is receiving audio data of an analog drum set. To understand these methods, the instrument and its components are introduced in the following.
+
+A drum set is a percussive instrument. Percussive instruments are one of the oldest kind of instruments in history. Today, there are developed a wide range of different instruments of this type. Thus, a drum set can consist of a various number of different drums, cymbals and other components, such as woodblocks, bells and triangles. To limit the possibilities, this thesis is merely concerned with a standard drum set.
+
+A standard drum set like displayed in figure \ref{fig:components} consist of eight different drums, which are a bass drum, a snare drum, two rack toms, a floor tom, a hi-hat, a ride cymbal and a crash cymbal. The bass drum is the central element of the drum set. It is stroked with the help of a foot pedal. Together with the hi-hat and the snare drum, the bass drum defines the rhythm of a piece of music. The hi-hat can be played either opened or closed. It also has a food pedal, which can be used to close it or to play its closed sound. The toms and cymbals are primary used to play fill-ins\footnote{musical phrases between melody or song segments} and accents. As shown in figure \ref{fig:rim_bow_bell}, the cymbals consists of three components which create different sounds if they are stroked. These are the rim, the bow and the bell, whereas the rim is the utter part of the cymbal, the bell is a bulge in the center of it and the bow is the area on the top between the rim and the bell.
+
+
+\begin{figure}[h]
+	\centering
+	\subfloat[1 - hi-hat, 2 - snare drum, 3 - bass drum 4 - tom 1, 5 - tom 2, 6 - tom 3,  7 - crash cymbal, 8 - ride cymbal]{
+		\includegraphics[height=6.0cm]{images/drumset/drumset_02.jpg}
+		%for reference of this subfigure only
+		\label{fig:components}
+	}
+	\qquad
+	\subfloat[Rim, bow and bell of a cymbal.]{
+		\includegraphics[height=6.0cm]{images/drumset/ride.jpg}
+		%for reference of this subfigure only
+		\label{fig:rim_bow_bell}
+	}
+	\caption[
+		%Components of a standard drum set.\newline
+		% source url given in the table of figures
+		%\small\texttt{https://mediacube.at/wiki/}
+	]{
+		Components of a standard drum set.
+	}
+	%for reference to all subfigures
+	\label{fig:drumset}
+\end{figure}
+
+\subsection{Notation}
+
+To visualize a drum rhythm, there are commonly used sheets. Thus, in this thesis, drum sheets are used to visualize the tested drum rhythms in section \ref{section:onsetdetectionmethod}. To understand this sheets, the drum notation is explained in the following.
+
+A sheet contains different elements like staff, clef, notes, pauses and bars, which are used to build a rhythm. An example sheet can be seen in figure \ref{fig:sheetExample}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{images/drumsandsheets/example.png}
+	\caption{Example drum sheet.}
+	\label{fig:sheetExample}
+\end{figure}
+
+The staffs are the horizontal lines on which the notes are placed. A sheet contains five staffs. 
+
+The meaning of the particular notes is defined by the used clef. The clef is placed at the beginning of each sheet. Common clefs are for example the treble clef or the bass clef. For drums there is used a neutral clef. In contrast to the notation for the most clefs, the position of a note on the staff does not indicate its pitch, but symbolizes the component of the used drum kit, which has to be stroked. Thereby, for drum sets there are used different notations. Hence, to explain which note symbolizes which drum, a so called 'drum key' is used. Generally there are use round note heads for drums and x-shaped ones for cymbals. If a stroke is performed by a stick, the stem of the appropriate note is placed from the note head up and if it is performed with a foot pedal from the note head down. For this thesis, the drum key shown in \ref{fig:sheetNotation} is used.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{images/drumsandsheets/notation.png}
+	\caption{Drum notation.}
+	\label{fig:sheetNotation}
+\end{figure}
+
+The notes on a sheet are segmented in small blocks, which are called bars. The bars are separated on the sheet by bar lines.
+
+The number and type of beats in a bar is predefined by the time signature. The time signature is given in the beginning of the sheet after the clef. Example time signatures are $\frac44$, $\frac34$ or $\frac48$. The upper number specifies the number of beats in which the bar is separated and the lower one specifies the note value of a single beat. The note value defines the duration of a note. For this thesis, only the time signature $\frac44$ is used. That means, there are counted four beats in one bar, which have the value of a quarter note. 
+
+Important to know note values for this thesis are the whole note, the halve note, the quarter note, the eighth note and the sixteenth note. The whole note has the length of four quarters and thus has the duration of a whole bar with the time signature $\frac44$. The duration of the recent notes is given proportional to the quarter note. By putting a dot behind a note, the note duration is stretched by the next lower note value. By the combination of notes with different note values there can be created rhythms. Next to notes, there can be displayed pauses. Pauses specify a certain period of time, where no note is played. They can have the same values as notes. Different note and pause values are shown in figure \ref{fig:sheetValues}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{images/drumsandsheets/note_values.png}
+	\caption{Note and pause values.}
+	\label{fig:sheetValues}
+\end{figure}
+
+In addition to the time signature, there can be specified the beats per minute (bpm) of a rhythm. It defines the number of beats per minute. Thus, if a beat is played with 60 bpm, there is played one beat per second.
+
+More information about the drum notation can be found in \autocite{Stein:2013}.
+
+\subsection{Audio Signal Processing}
+
+%explain signal - continouus and discrete
+%\subsection{Phase and Phase Shift}
+%explain analog signal (value and time continuuous)
+% explain digital signal (value and time discrete]
+% was ist sampling, sampling rate, quantisierung
+% vorteile eines digitalen signals (discrete)
+%what's in a sample
+%When an audio signal is processed, sampling means the conversion of a continuous signal to a discrete signal; put another way, a continuous sound wave such as a band playing live is converted to a sequence of samples (a discrete-time signal) that allow a computer to handle the audio in distinct blocks. A sample is a single value or set of multiple values at a specific point in time (and space in the case of spatialisation.) (https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Basic_concepts_behind_Web_Audio_API)
+
+Every beat on a drum or a cymbal creates an analog $($value- and time-continuous$)$ acoustic signal. This signal is a value- and time-continuous, sinusoidal wave. To convert it to a digital $($value- and time-discrete$)$ signal, sampling and quantization are performed by an Analog-to-Digital-Converter. The Sampling creates the discrete signal. Thereby, the sampling rate $f_s$, which is the number of frames per seconds in the digital signal, is specified in Hz. Typical sampling rates are 8000 Hz, 22.000 Hz or 44.100 Hz. The quantization displays the signal amplitudes by a given bit rate. By default, a bit rate of 8 bit or 16 bit is used. \autocite{Walter:2012} 
+
+With different signal processing methods, the digital audio signals of the various drums and cymbals can be analyzed. 
+
+% figure analog-digital, quantisierung
+
+\subsubsection{Sampling Theorem}
+% Eine sinnvolle zeitliche Diskretisierung liegt vor, wenn die Veränderungen des analogen Signals durch die Abtastfolge gut wiedergegeben werden. Damit das analoge Signal aus der Abtastfolge durch eine Interpolation hinreichend genau wieder gewonnen werden kann, muss ein sich schnell änderndes Signal häufiger als ein dazu relativ langsam veränderliches Signal abgetastet werden. Diese grundsätzliche Überlegung wird im Abtasttheorem präzisiert.
+
+%Abtastung Walter seite 56!
+
+
+
+\subsection{Frequency Spectrum Analysis of Digital Signals} 
+For this thesis, the most important signal processing method is the conversion of a digital audio signal to it's frequency spectrum. This spectrum displays the distribution of energy within the frequency domain. 
+
+The frequency domain of a digital signal is affected by sampling and sampling rate. If a analog signal is sampled with an sampling rate of 40100 Hz, the frequency range from 0 Hz up to 20050 Hz $($half of the sampling rate$)$ is reflected between 20000 Hz and 40100 Hz. The amplitudes between 0 Hz and 20050 Hz are the same in both spectra. The effect is shown in \ref{fig:analogDigitalSpectra}. 
+
+% The sampling operation leads to a replication of the baseband spectrum of the analog signal [Orf96]. The frequency contents from 0 Hz up to 20 kHz of the analog signal now also appear from 40 kHz up to 60 kHz and the folded version of it from 40 kHz down to 20 kHz. The replication of this first image of the baseband spectrum at 40 kHz will now also appear at integer multiples of the sampling frequency of fs = 40 kHz. But notice that the spectrum of the digital signal from 0 up to 20 kHz shows exactly the same shape as the spectrum of the analog signal. The reconstruction of the analog signal out of the digital signal is achieved by simply lowpass filtering the digital signal, rejecting frequencies higher than f s / 2 = 20 kHz.
+
+% zoelzer figure 1.5
+\begin{figure}[h]
+	\centering
+	\includegraphics{images/analogDigitalSpectra.jpg}
+	%for reference to this figure
+	\caption{ Spectra of analog and digital signals. \autocite[]{Zoelzer:2002}.}
+	\label{fig:analogDigitalSpectra}
+\end{figure}
+
+\subsubsection{Discrete Fourier Transformation}
+
+To decompose the time series $x[n]$ of an audio signal into it's frequency spectrum $X[k]$, the Fourier series and the Fourier transform are fundamental methods, which are based on the research of Jean Baptiste Joseph Fourier in the 18th century. The Fourier series is used to convert periodic time continuous signals and the Fourier transform to convert aperiodic time continuous signals. Based on the Fourier series, the Discrete Fourier Transform $($DFT$)$ can be used on time discrete periodic signals. In contrast to the Fourier transform or Fourier series, the DFT can be used for short time spectral analysis, which is described in section \ref{section:shortTime}. \autocite[]{Werner:2012} 
+
+
+In \autocite[]{Zoelzer:2002}, the DFT is defined as a series of DFT-coefficients by
+
+\begin{equation}
+X(k)=DFT[x(n)]=\sum_{n=0}^{N-1}x(n)e^{-j2\pi nk/N}, k=0,1,2,...,N-1
+\label{equation:DFT}
+\end{equation}
+
+\subsubsection{Short Time Spectral Analysis and Windowing} \label{section:shortTime}
+
+A short time spectral analysis is a spectral analysis which is only applied to a short blocks of a signal. These blocks are called "`windows"'. The DFT allows it to be used block oriented because of its periodic exponential function $exp(-j2\pi nk/N)$ which is described in \ref{equation:DFT}. It assigns to N elements of a periodic signal exactly N frequency bins in the resulting spectrum. Thus, the larger the window is, the higher the resolution of the resulting frequency spectrum.
+
+In real time audio processing the incoming signal is divided in a sequence of windows. They can be abutting or overlapping. \autocite[]{Werner:2012} 
+
+The DFT assumes, that the signal is continued periodically. Hence, for a periodic signal, the window size should be a minimum of an entire period, because otherwise there is a loss of information. Further on, as an optimum, the window should begin at the same point in the period as it ends. But this is not possible for audio signals, because they are usually not periodic. In this case, it is possible, that not existing spectral components appear in the frequency domain. This kind of occurrences is called 'leakage phenomenon'. \autocite[]{Werner:2012} 
+
+To reduce the effect of the leakage phenomenon, the form of the window can be changed by applying a so called window function. Thereby, the wave is flattered in its beginning and end. If a window with window function is periodically continued, there is no more leap in the wave. The effect is shown in \ref{fig:window1}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{images/window_1.jpg}
+	%for reference to this figure
+	\caption{ a$)$ Periodically continued window without window function. b$)$ Periodically continued window with window function.}
+	\label{fig:window1}
+\end{figure}
+
+A common window function in the field of audio processing are the Hamming Window or the Hanning Window. These and other window functions are explained in \autocite[]{Harris:1978}. \ref{figure:window2} shows some common functions.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics{images/window_2.jpg}
+	%for reference to this figure
+	\caption{ a) ...}
+	\label{fig:window2}
+\end{figure}
+
+\subsubsection{Fast Fourier Transformation}
+The Fast Fourier Transformation $($FFT$)$ is an efficient version of the DFT. There are many different approaches for FFT algorithms, today. They are based on the fact, that a series of real number x[n] with an even length $N=2M$ can be decomposed to a complex series of half the length of N. Thus, the DFT can be decomposed in two parts - one with even and one with odd indices. One of the most popular ones is the Radix-2-FFT. While the complexity of the direct use of the DFT is $O(N^2)$, the Radix-2-FFT has a complexity of $O(N log_2(N))$. Hence, the FFT allows to use digital signal processing in real time. 
+
+% Fourier Analysis can be used to identify naturally occurring harmonics (which are, simply put, the basis of all musical composition), to model sound, and to break up sound into the pieces that define it.
+
+% The spectrumo f a digital signal can be computedb y the discrete Fourier transform DFT which is given by
+% (1.1)
+% The fast version of the above formula is called the fast Fourier transform FFT. The FFT takes N consecutive samples out of the signal z(n) and performs a mathematical operation to yield N sa,mples X ( k ) of the spectrum of the signal. Figure 1.6 demonstrates the results of a, 16-point FFT applied to 16 samples of a cosine signal. The result is normalized by N according to X=abs (fft (x ,N) ) /N; .
+% The N samples X ( k ) = X,(k) + j X l ( k ) are complex-valued with a real part XR(IC) and an imaginary parXt ~ ( l cf)ro m which one can compute the absolutvea lue
+% (1.2)
+% which is the magnitude spectrum, and the phase
+% (1.3)
+% which is the phase spectrum.
+
+% Frequency Resolution: Zero-padding and Window Functions
+% To increase the frequency resolution for spectrum analysis we simply take more samples for the FFT algorithm. Typical numbers for the FFT resolution are N = 256,512,1024,2048,4096 and8 192. If we are only interested in computing thes pectrum of 64 samples and would like to increase the frequency resolution from f,/64 to f,/1024, we have to extend the sequence of 64 audio samples by adding zero samples up to the length 1024 and then performing an 1024-point FFT. This technique is called zero-paddingand is illustrated in Fig. 1.8 and by M-file 1.5. The upper left part shows the original sequence of 8 samples and the upper right part shows the corresponding 8-point FFT result. The lower left part illustrates the adding of 8 zero samples to the original 8 sample sequence up to the length of N = 16. The lower right part illustrates the magnitude spectrum IX(k)l resulting from the 16-point FFT of the zero-padded sequence of length N = 16. Notice the increase in frequency resolution between the 8-point and 16-point FFT. Between each frequency bin of the upper spectrum a new frequency bin in the lower spectrum is calculated. Bins k = 0,2,4,6,8,10,12,14 of the 16-point FFT correspond to bins k = 0,1,2,3,4,5,6,7 of the 8-point FFT. These N frequency bins cover the frequency range from 0 Hz up to v fs Hz.
+
+
+
+\subsection{Onset Detection} \label{section:OnsetDetection}
+
+Before a drum stroke can be analyzed it has to be found in the signal stream. Therefore, onset detection can be used. There are many different methods of Onset Detection right now. \autocite[]{Bello:2005} describes some important ones. It focuses on note onset detection in musical signals.
+
+The audio signal, which describe a note can be divided in several parts. As shown in \ref{fig:OnsetDetection1}, \autocite{Bello:2005} differentiates between "`onset"', "`attack"', "`transient"' and "`decay"'. The paper explains these occurrences with the ideal case of a single note. Here, the onset is defined as the point in time, where the wave shows the first signs of a new note. The attack is the interval after an onset, where the amplitude is rising. The transient describes the part of the wave, where the signal evolves. In the case of a drum stroke, this would be the time between the first contact of the drum stick on a drumhead until the sound is damped by the stroke. Subsequently, the sound decays. In \autocite[]{Bello:2005} it is assumed that the human ear cannot distinguish between two transients less than 10 ms apart.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=5.0cm]{images/bello_2005_Seite_01_Bild_0001.jpg}
+	\caption{Attack, transient, decay and onset of a sound \autocite[Fig. 1]{Bello:2005}.}
+	\label{fig:OnsetDetection1}
+\end{figure}
+
+Most onset detection algorithms consists of three steps, like shown in \ref{fig:OnsetDetection2}. In the first step, which is optional, the original signal is pre-processed to achieve a better performance in the further steps. According to \autocite{Bello:2005}, relevant methods are to separate the signal into multiple frequency bands or to use transient/steady-state separation. The second step is the reduction of the preprocessed audio signal. The reduction is the key process in onset detection. Here, a detection function is created, to which a peak picking algorithm can be applied in the last step. This peaks represent the points in time of all onsets in the original audio signal. 
+
+In \autocite[]{Bello:2005} there are introduced a couple of common onset detection algorithms. The paper explains reduction methods based on a signal's amplitude envelope, spectral magnitudes and phases, time-frequency representation and methods based on probabilistic signal models. A basic method, which considers the amplitude envelope of audio signals is shown in \autocite[]{Schloss:1985}. It is explained in section \ref{section:OnsetDetectionSchloss}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=8.0cm]{images/bello_2005_Seite_02_Bild_0001.jpg}
+	\caption{Flowchart of a standard onset detection algorithm \autocite[Fig. 2]{Bello:2005}.}
+	\label{fig:OnsetDetection2}
+\end{figure}
+
+
+
+\subsection{Classification}
+
+After the detection of an onset, the proximate audio information can be classified as one of the drums of the used drum set. Therefor, a classification algorithm is needed. 
+
+Classification describes the attempt to determine class labels for data instances by the use of training data. This process is called \textit{supervised learning}, in contrast to the field of clustering, where \textit{supervised learning} is used. A detailed introduction to data classification algorithms and applications can be found in \autocite{chapman:2015}. There are various different approaches for the classification of data for widespread subjects in computer science.
+
+Generally, a classification algorithm is divided into two steps. The first is the \textit{training}, in which a model is build with the help of a training set. The training set contains several labeled data of each possible instance. The second step is the \textit{testing}, where the model is used to assign a label to a test instance. There are also some methods without training. Here, testing references directly to the training data. Though, the training data can be preprocessed, for example by a nearest neighbor index construction.
+
+The output of the classification algorithm can be either a discrete label or a numerical score for each possible class. To label a numerical score, its maximum value is chosen. 
+%???????????????????????????????
+
+There is a various number of classification methods, which are used for different data types. Common data types are text data, multimedia data, uncertain data, time series or discrete sequences. In this thesis we solely consider audio signals, which are continuous multimedia data. In \autocite{chapman:2015} the general procedure for multimedia data learning is explained by figure \ref{fig:datalearning}.
+%Common algorithms are decision trees, probabilistic methods, neural networks, nearest neighbor methods or support vector machines $($SVM$)$. Examples for used data types are text data, multimedia data, uncertain data, time series or discrete sequences. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=8.0cm]{images/classification/datalearning.jpg}
+	\caption{Flowchart of general multimedia learning process. \autocite[Fig. 12.1]{chapman:2015}.}
+	\label{fig:datalearning}
+\end{figure}
+
+\subsubsection{Feature Extraction}
+
+The deciding step in the data classification process is a reasonable data pre-processing and feature extraction. By the extraction of significant features, the model learning and prediction can turn into trivial problems. On the contrary, insignificant features can adulterate the classification result, especially when a small training set is used. As an example, \autocite{chapman:2015} shows two speech sequences which contain the same sentence spoken by different persons. The resulting waveforms in the time domain (figure \ref{fig:speechexample1} are very different and can hardly be assigned as the same sentence. But if the same data are transformed to it's frequencies over time, the resulting charts (figure \ref{speechexample2} are largely the same. Thus all used features has to be analyzed in detail.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=8.0cm]{images/classification/speechexample1.jpg}
+	\caption{Time domain waveform of the same spoken sentence from different persons. \autocite[Fig. 12.2]{chapman:2015}.}
+	\label{fig:speechexample1}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=8.0cm]{images/classification/speechexample2.jpg}
+	\caption{Frequencies over time of the speech in figure \ref{fig:speechexample1} \autocite[Fig. 12.3]{chapman:2015}.}
+	\label{fig:speechexample2}
+\end{figure}
+
+%\subsubsection{Feature Extraction}
+%Before the classification is executed, it is important to create a significant feature vector. This vector should only contain values which describe the properties of the classes. Insignificant features can adulterate the classification result, especially when a small training set is used. Using the example of drum sound classification such a feature could be the volume of a drum stroke. If one drum instance has more training data with a higher volume than a second one, all drum with a high volume will be classified as the first drum. Thus all used features has to be analyzed in detail.
+
+For audio data, there can be summarized three different groups of features, which are frequently used. These are time domain features, frequency domain features and psycho acoustic features. The latter mainly consider classification of data containing speech and thus are not used in this thesis. In time domain, there can be extracted features based on the energy of the audio waveform or the so called zero crossing rate, which counts the number of times the waves goes trough the zero axis within a frame. In the frequency domain, an often used feature is the pitch, which defines the fundamental frequency of an audio signal. There can also be considered subband energy ratios showing the distribution of energy over a predefined frequency band. Further, there are several methods to extract values based on spectral statistics, like frequency centroids and bandwidth. 
+
+
+\subsubsection{Feature based classification}
+
+The extracted features are usually combined to a feature vector, which is used to train a classification model. Thereby, each feature vector represents one class label. Afterward, new data instances can be predicted with the help of this model. Therefor the same feature vector has to be build for the new data. Like already said in the preceding section there has to be chosen meaningful features to ensure a high hit rate for correctly classified instances. Further, there should not be too many features, because the complexity rises with more features for the most classification methods. For feature based classification, common methods are decision trees or statistical methods like naive Bayes, which builds a probabilistic model. In this thesis, there will be used decision trees in section \ref{section:method1}. Therefor, a short introduction to decision trees is given in the following section, section \ref{section:decisionTrees}.
+
+%Bayesian Classification
+%The Bayesian Classification represents a supervised learning method as well as a statistical method for classification. Assumes an underlying probabilistic model and it allows us to capture uncertainty about the model in a principled way by determining probabilities of the outcomes. It can solve diagnostic and predictive problems. 
+%This Classification is named after Thomas Bayes ( 1702-1761), who proposed the Bayes Theorem. 
+%Bayesian classification provides practical learning algorithms and prior knowledge and observed data can be combined. Bayesian Classification provides a useful perspective for understanding and evaluating many learning algorithms. It calculates explicit probabilities for hypothesis and it is robust to noise in input data.
+% decision trees used for this thesis in ... , explained in the following section.
+
+\subsubsection{Decision trees}
+%introduction to decision trees
+
+One of the most common classification algorithms for solving complex decision-making tasks based on a feature vector is the decision tree. In contrast to other algorithms it's structure is very comprehensible and intuitive for users. 
+
+The decision tree is a rooted, directed tree, which builds a hierarchical structure of conditions. This structure is build by supervised learning. Therefor, the extracted feature vectors for every training data instance is passed to the training algorithm with it's appropriate class label. After building the tree, it can be used as classification function to label unseen data instances.
+
+Every decision tree contains of nodes, which contain conditions called \textit{splitting rules}. The splitting rules divide the data into separated classes. Therefor they use the attributes of the feature vector. The most algorithms use one attribute, thus one condition, for each node. The resulting splitting rules are called \textit{univariate}. There are also some algorithms, which use multiple attributes in one node called \textit{multivariate} splitting rules. Further, there are \textit{binary decision trees} and trees with \textit{multiway splits}. In this thesis, there are considered binary decision trees. Thus, each node in the tree that is no leaf node has two child nodes.
+%Many decision trees are binary, with each partitioning rule dividing its subspace into two parts. Even binary trees can be used to choose among several class labels. Multiway splits are also common, but if the partitioning is into more than a handful of subdivisions, then both the interpretability and the stability of the tree suffers.
+
+To classify an unseen data instance, it passes the nodes by following their splitting rules, beginning at the root node. Thus, each condition in a splitting rule decides to which child node the data instance is transmitted. The process stops, if a leaf of the tree is reached. Each leaf node represents a class label.
+
+% complexity
+%{Bhargava:2013} Tree Size
+% Basically, decision makers prefer a decision tree because it is not complex as well as easy to understand. Tree complexity has its effect on its accuracy. Usually the tree complexity can be measured by a metrics that contains: the total number of  nodes, total number of leaves, depth of tree and number of attributes used in tree construction. Tree size should be relatively small that can be controlled by using a technique called pruning [13].
+%{chapman:2015} Ideally, we would like a method with fast tree construction, fast predictions (shallow tree depth), accurate predictions, and robustness with respect to noise, missing values, or concept drift.
+
+%{chapman:2015} The number of possible trees grows exponentially with the number of attributes and with the number of distinct values for each attribute
+
+%{chapman:2015} In most real applications, however, we know we cannot make a perfect predictor anyway (due to unknown differences between training data and test data, noise and missing values, and concept drift over time). Instead, we favor a tree that is efficient to construct and/or update and that matches the training set “well enough.”
+
+%pruning
+
+For this thesis we will use a C4.5 tree, which uses the J48 algorithm. An example C4.5 decision tree is shown in figure \ref{fig:c45example}. With this tree, there is decided if a person can wear contact lenses or not. The training set which is used to build the tree is displayed in table \ref{tab:c45trainingset}. Each data record contains information about a person. They include the age of the person as numerical value and three Boolean values, which are "`Near-/Far-sightedness"', "`Astigmatic"' and "`Tears"'. The last value in the table defines the appropriate class label, which can be "`yes"' or "`no"'. The example is taken from \autocite{chapman:2015}. 
+
+\begin{table}
+  \caption{Example: Contact Lens Recommendations \autocite{chapman:2015}}
+  \label{tab:c45trainingset} 
+	\centering
+	\footnotesize
+	\begin{tabular}[c]{|c|c|c|c|c|}
+	  \hline
+		\textbf{Age}	&	\textbf{Near-/Far-sightedness}	&	\textbf{Astigmatic}	&	\textbf{Tears}	&	\textbf{Contacts Recommended} \\
+		\textbf{\hline} \hline
+		13	&	nearsighted	&	no	&	reduced	&	no \\
+		\hline
+		18	&	nearsighted	&	no	&	normal	&	yes \\
+		\hline
+		14	&	nearsighted	&	yes	&	reduced	&	no \\
+		\hline
+		16	&	nearsighted	&	yes	&	normal	&	yes \\
+		\hline
+		11	&	farsighted	&	no	&	reduced	&	no \\
+		\hline
+		18	&	farsighted	&	no	&	normal	&	yes \\
+		\hline
+		8	&	farsighted	&	yes	&	reduced	&	no \\
+		\hline
+		8	&	farsighted	&	yes	&	normal	&	yes \\
+		\hline
+		26	&	nearsighted	&	no	&	reduced	&	no \\
+		\hline
+		35	&	nearsighted	&	no	&	normal	&	yes \\
+		\hline
+		39	&	nearsighted	&	yes	&	reduced	&	no \\
+		\hline
+		23	&	nearsighted	&	yes	&	normal	&	yes \\
+		\hline
+		23	&	farsighted	&	no	&	reduced	&	no \\
+		\hline
+		36	&	farsighted	&	no	&	normal	&	yes \\
+		\hline
+		35	&	farsighted	&	yes	&	reduced	&	no \\
+		\hline
+		32	&	farsighted	&	yes	&	normal	&	no \\
+		\hline
+		55	&	nearsighted	&	no	&	reduced	&	no \\
+		\hline
+		64	&	nearsighted	&	no	&	normal	&	no \\
+		\hline
+		63	&	nearsighted	&	yes	&	reduced	&	no \\
+		\hline
+		51	&	nearsighted	&	yes	&	normal	&	yes \\
+		\hline
+		47	&	farsighted	&	no	&	reduced	&	no \\
+		\hline
+		44	&	farsighted	&	no	&	normal	&	yes \\
+		\hline
+		52	&	farsighted	&	yes	&	reduced	&	no \\
+		\hline
+		46	&	farsighted	&	yes	&	normal	&	no \\
+	  \hline
+	\end{tabular}
+\end{table}
+
+\begin{figure}[h]
+	\centering
+	\subfloat[Unpruned tree.]{
+		\includegraphics[height=6.0cm]{images/drumset/exampletree1.jpg}
+		\label{fig:exampletree1}
+	}
+	\qquad
+	\subfloat[Pruned tree.]{
+		\includegraphics[height=6.0cm]{images/classification/exampletree2.jpg}
+		\label{fig:exampletree2}
+	}
+	\caption{
+		C4.5 decision tree \autocite{chapman:2015}
+	}
+	\label{fig:exampletree}
+\end{figure}
+
+% show complexity and pruning at example
+%A very aggressively pruned tree is shown in Figure 4.2(b). It misclassifies 3 out of 24 training records.)
+
+
+%{chapman:2015} Decision trees can be used with both numerical (ordered) and categorical (unordered) attributes. There are also techniques to deal with missing or uncertain values.
+
+%top down approach
+
+
+
+
+%{Bhargava:2013} All theoreticians and specialist are continually searching for techniques to make the process more efficient, cost-effective and accurate. Decision trees are highly effective tools in many areas such as data and text mining, information extraction, machine learning, and pattern recognition.
+
+
+%%%%
+%{chapman:2015} One of the most intuitive tools for data classification is the decision tree. It hierarchically partitions the input space until it reaches a subspace associated with a class label. Decision trees are appreciated for being easy to interpret and easy to use. They are enthusiastically used in a range of  business, scientific, and health care applications [12,15,71] because they provide an intuitive means of solving complex decision-making tasks.
+
+%{Bhargava:2013} A decision tree is a decision support system that uses a tree-like graph decisions and their possible after-effect, including chance event results, resource costs, and utility. A Decision Tree, or a classification tree, is used to learn a classification function which concludes the value of a dependent attribute (variable) given the values of the independent (input) attributes (variables). This verifies a problem known as supervised classification because the dependent attribute and the counting of classes (values) are given [4]. Decision trees are the most powerful approaches in knowledge discovery and data mining. It includes the technology of research large and complex bulk of data in order to discover useful patterns. This idea is very important because it enables modelling and knowledge extraction from the bulk of data available. All theoreticians and specialist are continually searching for techniques to make the process more efficient, cost-effective and accurate. Decision trees are highly effective tools in many areas such as data and text mining, information extraction, machine learning, and pattern recognition.
+
+%{Bhargava:2013} A tree includes: - A root node, leaf nodes that represent any classes, internal nodes that represent test conditions (applied on attributes) as shown in figure 1.
+
+%{chapman:2015} A decision tree is a rooted, directed tree akin to a flowchart. Each internal node corresponds to a partitioning decision, and each leaf node is mapped to a class label prediction. To classify a data item, we imagine the data item to be traversing the tree, beginning at the root. Each internal node is programmed with a splitting rule , which partitions the domain of one (or more) of the data’s attributes. Based on the splitting rule, the data item is sent forward to one of the node’s children. This testing and forwarding is repeated until the data item reaches a leaf node.
+
+%{chapman:2015} Decision trees can be used with both numerical (ordered) and categorical (unordered) attributes. There are also techniques to deal with missing or uncertain values. Typically, the decision rules are univariate. That is, each partitioning rule considers a single attribute. Multivariate decision rules have also been studied [8,9].  Many decision trees are binary, with each partitioning rule dividing its subspace into two parts. Even binary trees can be used to choose among several class labels. Multiway splits are also common, but if the partitioning is into more than a handful of subdivisions, then both the interpretability and the stability of the tree suffers.
+
+%{Bhargava:2013} Decision tree offers many benefits to data mining, some are as follows:-
+% It is easy to understand by the end user.
+% It can handle a variety of input data: Nominal, Numeric and Textual
+% Able to process erroneous datasets or missing values
+% High performance with small number of efforts
+% This can be implemented data mining packages over a variety of platforms [10].
+
+%{Bhargava:2013} Tree Size
+% Basically, decision makers prefer a decision tree because it is not complex as well as easy to understand. Tree complexity has its effect on its accuracy. Usually the tree complexity can be measured by a metrics that contains: the total number of  nodes, total number of leaves, depth of tree and number of attributes used in tree construction. Tree size should be relatively small that can be controlled by using a technique called pruning [13].
+
+%{Bhargava:2013} Pruning
+%Pruning is very important technique to be used in tree creation because of outliers. It also addresses overfitting. Datasets may contain little subsets of instances that are not well defined. To classify them correctly, pruning can be used. There are two types of pruning: 1. Post pruning (performed after creation of tree), 2. Online pruning (performed during creation of tree) [8].
+
+%{chapman:2015} ( Figure 4.2(a) shows a 2-class classifier (yes, no) and uses the C4.5 algorithm for selecting the splits [66]. A very aggressively pruned tree is shown in Figure 4.2(b). It misclassifies 3 out of 24 training records.)
+
+%Using the splitting rules presented above, the recursive decision tree induction procedure will keep splitting nodes as long as the goodness function indicates some improvement. However, this greedy strategy can lead to overfitting, a phenomenon where a more precise model decreases the error rate for the training dataset but increases the error rate for the testing dataset. Additionally, a large tree might offer only a slight accuracy improvement over a smaller tree. Overfit and tree size can be reduced by pruning, replacing subtrees with leaf nodes or simpler subtrees that have the same or nearly the same classification accuracy as the unpruned tree. As Breiman et al. have observed, pruning algorithms affect the final tree much more than the splitting rule.
+
+
+%{chapman:2015} Ideally, we would like a method with fast tree construction, fast predictions (shallow tree depth), accurate predictions, and robustness with respect to noise, missing values, or concept drift.
+
+%{chapman:2015} The number of possible trees grows exponentially with the number of attributes and with the number of distinct values for each attribute
+
+%{chapman:2015} In most real applications, however, we know we cannot make a perfect predictor anyway (due to unknown differences between training data and test data, noise and missing values, and concept drift over time). Instead, we favor a tree that is efficient to construct and/or update and that matches the training set “well enough.”
+
+
+
+\subsubsection{Further classification methods}
+%distance based
+%k-NN,svm
+%model based
+%HMM reference auf paper
+
+
+
+
+
+\subsubsection{Evaluation}
+
+To assert the accuracy of a classification algorithm is, it need to be evaluated. Thereby it has to be regarded, that the used test data are no part of the data which are used to train the system, before. Thus, some labeled instances have to be removed before training. There are several methods to do this, such as \textit{hold} out or \textit{cross-validation}. The \textit{hold out method} is the simplest one. Here, a predefined percentage of labeled instances are removed for training and used for test phase. In \textit{cross$-$validation}, the training set is divided into k disjoint subsets. One of the subsets is used for testing, the remaining ones for training. The procedure is repeated k times, so every subset is used for testing, once. This method ensures, that every labeled instance is used for training and testing without use trained instances in test phase.
+
+
+\subsection{tools}
+
+\subsubsection{MatLab\textsuperscript{\textregistered}}
+To extract features of a sound, multiple signal processing methods are needed. Therefor, MatLab\textsuperscript{\textregistered} \autocite{MathWorks:2014} can be used. MatLab\textsuperscript{\textregistered} is a programming language and interactive environment for numerical computation, visualization, and programming. It provides several built-in function and extension packages for a widespread application range, such as signal processing and communications, image and video processing, control systems, test and measurement, computational finance, and computational biology. For audio processing purposes, it contains a signal processing toolbox that has several functions, like FFT or window functions, included. Hence, MatLab\textsuperscript{\textregistered} allows a fast development of new algorithms and can be used to analyze data.
+
+\subsubsection{Weka}
+To test and evaluate classification algorithms, the data mining tool \textit{Weka} \autocite{weka:2014}, which is developed by the University of Waikato, can be used. It has several machine learning algorithms included, such as tools for data pre-processing, classification, regression, clustering, association rules, and visualization. Further, it gives an evaluation overview after each test. An example output is shown in figure \ref{fig:weka}. Here, a test set with four different drums is used with the Naive Bayes classifier. The labeled data input contains 140 instances an four attributes. It is divided into a training set and a test set with a percentage split of 50\%. The weka output gives a detailed overview on the Naive Bayes specific classification results and the time taken to build the model. In the example the time is 0.02 seconds. Further, the evaluation on the test split is listed. There are 97.15\% correctly classified and 2.85\% incorrectly classified instances. The total number of tested instances is 70, whereas 68 instances are correctly classified. Moreover, there is a table, which shows the detailed accuracy by class, and a confusion matrix. The confusion matrix shows as which class the instances are classified. In the example are two wrong classified instances. One with the label "`bass"' is classified as "`tom3"' and one with the label "`snare"' is classified as "`tom2"'.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[height=20.0cm]{images/weka.jpg}
+	\caption{Example Weka output of Naive Bayes classification algorithm for different drum types}
+	\label{fig:weka}
+\end{figure}
+
+
+\subsection{Audio processing in the web}
+
+As described in section \ref{section:easydrum}, the aim of this thesis is to develop a listener component for the platform easydrum, which is able to receive played drum sounds by the audio input through a connected microphone. This listener has to map the incoming sound to the appropriate drums and cymbals and further save the points in time when a stroke is performed. To realize this, the incoming audio data has to be processed with the help of JavaScript. The data have to be analyzed to find the onsets of performed strokes and to classificate these strokes. Hence, a web technology is needed which is able to process audio data.
+
+The actual web standards for the handling of audio data in the web are limited to the \lstinline{<audio>} object of the Audio Data API. This objects provides the functionality of playing and get limited information about audio and MIDI, but does not enable editing or creation of the data. Another limited way, which is used to access audio information in recent web applications is the use of the Flash plug-in or the QuickTime plug-in is required. Flash provides also some methods like the Fast Fourier Transform to process audio data. However, easydrum tries to use modern web technologies and thus wants to go without Flash and QuickTime. As described in section \ref{section:easydrum}, it uses the Web Midi Api \autocite{WebMidiApi:2015} to receive MIDI input in the browser. This API is not yet a standard but is already largely accessible with the Google Chrome browser and can be simulated in other browsers with the help of the JazzPlugin \autocite{Jazz:2015}.
+
+Concurrently with the Web MIDI API, the W3C is developing the Web Audio API, which is specified by the Audio Working Group as an Editor's Draft in \autocite{WebAudioApi:2015}. It is a high-level JavaScript API for processing and synthesizing audio data in web applications. It offers the possibility to create interactive application with audio content, just as audio recorder, sequencers or games with audio content. It can receive audio data from input devices, process them and send them to output devices. This procedure is realized via the provided audio context, which contains different audio processing modules. To process audio operations, audio nodes can be used inside the audio context. Different audio nodes can be linked together by their inputs and outputs to form an audio routing graph. According to \autcity{WebMidiApiMDN:2015}, the timing of the Web Audio API "`is controlled with high precision and low latency, allowing developers to write code that responds accurately to events and is able to target specific samples, even at a high sample rate."' Further, it can be used with the canvas 2D of HTML 5, which is used by easydrum. Like the Web Midi API, the functionality of the Web Audio API is already largely accessible in the Google Chrome browser. Firefox also has implemented the main methods of the API. For browsers, which doesn't support it, there is a JavaScript library called WAAPISim, which is a Web Audio API polyfill fallbacking to the Audio Data API or Flash. The library is described in \autocity{WAAPISim:2015}.
+
+Hence, the Web Audio API provides the required functionality for the by this thesis developed easydrum extension for which reason is is chosen to realize it.
+
+%An AudioBuffer takes as its parameters a number of channels (1 for mono, 2 for stereo, etc), a length, meaning the number of sample frames inside the buffer, and a sample rate, which is the number of sample frames played per second.
+%A sample is a single float32 value that represents the value of the audio stream at each specific point in time, in a specific channel (left or right, if in the case of stereo). A frame, or sample frame is the set of all values for all channels that will play at a specific point in time: all the samples of all the channels that play at the same time (two for a stereo sound, six for 5.1, etc.)
+%When a buffer plays, you will hear the left most sample frame, and then the one right next to it, etc, etc. In the case of stereo, you will hear both channels at the same time. Sample frames are very useful, because they are independent of the number of channels, and represent time, in a useful way for doing precise audio manipulation.
+%var context = new AudioContext();
+%var buffer = context.createBuffer(1, 22050, 22050);
+%If you use this call, you will get a mono buffer (one channel), that, when played back on an AudioContext running at 44100Hz, will be automatically *resampled* to 44100Hz (and therefore yield 44100 frames), and last for 1.0 second: 44100 frames / 44100Hz = 1 second.
+
+%In general, audio visualizations are achieved by accessing an ouput of audio data over time (usually gain or frequency data), and then using a graphical technology to turn that into a visual output (such as a graph.) The Web Audio API has an AnalyserNode available that doesn't alter the audio signal passing through it, but instead outputs audio data that can be passed to a visualization technology such as <canvas>.
+
+%The Web Audio API uses a planar buffer format: the left and right channels are stored like this:
+%LLLLLLLLLLLLLLLLRRRRRRRRRRRRRRRR (for a buffer of 16 frames)
+%The alternative is to use an interleaved buffer format:
+%LRLRLRLRLRLRLRLRLRLRLRLRLRLRLRLR (for a buffer of 16 frames)
+%This format is very common for storing and playing back audio without much processing, for example a decoded MP3 stream.
+%The Web Audio API exposes *only* planar buffers, because it's made for processing. It works with planar, but converts the audio to interleaved when it is sent to the
+%sound card, for playback. Conversely, when an MP3 is decoded, it starts off in interleaved format, but is converted to planar for processing.
+
+
+
