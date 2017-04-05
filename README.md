@@ -9,7 +9,7 @@ a web browser by using a microphone. It detects strokes on drums and cymbals of 
 pre-configured drum kit in real-time and differentiates them from each other. Therefore,
 an onset detection algorithm based on the time domain of the incoming audio stream
 is developed and two different approaches for classification are tested. The algorithms
-are tested with MatlabR and Weka.
+are tested with Matlab and Weka.
 
 The first classification approach is based on the extraction of a feature vector that is
 used to build a decision tree with the J48 algorithm.
@@ -53,7 +53,7 @@ J48, onset detection, Web Audio API, MatLab, percussive sound, real-time
         1. Further Classification Methods 
         1. Evaluation
     1. Tools
-        1. MatLabR
+        1. MatLab
         1. Weka 
     1. Audio Processing in the Web 
 1. Related Work 
