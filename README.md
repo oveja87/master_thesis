@@ -1,6 +1,6 @@
 # DRUM SOUND ANALYSIS
-##Recognition and Differentiation of Drum Sounds as Extension to the E-Learning Platform Easydrum
-###Master’s thesis submitted in fulfillment of the requirements for the degree Master of Science
+## Recognition and Differentiation of Drum Sounds as Extension to the E-Learning Platform Easydrum
+### Master’s thesis submitted in fulfillment of the requirements for the degree Master of Science
 
 This thesis describes the concept for an extension of the online drum school Easydrum.
 The aim of this thesis is to provide a system that allows to use an analog drum set with
@@ -24,6 +24,6 @@ Furthermore, this thesis gives an introduction to the Web Midi API, which is req
 to develop the further application. An example for receiving an audio stream on the
 browser and displaying it on a HTML canvas element is given.
 
-###Keywords
+### Keywords
 audio signal processing, signal processing, classification, decision tree,
 J48, onset detection, Web Audio API, MatLab, percussive sound, real-time
