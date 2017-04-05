@@ -31,11 +31,11 @@ J48, onset detection, Web Audio API, MatLab, percussive sound, real-time
 
 
 ### Contents
-1 Introduction
-2 Basic Concepts
-2.1 Easydrum
-2.1.1 Technologies 
-2.1.2 Architecture 
+1. Introduction
+2. Basic Concepts
+  1. Easydrum
+    1. Technologies 
+2.1.2. Architecture 
 2.2 Components of a Drum Set 
 2.3 Notation 
 2.4 Audio Signal Processing 
