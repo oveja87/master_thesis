@@ -35,62 +35,62 @@ J48, onset detection, Web Audio API, MatLab, percussive sound, real-time
 1. Basic Concepts
     1. Easydrum
         1. Technologies 
-2.1.2. Architecture 
-2.2 Components of a Drum Set 
-2.3 Notation 
-2.4 Audio Signal Processing 
-2.4.1 Audio Signals 
-2.4.2 Sampling and Quantization 
-2.5 Frequency Spectrum Analysis of Digital Signals 
-2.5.1 Discrete Fourier Transformation 
-2.5.2 Short Time Spectral Analysis and Windowing 
-2.5.3 Fast Fourier Transformation 
-2.6 Onset Detection 
-2.7 Classification 
-2.7.1 Feature Extraction
-2.7.2 Feature Based Classification
-2.7.3 Decision Trees
-2.7.4 Further Classification Methods 
-2.7.5 Evaluation
-2.8 Tools
-2.8.1 MatLabR
-2.8.2 Weka 
-2.9 Audio Processing in the Web 
-3 Related Work 
-3.1 Onset Detection 
-3.2 Classification 
-3.3 Real-Time Approach 
-4 Methods 
-4.1 Test Drum Set and Hardware 
-4.2 Onset Detection 
-4.2.1 Test Data 
-4.2.2 Analysis of Drum Recordings 
-4.2.3 Method 
-4.2.4 Tests 
-4.3 Analysis of the Frequency Spectra of Different Drums and Cymbals 
-4.3.1 Bass Drum 
-4.3.2 Tom Toms
-4.3.3 Snare drum 
-4.3.4 Hi-hat
-4.3.5 Crash and Ride Cymbal
-4.4 Training and Training Set 
-4.5 Test Set 
-4.6 Classification by Decision Trees 
-4.6.1 Pre-Processing
-4.6.2 Feature Extraction
-4.6.3 Feature Sets 
-4.6.4 Classification in Weka
-4.6.5 Results Feature Set 1
-4.6.6 Results Feature Set 2
-4.6.7 Results Feature Set 3 
-4.7 Classification by Templates Based on the Spectral Shape
-4.7.1 Template Creation 
-4.7.2 Counting Frequency Bins in the Acceptable Range
-4.7.3 Counting Frequency Bins in the Acceptable Range within a Predefined Frequency Band 
-4.7.4 Calculating the Distance from the Acceptable Range 
-4.8 Classification of Simultaneously Played Strokes 
-4.8.1 Test set 
-4.8.2 Classification of Simultaneous Strokes by Subtraction 
-4.8.3 Classification of Simultaneous Strokes by Extension of the Training Set
-4.9 Web Audio Demo Application 
-5 Discussion and Outlook 115
+        1. Architecture 
+    1. Components of a Drum Set 
+    1. Notation 
+    1. Audio Signal Processing 
+        1. Audio Signals 
+        1. Sampling and Quantization 
+    1. Frequency Spectrum Analysis of Digital Signals 
+        1. Discrete Fourier Transformation 
+        1. Short Time Spectral Analysis and Windowing 
+        1. Fast Fourier Transformation 
+    1. Onset Detection 
+    1. Classification 
+    1. Feature Extraction
+        1. Feature Based Classification
+        1. Decision Trees
+        1. Further Classification Methods 
+        1. Evaluation
+    1. Tools
+        1. MatLabR
+        1. Weka 
+    1. Audio Processing in the Web 
+1. Related Work 
+    1. Onset Detection 
+    1. Classification 
+    1. Real-Time Approach 
+1. Methods 
+    1. Test Drum Set and Hardware 
+    1. Onset Detection 
+        1. Test Data 
+        1. Analysis of Drum Recordings 
+        1. Method 
+        1. Tests 
+    1. Analysis of the Frequency Spectra of Different Drums and Cymbals 
+    1. Bass Drum 
+        1. Tom Toms
+        1. Snare drum 
+        1. Hi-hat
+        1. Crash and Ride Cymbal
+    1. Training and Training Set 
+    1. Test Set 
+    1. Classification by Decision Trees 
+        1. Pre-Processing
+        1. Feature Extraction
+        1. Feature Sets 
+        1. Classification in Weka
+        1. Results Feature Set 1
+        1. Results Feature Set 2
+        1. Results Feature Set 3 
+    1. Classification by Templates Based on the Spectral Shape
+        1. Template Creation 
+        1. Counting Frequency Bins in the Acceptable Range
+        1. Counting Frequency Bins in the Acceptable Range within a Predefined Frequency Band 
+        1. Calculating the Distance from the Acceptable Range 
+    1. Classification of Simultaneously Played Strokes 
+        1. Test set 
+        1. Classification of Simultaneous Strokes by Subtraction 
+        1. Classification of Simultaneous Strokes by Extension of the Training Set
+    1. Web Audio Demo Application 
+1. Discussion and Outlook 115
