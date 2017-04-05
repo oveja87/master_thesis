@@ -93,4 +93,4 @@ J48, onset detection, Web Audio API, MatLab, percussive sound, real-time
         1. Classification of Simultaneous Strokes by Subtraction 
         1. Classification of Simultaneous Strokes by Extension of the Training Set
     1. Web Audio Demo Application 
-1. Discussion and Outlook 115
+1. Discussion and Outlook
